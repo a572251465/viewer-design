@@ -1,0 +1,11 @@
+@import "./mixins/main.scss";
+
+@include b(col) {
+  @include forMixin($--span-offset, col-span) {
+    width: $index / $--span-offset * 100 * 1%;
+  }
+
+  @include forMixin($--span-offset, col-offset) {
+    margin-left: $index / $--span-offset * 100 * 1%;
+  }
+}

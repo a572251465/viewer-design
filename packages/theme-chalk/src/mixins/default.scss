@@ -1,0 +1,28 @@
+@import "../common/var.scss";
+
+$theme-default: (
+    'default': (
+      // 颜色相关
+        primary: $--color-primary,
+        success: $--color-success,
+        warning: $--color-warning,
+        danger: $--color-danger,
+        info: $--color-info,
+        text: $--color-white,
+      // 按钮大小相关
+        big: $--size-big,
+        medium: $--size-medium,
+        small: $--size-small,
+        mini: $--size-mini,
+      // 宽对应的高度
+        bigH: 40,
+        mediumH: 40,
+        smallH: 40,
+        miniH: 40,
+        // 输入框大小相关
+        bigInput: 300,
+        mediumInput: 250,
+        smallInput: 200,
+        miniInput: 100
+    )
+);

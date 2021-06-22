@@ -1,0 +1,22 @@
+{
+  "name": "@viewer/button",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "keywords": [
+    "button"
+  ],
+  "author": "15064044877 <2495041749@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/button.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

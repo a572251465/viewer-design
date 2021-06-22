@@ -1,0 +1,72 @@
+@import "./default.scss";
+
+$baseTheme: map-get($theme-default, 'default');
+@function getValueByKey($key) {
+  @if (map-has-key($theme-default, $key)) {
+    @return map-get($theme-default, $key)
+  } @else {
+    @return map-get($baseTheme, $key)
+  }
+}
+
+@mixin b($component) {
+  $B: $namespace + '-' + $component;
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+@mixin whenInner($state) {
+  @at-root {
+    .#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+@mixin m($modifier) {
+  @at-root {
+    #{&+$modifier-separator+$modifier} {
+      @content;
+    }
+  }
+}
+
+@mixin e($element) {
+  @at-root {
+    #{&+$element-separator + $element} {
+      @content;
+    }
+  }
+}
+
+@mixin forMixin($number, $label) {
+  @at-root {
+    @for $i from 1 through 12 {
+      $className: '#{$namespace}-#{if($label, "#{$label}-", "")}#{$i}';
+      $index: $i !global;
+      .#{$className} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin public-style {
+  box-sizing: border-box;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin disabled-style {
+  cursor: not-allowed;
+}

@@ -1,0 +1,38 @@
+@import "./mixins.scss";
+@import "./config.scss";
+
+@mixin sizeMixin($component, $dist: 'Button') {
+  @each $key in (big, medium, small, mini) {
+
+    $value: getValueByKey(#{$key}) !global;
+    $height: getValueByKey(#{$key}H) !global;
+    @at-root {
+      .#{$namespace}-#{$component}#{$modifier-separator}#{$key} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin colorMixin($component) {
+  @each $key in (primary, success, warning, danger, info, text) {
+
+    $value: getValueByKey(#{$key}) !global;
+    $name: $key !global;
+    @at-root {
+      .#{$namespace}-#{$component}#{$modifier-separator}#{$key} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin inputTypeMixin() {
+  @each $key in (text, textarea, password) {
+    @at-root {
+      .#{$namespace}-input#{$modifier-separator}#{$key} {
+        @content;
+      }
+    }
+  }
+}

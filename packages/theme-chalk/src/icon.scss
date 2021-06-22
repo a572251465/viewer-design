@@ -1,0 +1,112 @@
+@import "./common/var.scss";
+
+@font-face {
+  font-family: "viewer-design-icon";
+  src: url('./fonts/iconfont.woff?t=1623937359920') format('woff'),
+  url('./fonts/iconfont.ttf?t=1623937359920') format('truetype');
+}
+
+[class^="#{$namespace}-icon-"] {
+  font-family: "viewer-design-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cu-icon-Openeyes:before {
+  content: "\e63f";
+}
+
+.cu-icon-eye:before {
+  content: "\e601";
+}
+
+.cu-icon-close-eye:before {
+  content: "\e611";
+}
+
+.cu-icon-close-circular:before {
+  content: "\e610";
+}
+
+.cu-icon-search:before {
+  content: "\e674";
+}
+
+.cu-icon-date:before {
+  content: "\e667";
+}
+
+.cu-icon-warning:before {
+  content: "\e606";
+}
+
+.cu-icon-close:before {
+  content: "\e615";
+}
+
+.cu-icon-loading:before {
+  content: "\e66d";
+}
+
+.cu-icon-success:before {
+  content: "\e617";
+}
+
+.cu-icon-danger:before {
+  content: "\e65f";
+}
+
+.cu-icon-info:before {
+  content: "\e8da";
+}
+
+.cu-icon-left-dobule:before {
+  content: "\e704";
+}
+
+.cu-icon-right-dobule:before {
+  content: "\e718";
+}
+
+.cu-icon-top:before {
+  content: "\e60f";
+}
+
+.cu-icon-right:before {
+  content: "\e649";
+}
+
+.cu-icon-home:before {
+  content: "\e6a3";
+}
+
+.cu-icon-down-:before {
+  content: "\e696";
+}
+
+.cu-icon-left:before {
+  content: "\e739";
+}
+
+.cu-icon-head:before {
+  content: "\e616";
+}
+
+.cu-icon-yooxi:before {
+  content: "\e60e";
+}
+
+.cu-icon-nav:before {
+  content: "\e62b";
+}
+
+.cu-icon-qq:before {
+  content: "\e60b";
+}
+
+.cu-icon-C-19:before {
+  content: "\e62c";
+}
+
