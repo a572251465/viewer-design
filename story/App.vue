@@ -66,7 +66,8 @@
     </div>
     <hr />
     <div>
-      <cu-dialog width = '50%' height = '200'>测试下</cu-dialog>
+      <cu-button @click="openDialog">点击打开弹框</cu-button>
+      <cu-dialog v-model = "dialogShowFlag" width = '50%' height = '200'>测试下</cu-dialog>
     </div>
   </div>
 </template>
@@ -77,16 +78,24 @@ import { defineComponent, getCurrentInstance, ref } from 'vue'
 export default defineComponent({
   name: 'App',
   setup() {
-    const { proxy } = getCurrentInstance()!
+    const { proxy } = getCurrentInstance()!,
+        dialogShowFlag = ref(false)
     const messageHandle = (type) => {
       (proxy as any).$Message[type]({
         message: '测试下'
       })
     },
         changeVal = ref(111)
+
+    const openDialog = () => {
+      dialogShowFlag.value = true
+    }
+
     return {
       messageHandle,
-      changeVal
+      changeVal,
+      dialogShowFlag,
+      openDialog
     }
   }
 })

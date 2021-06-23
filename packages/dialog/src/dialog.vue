@@ -27,7 +27,7 @@
 </template>
 
 <script lang = "ts">
-import { computed, defineComponent, PropType } from 'vue'
+import { computed, defineComponent, PropType, watch } from 'vue'
 import { typeFun } from './types'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import CuButton from '@viewer/button'
@@ -45,7 +45,7 @@ export default defineComponent({
   props: {
     modelValue: {
       type: Boolean,
-      default: true
+      default: false
     },
     title: {
       type: String,
@@ -121,7 +121,7 @@ export default defineComponent({
     }
   },
   emits: [ 'update:modelValue' ],
-  setup(props, emit) {
+  setup(props, { emit }) {
     const { $namespace, $modifierSeparator } = styleCommonPrefix
 
     // 获取默认的悬浮层
@@ -134,6 +134,7 @@ export default defineComponent({
 
     // 设置modelValue 为v-model属性
     const changeValue = useModel(props.modelValue, val => emit('update:modelValue', val))
+    watch(() => props.modelValue, value => changeValue.value = value)
 
     // 计算外部弹框显示的样式
     const outerStyle = computed<object>(() => ({

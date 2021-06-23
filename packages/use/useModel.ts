@@ -14,9 +14,11 @@ export const useModel: IUseModel = (val, events) => {
         return changeVal.value
       },
       set(newVal) {
+        if ( newVal === changeVal.value ) return
         changeVal.value = newVal
         events(newVal)
       }
     })
+
   return result
 }
