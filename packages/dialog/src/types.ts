@@ -2,9 +2,10 @@
 export const typeFun = () => 'normal' || 'strange'
 
 interface IDialog {
-  modelValue: string | number,
+  modelValue: boolean,
   title: string,
   width: number | string,
+  height: number | string,
   fullscreen: boolean,
   top: string,
   type: ReturnType<typeof typeFun>
@@ -18,9 +19,11 @@ interface IDialog {
   beforeClose: Function,
   center: boolean,
   destroyOnClose: boolean,
-  visibleTitle: boolean,
+  visibleHeader: boolean,
   visibleFooter: boolean,
-  styles: object
+  styles: object,
+  isDirective: boolean
+  zIndex: number
 }
 
-type IDialogOptional = Partial<IDialog>
+export type IDialogOptional = Partial<IDialog>

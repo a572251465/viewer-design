@@ -64,6 +64,10 @@
     <div>
       <cu-input type = 'password' />
     </div>
+    <hr />
+    <div>
+      <cu-dialog width = '50%' height = '200'>测试下</cu-dialog>
+    </div>
   </div>
 </template>
 

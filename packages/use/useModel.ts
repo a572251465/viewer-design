@@ -1,14 +1,15 @@
 import { computed, ref } from 'vue'
 
-type ICommitModel = (val: string | number) => void
+type T = string | number | boolean
+type ICommitModel = (val: T) => void
 
 interface IUseModel {
-  (val: number | string, events: ICommitModel): { value: string | number }
+  (val: T, events: ICommitModel): { value: T }
 }
 
 export const useModel: IUseModel = (val, events) => {
-  const changeVal = ref<string | number>(val),
-    result = computed<string | number>({
+  const changeVal = ref<T>(val),
+    result = computed<T>({
       get() {
         return changeVal.value
       },

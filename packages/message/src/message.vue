@@ -27,6 +27,7 @@ import {
 } from "vue";
 import { styleCommonPrefix } from "@viewer/utils/types";
 import { IType } from "./types";
+import { useZIndex } from '@viewer/use/useZIndex'
 
 export default defineComponent({
   name: "cu-message",
@@ -70,6 +71,10 @@ export default defineComponent({
   },
   emits: ["destroy"],
   setup(props, { emit }) {
+
+    // 获取计算悬浮层
+    const zIndex = useZIndex()
+
     // 计算样式
     const commonPrefix = `${styleCommonPrefix.$namespace}-message`,
       classes = computed<(string | object)[]>(() => [
@@ -82,6 +87,7 @@ export default defineComponent({
       iconClass = computed<string>(() => `cu-icon-${props.iconClass}`),
       customStyle = computed(() => ({
         top: `${props.offset}px`,
+        zIndex
       }));
 
     const showFlag = ref(false);

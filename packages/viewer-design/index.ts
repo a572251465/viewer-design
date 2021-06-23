@@ -6,7 +6,14 @@ import Row from '@viewer/row'
 import Input from '@viewer/input'
 import Message from '@viewer/message'
 import Mark from '@viewer/mask'
+import Dialog from '@viewer/dialog'
 import { App } from 'vue'
+import { InstallOption, setConfig } from '@viewer/utils/config'
+
+const defaultInstallOpt: InstallOption = {
+  dialogType: 'normal',
+  zIndex: 2000
+}
 
 const components = [
   Button,
@@ -15,14 +22,15 @@ const components = [
   Col,
   Row,
   Input,
-  Mark
+  Mark,
+  Dialog
 ]
 
 const plugins = [
   Message
 ]
 
-const install = (app: App) => {
+const install = (app: App, opt: InstallOption) => {
   components.forEach(component => {
     app.component(component.name, component)
   })
@@ -30,6 +38,9 @@ const install = (app: App) => {
   plugins.forEach(component => {
     app.use(component)
   })
+
+  const option = Object.assign({}, defaultInstallOpt, opt)
+  setConfig(option)
 }
 
 export default { install }
