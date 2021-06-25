@@ -1,20 +1,21 @@
 <template>
   <transition name = 'cu-dialog-fade'>
-    <div v-show = "changeValue">
-      <cu-mask :z-index = "zIndex - 10"></cu-mask>
+    <cu-mask :z-index = "zIndex - 10" v-show = "changeValue" :center = "center"
+             @closeHandle = "closeCurrentPage('mask')">
       <!-- 弹框显示内容部分 有head body footer -->
       <div :class = "classNamePrefix" v-if = "!isDirective" :style = "outerStyle">
         <div :class = "dynamicClassName('header')"
              v-if = "visibleHeader">
           <span>{{ title }}</span>
-          <i class = "cu-icon-close"></i>
+          <i class = "cu-icon-close" @click = "closeCurrentPage"></i>
         </div>
         <div :class = "dynamicClassName('body')" :style = '{height: height + "px"}'>
           <slot></slot>
         </div>
         <div :class = "dynamicClassName('footer')"
              v-if = "visibleFooter">
-          <cu-button class = "cu-dialog--footer-btn" size = "small" type = "text">取消</cu-button>
+          <cu-button class = "cu-dialog--footer-btn" size = "small" type = "text" @click = "closeCurrentPage">取消
+          </cu-button>
           <cu-button class = "cu-dialog--footer-btn" size = "small">确定</cu-button>
         </div>
       </div>
@@ -22,13 +23,13 @@
       <div :class = "classNamePrefix" :style = "outerStyle" v-else>
 
       </div>
-    </div>
+    </cu-mask>
   </transition>
 </template>
 
 <script lang = "ts">
 import { computed, defineComponent, PropType, watch } from 'vue'
-import { typeFun } from './types'
+import { IBeforeClose, typeFun } from './types'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import CuButton from '@viewer/button'
 import CuMask from '@viewer/mask'
@@ -59,10 +60,6 @@ export default defineComponent({
       type: [ Number, String ],
       default: 'auto'
     },
-    fullscreen: {
-      type: Boolean,
-      default: false
-    },
     top: {
       type: String,
       default: '15vh'
@@ -71,7 +68,7 @@ export default defineComponent({
       type: String as PropType<ReturnType<typeof typeFun>>,
       default: 'normal'
     },
-    model: {
+    closeOnClickModel: {
       type: Boolean,
       default: false
     },
@@ -81,14 +78,14 @@ export default defineComponent({
     },
     openDelay: {
       type: Number,
-      default: 300
+      default: 0
     },
     closeDelay: {
       type: Number,
-      default: 300
+      default: 0
     },
     beforeClose: {
-      type: Function,
+      type: Function as PropType<IBeforeClose>,
       default: () => ({})
     },
     center: {
@@ -134,21 +131,71 @@ export default defineComponent({
 
     // 设置modelValue 为v-model属性
     const changeValue = useModel(props.modelValue, val => emit('update:modelValue', val))
-    watch(() => props.modelValue, value => changeValue.value = value)
+    watch(() => props.modelValue, value => {
+      if ( !value ) {
+        commonCloseHandle()
+        return
+      }
+      let timer = setTimeout(() => {
+        changeValue.value = value
+        clearTimeout(timer)
+        timer = null
+      }, props.openDelay)
+    })
 
     // 计算外部弹框显示的样式
     const outerStyle = computed<object>(() => ({
-      width: props.fullscreen ? '100%' : computedUnit<string | number>(props.width),
-      height: props.fullscreen ? '100%' : 'auto',
-      top: props.center ? '50%' : props.top,
-      transform: `translate(-50%, ${ props.center ? '-50%' : '0%' })`,
+      width: computedUnit<string | number>(props.width),
+      height: 'auto',
+      top: props.center ? '0px' : props.top,
       ...props.styles,
       zIndex
     }))
+
+    /**
+     * @author lihh
+     * @description 表示共同的关闭弹框的处理
+     *              如果beforeClose 的返回结果是promise的话 reject阻止弹框关闭
+     * */
+    const commonCloseHandle = () => {
+      const setTimeoutHandle = () => {
+        let timer = setTimeout(() => {
+          changeValue.value = false
+          clearTimeout(timer)
+          timer = null
+        }, props.closeDelay)
+      }
+      // 执行关闭前的方法
+      const result = props.beforeClose()
+      if ( typeof result !== 'object' || result === null ) {
+        setTimeoutHandle()
+        return
+      }
+
+      if ( !Reflect.has(result, 'then') || typeof (result as Promise<any>).then !== 'function' ) {
+        setTimeoutHandle()
+        return
+      }
+
+      (result as Promise<any>).then(setTimeoutHandle)
+    }
+
+    /**
+     * @author lihh
+     * @description 点击按钮 || 遮罩层 进行弹框的关闭
+     * @param flag 表示是否是遮罩层触发事件
+     */
+    const closeCurrentPage = (flag) => {
+      if ( flag === 'mask' && !props.closeOnClickModel ) return
+
+      commonCloseHandle()
+    }
+
     return {
       classNamePrefix: `${ $namespace }-dialog`,
       dynamicClassName,
       changeValue,
+      closeCurrentPage,
       outerStyle,
       zIndex
     }

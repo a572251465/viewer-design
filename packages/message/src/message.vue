@@ -1,21 +1,21 @@
 <template>
-  <transition name="cu-message-fade" @after-leave="onClose">
-    <div :class="classes" v-show="showFlag" :style="customStyle">
-      <i :class="iconClass"></i>
-      <span v-if="!isSupportHtml">
+  <transition name = "cu-message-fade" @after-leave = "onClose">
+    <div :class = "classes" v-show = "showFlag" :style = "customStyle">
+      <i :class = "iconClass"></i>
+      <span v-if = "!isSupportHtml">
         {{ message }}
       </span>
-      <span v-else v-html="message"></span>
+      <span v-else v-html = "message"></span>
       <i
-        v-if="showClose"
-        class="cu-icon-close cu-message--closeBtn"
-        @click="showFlag = false"
+          v-if = "showClose"
+          class = "cu-icon-close cu-message--closeBtn"
+          @click = "showFlag = false"
       ></i>
     </div>
   </transition>
 </template>
 
-<script lang="ts">
+<script lang = "ts">
 import {
   computed,
   defineComponent,
@@ -23,100 +23,100 @@ import {
   onUnmounted,
   PropType,
   ref,
-  watch,
-} from "vue";
-import { styleCommonPrefix } from "@viewer/utils/types";
-import { IType } from "./types";
+  watch
+} from 'vue'
+import { styleCommonPrefix } from '@viewer/utils/types'
+import { IType } from './types'
 import { useZIndex } from '@viewer/use/useZIndex'
 
 export default defineComponent({
-  name: "cu-message",
+  name: 'cu-message',
   props: {
     message: {
       type: String,
-      required: true,
+      required: true
     },
     type: {
       type: String as PropType<IType>,
-      default: "success",
+      default: 'success'
     },
     iconClass: {
       type: String,
-      default: "",
+      default: ''
     },
     isSupportHtml: {
       type: Boolean,
-      default: false,
+      default: false
     },
     showClose: {
       type: Boolean,
-      default: false,
+      default: false
     },
     center: {
       type: Boolean,
-      default: false,
+      default: false
     },
     onClose: {
       type: Function,
-      default: () => ({}),
+      default: () => ({})
     },
     offset: {
       type: Number,
-      default: 20,
+      default: 20
     },
     delay: {
       type: Number,
-      default: 2000,
-    },
+      default: 2000
+    }
   },
-  emits: ["destroy"],
+  emits: [ 'destroy' ],
   setup(props, { emit }) {
 
     // 获取计算悬浮层
     const zIndex = useZIndex()
 
     // 计算样式
-    const commonPrefix = `${styleCommonPrefix.$namespace}-message`,
-      classes = computed<(string | object)[]>(() => [
-        commonPrefix,
-        [commonPrefix, styleCommonPrefix.$modifierSeparator, props.type].join(""),
-        {
-          [styleCommonPrefix.$statePrefix + "center"]: props.center,
-        },
-      ]),
-      iconClass = computed<string>(() => `cu-icon-${props.iconClass}`),
-      customStyle = computed(() => ({
-        top: `${props.offset}px`,
-        zIndex
-      }));
+    const commonPrefix = `${ styleCommonPrefix.$namespace }-message`,
+        classes = computed<(string | object)[]>(() => [
+          commonPrefix,
+          [ commonPrefix, styleCommonPrefix.$modifierSeparator, props.type ].join(''),
+          {
+            [styleCommonPrefix.$statePrefix + 'center']: props.center
+          }
+        ]),
+        iconClass = computed<string>(() => `cu-icon-${ props.iconClass }`),
+        customStyle = computed(() => ({
+          top: `${ props.offset }px`,
+          zIndex
+        }))
 
-    const showFlag = ref(false);
+    const showFlag = ref(false)
 
-    onUnmounted(() => (showFlag.value = false));
+    onUnmounted(() => (showFlag.value = false))
     watch(
-      () => showFlag,
-      (val) => {
-        if (!val) emit("destroy");
-      }
-    );
+        () => showFlag,
+        (val) => {
+          if ( !val ) emit('destroy')
+        }
+    )
 
     onMounted(() => {
-      showFlag.value = true;
+      showFlag.value = true
 
       let timer = setTimeout(() => {
-        showFlag.value = false;
-        clearTimeout(timer);
-        timer = null;
-      }, props.delay);
-    });
+        showFlag.value = false
+        clearTimeout(timer)
+        timer = null
+      }, props.delay)
+    })
 
     return {
       commonPrefix,
       classes,
       iconClass,
       showFlag,
-      customStyle,
-    };
-  },
-});
+      customStyle
+    }
+  }
+})
 </script>

@@ -67,7 +67,7 @@
     <hr />
     <div>
       <cu-button @click="openDialog">点击打开弹框</cu-button>
-      <cu-dialog v-model = "dialogShowFlag" width = '50%' height = '200'>测试下</cu-dialog>
+      <cu-dialog v-model = "dialogShowFlag" width = '50%' :center = true height = '200'>测试下</cu-dialog>
     </div>
   </div>
 </template>

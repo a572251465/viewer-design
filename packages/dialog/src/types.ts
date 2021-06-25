@@ -6,14 +6,12 @@ interface IDialog {
   title: string,
   width: number | string,
   height: number | string,
-  fullscreen: boolean,
   top: string,
   type: ReturnType<typeof typeFun>
-  model: boolean,
+  closeOnClickModel: boolean,
   lockScroll: boolean,
   openDelay: number,
   closeDelay: number,
-  closeOnClickModel: boolean,
   closeOnPressEscape: boolean,
   showClose: boolean,
   beforeClose: Function,
@@ -27,3 +25,7 @@ interface IDialog {
 }
 
 export type IDialogOptional = Partial<IDialog>
+
+export interface IBeforeClose {
+  (): any | Promise<any>
+}

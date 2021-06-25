@@ -2,8 +2,7 @@
 @import "./mixins/animation.scss";
 
 @include b(mask) {
-  background: black;
-  opacity: .6;
+  background: rgba(0,0,0,.5);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -11,4 +10,10 @@
   height: 100%;
   cursor: pointer;
   overflow: hidden;
+
+  @include when(center) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
