@@ -6,7 +6,7 @@ import Row from '@viewer/row'
 import Input from '@viewer/input'
 import Message from '@viewer/message'
 import Mark from '@viewer/mask'
-import Dialog from '@viewer/dialog'
+import Dialog, { dialogDirective } from '@viewer/dialog'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '@viewer/utils/config'
 
@@ -27,7 +27,8 @@ const components = [
 ]
 
 const plugins = [
-  Message
+  Message,
+  dialogDirective
 ]
 
 const install = (app: App, opt: InstallOption) => {

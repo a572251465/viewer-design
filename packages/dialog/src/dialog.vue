@@ -20,8 +20,22 @@
         </div>
       </div>
       <!-- 弹框确认部分 直接通过指令来实现 -->
-      <div :class = "classNamePrefix" :style = "outerStyle" v-else>
-
+      <div :class = "classNamePrefix + '-confirm'"
+           class = "is-popup"
+           :style = "{...outerStyle, width: width}" v-else>
+        <div :class = "dynamicClassName('header')">
+          <i :class = "computedIconClass"></i>
+          <span>{{ title }}</span>
+        </div>
+        <div :class = "dynamicClassName('body')">
+          <span v-if = "!isSupportHtml">{{ message }}</span>
+          <div v-else v-html = "message"></div>
+        </div>
+        <div :class = "dynamicClassName('footer')">
+          <cu-button :styles = "btnStyle" :class = "dynamicClassName('footer-btn')" size = "mini" type = "text">取消
+          </cu-button>
+          <cu-button :styles = "btnStyle" :class = "dynamicClassName('footer-btn')" size = "mini">确定</cu-button>
+        </div>
       </div>
     </cu-mask>
   </transition>
@@ -29,12 +43,12 @@
 
 <script lang = "ts">
 import { computed, defineComponent, PropType, watch } from 'vue'
-import { IBeforeClose, typeFun } from './types'
+import { IBeforeClose, patternFun, typeFun } from './types'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import CuButton from '@viewer/button'
 import CuMask from '@viewer/mask'
 import { useModel } from '@viewer/use/useModel'
-import { computedUnit } from './dialog'
+import { computedUnit } from './dialog-directive'
 import { useZIndex } from '@viewer/use/useZIndex'
 
 export default defineComponent({
@@ -64,9 +78,13 @@ export default defineComponent({
       type: String,
       default: '15vh'
     },
+    pattern: {
+      type: String as PropType<ReturnType<typeof patternFun>>,
+      default: 'normal'
+    },
     type: {
       type: String as PropType<ReturnType<typeof typeFun>>,
-      default: 'normal'
+      default: 'info'
     },
     closeOnClickModel: {
       type: Boolean,
@@ -115,6 +133,14 @@ export default defineComponent({
     zIndex: {
       type: Number,
       default: 0
+    },
+    message: {
+      type: String,
+      default: ''
+    },
+    isSupportHtml: {
+      type: Boolean,
+      default: false
     }
   },
   emits: [ 'update:modelValue' ],
@@ -125,8 +151,8 @@ export default defineComponent({
     const zIndex = props.zIndex || useZIndex()
 
     // 动态计算类名
-    const dynamicClassName = (label: 'header' | 'body' | 'footer') => {
-      return `${ $namespace }-dialog${ $modifierSeparator }${ label }`
+    const dynamicClassName = (label: 'header' | 'body' | 'footer' | any) => {
+      return `${ $namespace }-dialog${ props.isDirective ? '-confirm' : '' }${ $modifierSeparator }${ label }`
     }
 
     // 设置modelValue 为v-model属性
@@ -191,13 +217,21 @@ export default defineComponent({
       commonCloseHandle()
     }
 
+    // 计算icon样式
+    const computedIconClass = computed<string[]>(() => [
+      `cu-icon-${ props.type }`,
+      `${ $namespace }-dialog${ $modifierSeparator }${ props.type }`
+    ])
+
     return {
       classNamePrefix: `${ $namespace }-dialog`,
       dynamicClassName,
       changeValue,
       closeCurrentPage,
       outerStyle,
-      zIndex
+      zIndex,
+      computedIconClass,
+      btnStyle: { width: '60px', height: '32px', lineHeight: '32px' }
     }
   }
 })

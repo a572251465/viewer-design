@@ -15,7 +15,7 @@
 }
 
 @mixin colorMixin($component) {
-  @each $key in (primary, success, warning, danger, info, text) {
+  @each $key in (primary, success, warning, danger, info, text, confirm) {
 
     $value: getValueByKey(#{$key}) !global;
     $name: $key !global;

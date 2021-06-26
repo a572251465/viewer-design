@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "viewer-design-icon";
-  src: url('./fonts/iconfont.woff?t=1623937359920') format('woff'),
-  url('./fonts/iconfont.ttf?t=1623937359920') format('truetype');
+  src: url('./fonts/iconfont.woff?t=1624702800853') format('woff'),
+  url('./fonts/iconfont.ttf?t=1624702800853') format('truetype');
 }
 
 [class^="#{$namespace}-icon-"] {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.cu-icon-confirm:before {
+  content: "\e619";
 }
 
 .cu-icon-Openeyes:before {

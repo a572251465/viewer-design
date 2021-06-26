@@ -69,6 +69,10 @@
       <cu-button @click="openDialog">点击打开弹框</cu-button>
       <cu-dialog v-model = "dialogShowFlag" width = '50%' :center = true height = '200'>测试下</cu-dialog>
     </div>
+    <hr />
+    <div>
+      <cu-button @click="openConfirm">确认框</cu-button>
+    </div>
   </div>
 </template>
 
@@ -91,11 +95,16 @@ export default defineComponent({
       dialogShowFlag.value = true
     }
 
+    const openConfirm = () => {
+      (proxy as any).$Dialog.confirm('测试下确认框')
+    }
+
     return {
       messageHandle,
       changeVal,
       dialogShowFlag,
-      openDialog
+      openDialog,
+      openConfirm
     }
   }
 })
