@@ -17,6 +17,8 @@ interface IDialog {
   closeOnPressEscape: boolean,
   showClose: boolean,
   beforeClose: Function,
+  ok: Function,
+  cancel: Function,
   center: boolean,
   destroyOnClose: boolean,
   visibleHeader: boolean,

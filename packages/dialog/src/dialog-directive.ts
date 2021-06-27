@@ -17,7 +17,9 @@ const defaultOptions: IDialogOptional = {
   type: 'info',
   center: true,
   width: '400px',
-  beforeClose: Function.prototype
+  beforeClose: Function.prototype,
+  ok: Function.prototype,
+  cancel: Function.prototype
 }
 
 let dialogId = 0

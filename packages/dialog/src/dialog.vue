@@ -16,7 +16,7 @@
              v-if = "visibleFooter">
           <cu-button class = "cu-dialog--footer-btn" size = "small" type = "text" @click = "closeCurrentPage">取消
           </cu-button>
-          <cu-button class = "cu-dialog--footer-btn" size = "small">确定</cu-button>
+          <cu-button class = "cu-dialog--footer-btn" size = "small" @click = "sureHandle">确定</cu-button>
         </div>
       </div>
       <!-- 弹框确认部分 直接通过指令来实现 -->
@@ -31,10 +31,19 @@
           <span v-if = "!isSupportHtml">{{ message }}</span>
           <div v-else v-html = "message"></div>
         </div>
-        <div :class = "dynamicClassName('footer')">
-          <cu-button :styles = "btnStyle" :class = "dynamicClassName('footer-btn')" size = "mini" type = "text">取消
+        <div :class = "[dynamicClassName('footer')]">
+          <cu-button
+              v-show = "type === 'confirm'"
+              :styles = "btnStyle"
+              :class = "dynamicClassName('footer-btn')"
+              @click = "sureOrCancelHandle('cancel')"
+              type = "text">取消
           </cu-button>
-          <cu-button :styles = "btnStyle" :class = "dynamicClassName('footer-btn')" size = "mini">确定</cu-button>
+          <cu-button
+              :styles = "btnStyle"
+              @click = "sureOrCancelHandle('sure')"
+              :class = "dynamicClassName('footer-btn')">确定
+          </cu-button>
         </div>
       </div>
     </cu-mask>
@@ -42,7 +51,7 @@
 </template>
 
 <script lang = "ts">
-import { computed, defineComponent, PropType, watch } from 'vue'
+import { computed, defineComponent, onMounted, PropType, watch } from 'vue'
 import { IBeforeClose, patternFun, typeFun } from './types'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import CuButton from '@viewer/button'
@@ -141,9 +150,19 @@ export default defineComponent({
     isSupportHtml: {
       type: Boolean,
       default: false
+    },
+    ok: {
+      type: Function,
+      default: () => {
+      }
+    },
+    cancel: {
+      type: Function,
+      default: () => {
+      }
     }
   },
-  emits: [ 'update:modelValue' ],
+  emits: [ 'update:modelValue', 'sure-event' ],
   setup(props, { emit }) {
     const { $namespace, $modifierSeparator } = styleCommonPrefix
 
@@ -162,12 +181,17 @@ export default defineComponent({
         commonCloseHandle()
         return
       }
+      openDelayHandle(value)
+    })
+
+    // 延迟打开弹框处理
+    const openDelayHandle = (value) => {
       let timer = setTimeout(() => {
         changeValue.value = value
         clearTimeout(timer)
         timer = null
       }, props.openDelay)
-    })
+    }
 
     // 计算外部弹框显示的样式
     const outerStyle = computed<object>(() => ({
@@ -183,12 +207,14 @@ export default defineComponent({
      * @description 表示共同的关闭弹框的处理
      *              如果beforeClose 的返回结果是promise的话 reject阻止弹框关闭
      * */
-    const commonCloseHandle = () => {
+    const commonCloseHandle = (callback?) => {
+      if ( !callback ) callback = Function.prototype
       const setTimeoutHandle = () => {
         let timer = setTimeout(() => {
           changeValue.value = false
           clearTimeout(timer)
           timer = null
+          callback()
         }, props.closeDelay)
       }
       // 执行关闭前的方法
@@ -223,6 +249,18 @@ export default defineComponent({
       `${ $namespace }-dialog${ $modifierSeparator }${ props.type }`
     ])
 
+    // 点击弹框的确认按钮
+    const sureHandle = () => emit('sure-event')
+
+    // 询问框 点击打开 或是 关闭按钮
+    const sureOrCancelHandle = (type) => {
+      commonCloseHandle(type === 'sure' ? props.ok : props.cancel)
+    }
+
+    onMounted(() => {
+      if ( props.isDirective ) openDelayHandle(true)
+    })
+
     return {
       classNamePrefix: `${ $namespace }-dialog`,
       dynamicClassName,
@@ -231,7 +269,9 @@ export default defineComponent({
       outerStyle,
       zIndex,
       computedIconClass,
-      btnStyle: { width: '60px', height: '32px', lineHeight: '32px' }
+      btnStyle: { width: '60px', height: '32px', lineHeight: '32px' },
+      sureHandle,
+      sureOrCancelHandle
     }
   }
 })

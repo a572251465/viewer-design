@@ -71,7 +71,11 @@
     </div>
     <hr />
     <div>
-      <cu-button @click="openConfirm">确认框</cu-button>
+      <cu-button @click="openConfirm('confirm')">确认框</cu-button>
+      <cu-button size = "small" @click = "openConfirm('success')">成功</cu-button>
+      <cu-button size = "small" @click = "openConfirm('warning')">警告</cu-button>
+      <cu-button size = "small" @click = "openConfirm('danger')">危险</cu-button>
+      <cu-button size = "small" @click = "openConfirm('info')">信息</cu-button>
     </div>
   </div>
 </template>
@@ -95,8 +99,8 @@ export default defineComponent({
       dialogShowFlag.value = true
     }
 
-    const openConfirm = () => {
-      (proxy as any).$Dialog.confirm('测试下确认框')
+    const openConfirm = (type) => {
+      (proxy as any).$Dialog[type]('测试下确认框')
     }
 
     return {
