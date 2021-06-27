@@ -1,5 +1,3 @@
-// 表示是普通弹框 还是 怪异弹框（-- 针对定制化）
-export const patternFun = () => 'normal' || 'strange'
 export const typeFun = () => 'info' || 'success' || 'warning' || 'danger' || 'confirm'
 
 interface IDialog {
@@ -8,7 +6,6 @@ interface IDialog {
   width: number | string,
   height: number | string,
   top: string,
-  pattern: ReturnType<typeof patternFun>,
   type: ReturnType<typeof typeFun>,
   closeOnClickModel: boolean,
   lockScroll: boolean,

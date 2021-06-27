@@ -21,8 +21,9 @@
       </div>
       <!-- 弹框确认部分 直接通过指令来实现 -->
       <div :class = "classNamePrefix + '-confirm'"
-           class = "is-popup"
-           :style = "{...outerStyle, width: width}" v-else>
+           :style = "{...outerStyle, width: width}"
+           v-else
+      >
         <div :class = "dynamicClassName('header')">
           <i :class = "computedIconClass"></i>
           <span>{{ title }}</span>
@@ -52,7 +53,7 @@
 
 <script lang = "ts">
 import { computed, defineComponent, onMounted, PropType, watch } from 'vue'
-import { IBeforeClose, patternFun, typeFun } from './types'
+import { IBeforeClose, typeFun } from './types'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import CuButton from '@viewer/button'
 import CuMask from '@viewer/mask'
@@ -86,10 +87,6 @@ export default defineComponent({
     top: {
       type: String,
       default: '15vh'
-    },
-    pattern: {
-      type: String as PropType<ReturnType<typeof patternFun>>,
-      default: 'normal'
     },
     type: {
       type: String as PropType<ReturnType<typeof typeFun>>,
