@@ -1,0 +1,31 @@
+@import "./mixins/main.scss";
+@import "./mixins/animation.scss";
+
+@include b(link) {
+  font-size: 14px;
+  @include colorMixin(link) {
+    color: $value;
+    text-decoration: none;
+
+    @include when(underline) {
+      text-decoration: underline;
+    }
+
+    @include when(disabled) {
+      @include disabled-style;
+      color: rgba($value, .7);
+      &:hover {
+        color: rgba($value, .7) !important;
+      }
+    }
+
+    i {
+      margin-right: 3px;
+      font-size: 11px;
+    }
+
+    &:hover {
+      color: $activeColor;
+    }
+  }
+}

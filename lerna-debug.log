@@ -2,21 +2,20 @@
 0 silly argv   _: [ 'create' ],
 0 silly argv   lernaVersion: '4.0.0',
 0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
-0 silly argv   name: '@viewer/layout'
+0 silly argv   name: 'viral-list'
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath E:\my\component-library\viewer-design
-3 warn ENOREMOTE No git remote found, skipping repository property
-4 error Error: canceled
-4 error     at Interface.<anonymous> (E:\my\component-library\viewer-design\node_modules\read\lib\read.js:66:13)
-4 error     at Interface.emit (events.js:315:20)
-4 error     at Interface._ttyWrite (readline.js:875:16)
-4 error     at ReadStream.onkeypress (readline.js:213:10)
-4 error     at ReadStream.emit (events.js:315:20)
-4 error     at emitKeys (internal/readline/utils.js:345:14)
-4 error     at emitKeys.next (<anonymous>)
-4 error     at ReadStream.onData (readline.js:1144:36)
-4 error     at ReadStream.emit (events.js:315:20)
-4 error     at addChunk (_stream_readable.js:309:12)
-4 error     at readableAddChunk (_stream_readable.js:284:9)
-4 error     at ReadStream.Readable.push (_stream_readable.js:223:10)
+3 error Error: canceled
+3 error     at Interface.<anonymous> (E:\my\component-library\viewer-design\node_modules\read\lib\read.js:66:13)
+3 error     at Interface.emit (events.js:375:28)
+3 error     at Interface._ttyWrite (readline.js:910:16)
+3 error     at ReadStream.onkeypress (readline.js:235:10)
+3 error     at ReadStream.emit (events.js:375:28)
+3 error     at emitKeys (internal/readline/utils.js:358:14)
+3 error     at emitKeys.next (<anonymous>)
+3 error     at ReadStream.onData (readline.js:1179:36)
+3 error     at ReadStream.emit (events.js:375:28)
+3 error     at addChunk (internal/streams/readable.js:290:12)
+3 error     at readableAddChunk (internal/streams/readable.js:265:9)
+3 error     at ReadStream.Readable.push (internal/streams/readable.js:204:10)

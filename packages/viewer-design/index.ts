@@ -7,6 +7,7 @@ import Input from '@viewer/input'
 import Message from '@viewer/message'
 import Mark from '@viewer/mask'
 import Dialog, { dialogDirective } from '@viewer/dialog'
+import Link from '@viewer/link'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '@viewer/utils/config'
 
@@ -23,7 +24,8 @@ const components = [
   Row,
   Input,
   Mark,
-  Dialog
+  Dialog,
+  Link
 ]
 
 const plugins = [

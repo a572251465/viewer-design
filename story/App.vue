@@ -77,6 +77,15 @@
       <cu-button size = "small" @click = "openConfirm('danger')">危险</cu-button>
       <cu-button size = "small" @click = "openConfirm('info')">信息</cu-button>
     </div>
+    <hr />
+    <div>
+      <cu-link>测试1</cu-link>
+      <cu-link type = 'primary' :underline = true href = 'https://www.baidu.com/' target = '_blank' >测试2</cu-link>
+      <cu-link type = 'success' :disabled = true href = 'https://www.baidu.com/' >测试3</cu-link>
+      <cu-link type = 'danger' href = 'https://www.baidu.com/' >测试4</cu-link>
+      <cu-link type = 'warning' href = 'https://www.baidu.com/' >测试5</cu-link>
+      <cu-link type = 'warning' icon = 'eye' href = 'https://www.baidu.com/' >查询</cu-link>
+    </div>
   </div>
 </template>
 
