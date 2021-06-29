@@ -8,6 +8,7 @@ import Message from '@viewer/message'
 import Mark from '@viewer/mask'
 import Dialog, { dialogDirective } from '@viewer/dialog'
 import Link from '@viewer/link'
+import Alert from '@viewer/alert'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '@viewer/utils/config'
 
@@ -25,7 +26,8 @@ const components = [
   Input,
   Mark,
   Dialog,
-  Link
+  Link,
+  Alert
 ]
 
 const plugins = [

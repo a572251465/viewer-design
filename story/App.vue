@@ -86,6 +86,21 @@
       <cu-link type = 'warning' href = 'https://www.baidu.com/' >测试5</cu-link>
       <cu-link type = 'warning' icon = 'eye' href = 'https://www.baidu.com/' >查询</cu-link>
     </div>
+    <hr />
+    <div>
+      <cu-alert
+          v-for = 'item in ["info", "primary", "warning", "danger", "success"]'
+          :key="item"
+          :type = "item"
+          :title = 'item'
+          :showIcon = true
+          :closable = true
+          :style = "{marginTop: '20px'}"
+      >
+      </cu-alert>
+      <cu-alert :closable = true closeText = '我知道了' :style = "{marginTop: '20px'}" title = '测试下自定义关闭文字'></cu-alert>
+      <cu-alert :closable = true :center = true closeText = '我知道了' :style = "{marginTop: '20px'}" title = '测试下自定义关闭文字'></cu-alert>
+    </div>
   </div>
 </template>
 

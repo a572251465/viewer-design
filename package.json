@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "webpack serve --config story/config/webpack.config.js",
+    "start": "webpack serve --config story/config/webpack.config.js",
     "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
     "build:umd": "webpack --config ./builds/webpack.umd.js",
     "build:esm-bundle": "rollup -c ./builds/rollup.component.js",
