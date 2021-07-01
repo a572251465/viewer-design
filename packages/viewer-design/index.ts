@@ -9,6 +9,7 @@ import Mark from '@viewer/mask'
 import Dialog, { dialogDirective } from '@viewer/dialog'
 import Link from '@viewer/link'
 import Alert from '@viewer/alert'
+import Drawer from '@viewer/drawer'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '@viewer/utils/config'
 
@@ -27,7 +28,8 @@ const components = [
   Mark,
   Dialog,
   Link,
-  Alert
+  Alert,
+  Drawer
 ]
 
 const plugins = [

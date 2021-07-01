@@ -101,17 +101,27 @@
       <cu-alert :closable = true closeText = '我知道了' :style = "{marginTop: '20px'}" title = '测试下自定义关闭文字'></cu-alert>
       <cu-alert :closable = true :center = true closeText = '我知道了' :style = "{marginTop: '20px'}" title = '测试下自定义关闭文字'></cu-alert>
     </div>
+    <hr />
+    <div>
+      <cu-button @click="openDrawer">点击打开drawer</cu-button>
+      <cu-drawer v-model="drawerShowFlag" title="我就是标题">
+        我就是内容
+      </cu-drawer>
+    </div>
   </div>
 </template>
 
 <script lang = "ts">
 import { defineComponent, getCurrentInstance, ref } from 'vue'
+import CuDrawer from '@viewer/drawer/src/drawer.vue'
 
 export default defineComponent({
   name: 'App',
+  components: { CuDrawer },
   setup() {
     const { proxy } = getCurrentInstance()!,
-        dialogShowFlag = ref(false)
+        dialogShowFlag = ref(false),
+        drawerShowFlag = ref(false)
     const messageHandle = (type) => {
       (proxy as any).$Message[type]({
         message: '测试下'
@@ -127,12 +137,18 @@ export default defineComponent({
       (proxy as any).$Dialog[type]('测试下确认框')
     }
 
+    const openDrawer = () => {
+      drawerShowFlag.value = true
+    }
+
     return {
       messageHandle,
       changeVal,
       dialogShowFlag,
       openDialog,
-      openConfirm
+      openConfirm,
+      openDrawer,
+      drawerShowFlag
     }
   }
 })

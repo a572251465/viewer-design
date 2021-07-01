@@ -1,0 +1,103 @@
+@import "./mixins/main.scss";
+@import "./mixins/animation.scss";
+
+@include b(drawer) {
+  position: fixed;
+  background: #fff;
+  padding: 16px;
+  box-sizing: border-box;
+
+  &--title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .cu-icon-close {
+      cursor: pointer;
+      font-size: 20px;
+    }
+  }
+
+  &--body {
+    flex: 1;
+  }
+
+  @include when(bottom) {
+    bottom: 0px;
+    left: 0px;
+  }
+
+  @include when(top) {
+    left: 0px;
+    top: 0px;
+  }
+
+  @include when(right) {
+    top: 0px;
+    right: 0px;
+  }
+
+  @include when(left) {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+@keyframes drawer-fade-in {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes modal-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.cu-drawer-fade-enter-active {
+  animation: modal-fade-in 0.3s !important;
+
+  .cu-drawer {
+    animation: drawer-fade-in 0.3s;
+  }
+}
+
+.cu-drawer-fade-leave-active {
+  animation: modal-fade-out 0.3s;
+
+  .cu-drawer {
+    animation: drawer-fade-out 0.3s;
+  }
+}

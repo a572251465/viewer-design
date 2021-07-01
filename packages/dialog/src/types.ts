@@ -1,6 +1,6 @@
 export const typeFun = () => 'info' || 'success' || 'warning' || 'danger' || 'confirm'
 
-interface IDialog {
+interface IDialogOptions {
   modelValue: boolean,
   title: string,
   width: number | string,
@@ -27,7 +27,7 @@ interface IDialog {
   isSupportHtml: boolean
 }
 
-export type IDialogOptional = Partial<IDialog>
+export type IDialogOptional = Partial<IDialogOptions>
 
 export interface IBeforeClose {
   (): any | Promise<any>
@@ -35,4 +35,17 @@ export interface IBeforeClose {
 
 export interface ICacheDialogInstance<T = {el: HTMLDivElement}> {
   [key: string]: T
+}
+
+export type ISingleDialog = (options: IDialogOptional | string) => void
+
+export interface IDialog {
+  (options: IDialogOptional | string): void,
+
+  primary?: ISingleDialog,
+  success?: ISingleDialog,
+  warning?: ISingleDialog,
+  danger?: ISingleDialog,
+  info?: ISingleDialog,
+  confirm?: ISingleDialog
 }

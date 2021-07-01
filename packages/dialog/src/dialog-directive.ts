@@ -3,7 +3,7 @@
  * @description 计算宽度以及高度 的单位
  * @param props 表示传递的高度 以及宽度
  */
-import { ICacheDialogInstance, IDialogOptional } from './types'
+import { ICacheDialogInstance, IDialog, IDialogOptional } from './types'
 import dialogInstance from './dialog.vue'
 import { createVNode, nextTick, render } from 'vue'
 
@@ -25,7 +25,7 @@ const defaultOptions: IDialogOptional = {
 let dialogId = 0
 const cacheDialogInstance: ICacheDialogInstance = {}
 
-function dialog(options: IDialogOptional | String) {
+const dialog:IDialog = (options) => {
   if ( typeof options === 'string' ) {
     if ( !options ) throw new Error('message is a required value')
     options = { message: options }
