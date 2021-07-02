@@ -1,0 +1,43 @@
+@import "./mixins/main.scss";
+@import "./mixins/animation.scss";
+
+@include b(back-up) {
+  position: fixed;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #409eff;
+  font-size: 20px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .12);
+  cursor: pointer;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.cu-back-up-fade-enter-active {
+  animation: fade-out .3s ease-in;
+}
+
+.cu-back-up-fade-leave-active {
+  animation: fade-in .3s ease-in;
+}

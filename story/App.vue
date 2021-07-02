@@ -108,16 +108,21 @@
         我就是内容
       </cu-drawer>
     </div>
+    <hr />
+    <div>
+      <cu-back-up target = '.selfscroll'></cu-back-up>
+      <div style="height: 600px; overflow-x: auto; border: 1px solid red" class="selfscroll">
+        <div style="height: 1800px; border: 1px solid black">1111</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang = "ts">
 import { defineComponent, getCurrentInstance, ref } from 'vue'
-import CuDrawer from '@viewer/drawer/src/drawer.vue'
 
 export default defineComponent({
   name: 'App',
-  components: { CuDrawer },
   setup() {
     const { proxy } = getCurrentInstance()!,
         dialogShowFlag = ref(false),

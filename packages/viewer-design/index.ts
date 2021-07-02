@@ -10,6 +10,7 @@ import Dialog, { dialogDirective } from '@viewer/dialog'
 import Link from '@viewer/link'
 import Alert from '@viewer/alert'
 import Drawer from '@viewer/drawer'
+import BackUp from '@viewer/back-up'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '@viewer/utils/config'
 
@@ -29,7 +30,8 @@ const components = [
   Dialog,
   Link,
   Alert,
-  Drawer
+  Drawer,
+  BackUp
 ]
 
 const plugins = [
