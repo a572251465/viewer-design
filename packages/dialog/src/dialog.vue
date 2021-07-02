@@ -52,7 +52,7 @@
 </template>
 
 <script lang = "ts">
-import { computed, defineComponent, onMounted, PropType, watch } from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, watch } from 'vue'
 import { IBeforeClose, typeFun } from './types'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import CuButton from '@viewer/button'
@@ -60,6 +60,7 @@ import CuMask from '@viewer/mask'
 import { useModel } from '@viewer/use/useModel'
 import { computedUnit } from './dialog-directive'
 import { useZIndex } from '@viewer/use/useZIndex'
+import { useEscLeave } from '@viewer/use/useEscLeave'
 
 export default defineComponent({
   name: 'cu-dialog',
@@ -135,6 +136,10 @@ export default defineComponent({
     isDirective: {
       type: Boolean,
       default: false
+    },
+    closeOnPressEscape: {
+      type: Boolean,
+      default: true
     },
     zIndex: {
       type: Number,
@@ -254,9 +259,15 @@ export default defineComponent({
       commonCloseHandle(type === 'sure' ? props.ok : props.cancel)
     }
 
+    let bindHandle = null
     onMounted(() => {
       if ( props.isDirective ) openDelayHandle(true)
+      // 按键{esc} 进行弹框关闭
+      if ( props.closeOnPressEscape ) {
+        bindHandle = useEscLeave(() => closeCurrentPage('mask'))
+      }
     })
+    onBeforeUnmount(() => props.closeOnPressEscape && bindHandle && bindHandle())
 
     return {
       classNamePrefix: `${ $namespace }-dialog`,

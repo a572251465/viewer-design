@@ -109,7 +109,7 @@ export default defineComponent({
         bindKeyHandle = useEscLeave(maskCloseHandle)
       }
     })
-    onBeforeUnmount(() => bindKeyHandle && bindKeyHandle())
+    onBeforeUnmount(() => props.closeOnPressEscape && bindKeyHandle && bindKeyHandle())
 
     // 点击关闭按钮
     const closeBtnHandle = () => {
