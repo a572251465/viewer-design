@@ -21,12 +21,13 @@
 </template>
 
 <script lang = 'ts'>
-import { computed, defineComponent, PropType, watch } from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, watch } from 'vue'
 import CuMask from '@viewer/mask'
 import { useZIndex } from '@viewer/use/useZIndex'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import { useModel } from '@viewer/use/useModel'
 import { selfDialogDirective } from '@viewer/dialog'
+import { useEscLeave } from '@viewer/use/useEscLeave'
 
 export interface IBeforeClose {
   (): any | Promise<any>
@@ -101,6 +102,14 @@ export default defineComponent({
       if ( !props.clickMaskClose ) return
       showFlag.value = false
     }
+
+    let bindKeyHandle = null
+    onMounted(() => {
+      if ( props.closeOnPressEscape ) {
+        bindKeyHandle = useEscLeave(maskCloseHandle)
+      }
+    })
+    onBeforeUnmount(() => bindKeyHandle && bindKeyHandle())
 
     // 点击关闭按钮
     const closeBtnHandle = () => {
