@@ -1,0 +1,52 @@
+@import "story/assets/css/var.scss";
+
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dcdfe6;
+
+  &-logo {
+    height: 100%;
+    width: 200px;
+    font-weight: bold;
+    color: $mainColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 100px;
+    height: 100%;
+
+    ul {
+      padding: 0 30px;
+      height: 100%;
+
+      li {
+        display: inline-flex;
+        height: 100%;
+        align-items: center;
+        padding: 0 20px;
+        color: rgba($mainColor, .7);
+        cursor: pointer;
+      }
+
+      .active {
+        background: rgba($mainColor, .2);
+        color: $mainColor;
+        border-bottom: 1px solid $mainColor;
+      }
+    }
+  }
+}
+
+

@@ -14,8 +14,8 @@ module.exports = {
   resolve: {
     extensions: [ '.ts', '.vue', '.js', '.json' ],
     alias: {
-      '@': resolvePath('packages'),
-      'stroy': resolvePath('stroy')
+      '@': resolvePath('../../packages'),
+      'story': resolvePath('..')
     }
   },
   module: {
