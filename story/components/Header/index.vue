@@ -1,6 +1,7 @@
 <template>
   <div class = "header">
     <div class = "header-logo">
+      <img :src = "imgLogo" alt = "logo">
       Viewer-Design
     </div>
     <div class = "header-content">
@@ -30,8 +31,9 @@
 
 <script lang = "ts">
 import { defineComponent, reactive, toRefs, ref, computed } from 'vue'
-import Menu from "story/components/Menu/index"
+import Menu from 'story/components/Menu/index'
 import { IDetail, IMenuItem } from '../Menu'
+import imgLogo from 'story/assets/images/logo.png'
 
 const navList: ({ value: string, label: string })[] = [
       { label: '关于', value: 'about' },
@@ -61,7 +63,8 @@ export default defineComponent({
       menuList,
       navClickHandle,
       keywordInput,
-      compChooseShowFlag
+      compChooseShowFlag,
+      imgLogo
     }
   }
 })
