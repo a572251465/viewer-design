@@ -4,7 +4,18 @@
       Viewer-Design
     </div>
     <div class = "header-content">
-      <cu-input placeholder = '请搜索'/>
+      <div class = "header-content-input">
+        <cu-input placeholder = '请搜索' v-model = 'keywordInput'/>
+        <div class = "popup" v-show = "keywordInput">
+          <div class = "detail" v-for = "item in menuList" :key = "item.name">
+            <span>{{ item.name }}</span>
+            <span>({{ item.remark }})</span>
+          </div>
+          <div class = "nodata" v-show = "menuList.length === 0">
+            --- 检索不到内容哦 ----
+          </div>
+        </div>
+      </div>
       <ul>
         <li v-for = "item in navList"
             :class = "[activeNav === item.value ? 'active' : '']"
@@ -18,26 +29,39 @@
 </template>
 
 <script lang = "ts">
-import { defineComponent, reactive, toRefs, ref } from 'vue'
+import { defineComponent, reactive, toRefs, ref, computed } from 'vue'
+import Menu from "story/components/Menu/index"
+import { IDetail, IMenuItem } from '../Menu'
 
 const navList: ({ value: string, label: string })[] = [
-  { label: '关于', value: 'about' },
-  { label: '组件', value: 'component' },
-  { label: '赞助', value: 'sponsor' },
-  { label: '作品', value: 'works' }
-]
+      { label: '关于', value: 'about' },
+      { label: '组件', value: 'component' },
+      { label: '赞助', value: 'sponsor' },
+      { label: '作品', value: 'works' }
+    ],
+    menuListTarget = Menu.reduce((pre: IDetail[], cur: IMenuItem) => pre.concat(cur.detail), [])
 export default defineComponent({
   name: 'header',
   setup() {
     const state = reactive({ navList }),
-        activeNav = ref<string>('component')
+        activeNav = ref<string>('component'),
+        keywordInput = ref<string>(''),
+        compChooseShowFlag = ref<boolean>(true),
+        menuList = computed(() => {
+          if ( !keywordInput.value ) return []
+          return menuListTarget.filter((item: IDetail) =>
+              item.name.toLowerCase().indexOf(keywordInput.value) > - 1 || item.remark.indexOf(keywordInput.value) > - 1)
+        })
 
     const navClickHandle = val => activeNav.value = val
 
     return {
       ...toRefs(state),
       activeNav,
-      navClickHandle
+      menuList,
+      navClickHandle,
+      keywordInput,
+      compChooseShowFlag
     }
   }
 })

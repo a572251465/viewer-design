@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "viewer-design-icon";
-  src: url('./fonts/iconfont.woff?t=1624702800853') format('woff'),
-  url('./fonts/iconfont.ttf?t=1624702800853') format('truetype');
+  src: url('./fonts/iconfont.woff?t=1625613644936') format('woff'),
+  url('./fonts/iconfont.ttf?t=1625613644936') format('truetype');
 }
 
 [class^="#{$namespace}-icon-"] {
@@ -12,6 +12,66 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.cu-icon-PDF:before {
+  content: "\e643";
+}
+
+.cu-icon-exit:before {
+  content: "\e604";
+}
+
+.cu-icon-example:before {
+  content: "\e605";
+}
+
+.cu-icon-excel:before {
+  content: "\e607";
+}
+
+.cu-icon-education:before {
+  content: "\e79d";
+}
+
+.cu-icon-edit:before {
+  content: "\e608";
+}
+
+.cu-icon-form:before {
+  content: "\e609";
+}
+
+.cu-icon-clipboard:before {
+  content: "\e675";
+}
+
+.cu-icon-bug:before {
+  content: "\e9ab";
+}
+
+.cu-icon-BarChart:before {
+  content: "\e8a4";
+}
+
+.cu-icon-i404:before {
+  content: "\e61e";
+}
+
+.cu-icon-documentation:before {
+  content: "\e600";
+}
+
+.cu-icon-component:before {
+  content: "\e646";
+}
+
+.cu-icon-drag:before {
+  content: "\e602";
+}
+
+.cu-icon-dashboard:before {
+  content: "\e603";
 }
 
 .cu-icon-confirm:before {
@@ -86,7 +146,7 @@
   content: "\e6a3";
 }
 
-.cu-icon-down-:before {
+.cu-icon-down:before {
   content: "\e696";
 }
 
@@ -110,7 +170,6 @@
   content: "\e60b";
 }
 
-.cu-icon-C-19:before {
+.cu-icon-shoppingCart:before {
   content: "\e62c";
 }
-

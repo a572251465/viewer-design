@@ -34,6 +34,7 @@ export default defineComponent({
   &-header {
     width: 100%;
     height: 80px;
+    margin-bottom: 10px;
   }
 
   &-body {
@@ -42,8 +43,7 @@ export default defineComponent({
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     box-sizing: border-box;
 
     &-left {
@@ -52,6 +52,8 @@ export default defineComponent({
     }
 
     &-right {
+      box-sizing: border-box;
+      padding-left: 50px;
       flex: 1;
     }
   }

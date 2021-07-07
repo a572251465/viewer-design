@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #dcdfe6;
+  box-sizing: border-box;
 
   &-logo {
     height: 100%;
@@ -26,6 +27,50 @@
     justify-content: flex-end;
     padding-right: 100px;
     height: 100%;
+
+    &-input {
+      position: relative;
+
+      .popup {
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 100%;
+        max-height: 300px;
+        min-height: 100px;
+        border: 1px solid #dcdfe6;
+        background: #fff;
+        z-index: 20;
+        border-radius: 5px;
+
+        .nodata {
+          text-align: center;
+          font-size: 14px;
+          margin-top: 30px;
+          color: rgba($mainColor, .7);
+        }
+
+        .detail:hover {
+          background: rgba($mainColor, .2);
+        }
+        .detail {
+          padding: 4px 15px;
+          box-sizing: border-box;
+          cursor: pointer;
+
+          span:nth-child(1) {
+            color: rgba($mainColor, .7);
+            font-size: 14px;
+          }
+
+          span:last-child {
+            color: #ccc;
+            font-size: 12px;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
 
     ul {
       padding: 0 30px;

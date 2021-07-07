@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    dialog
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'right',
+  name: 'dialog',
   setup() {
 
   }

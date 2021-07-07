@@ -1,0 +1,49 @@
+@import "story/assets/css/var.scss";
+
+.left {
+
+  border-right: 1px dashed #ccc;
+
+  .bTitle {
+    font-size: 13px;
+    color: #999;
+    line-height: 26px;
+    margin-top: 15px;
+    text-decoration: underline;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  li:hover {
+    color: $mainColor;
+    background: rgba($mainColor, .2);
+    text-decoration: underline;
+  }
+
+  .active {
+    color: $mainColor;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  li {
+    padding: 8px 0;
+    cursor: pointer;
+    padding-left: 20px;
+    box-sizing: border-box;
+
+    span:first-child {
+      font-size: 16px;
+    }
+
+    span:last-child {
+      font-size: 13px;
+      margin-left: 5px;
+    }
+  }
+}
