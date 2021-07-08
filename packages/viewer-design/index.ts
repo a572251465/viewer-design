@@ -1,5 +1,4 @@
 import Button from '@viewer/button'
-import Icon from '@viewer/icon'
 import Layout from '@viewer/layout'
 import Col from '@viewer/col'
 import Row from '@viewer/row'
@@ -11,6 +10,7 @@ import Link from '@viewer/link'
 import Alert from '@viewer/alert'
 import Drawer from '@viewer/drawer'
 import BackUp from '@viewer/back-up'
+import SlideTransition from '@viewer/slide-transition'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '@viewer/utils/config'
 
@@ -21,7 +21,6 @@ const defaultInstallOpt: InstallOption = {
 
 const components = [
   Button,
-  Icon,
   Layout,
   Col,
   Row,
@@ -31,7 +30,8 @@ const components = [
   Link,
   Alert,
   Drawer,
-  BackUp
+  BackUp,
+  SlideTransition
 ]
 
 const plugins = [

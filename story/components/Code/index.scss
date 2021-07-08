@@ -1,0 +1,54 @@
+@import "story/assets/css/var.scss";
+
+.code-demo {
+  width: 80%;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+
+  &-display {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  &-source {
+    background: rgba(#2d2d2d, .8);
+    box-sizing: border-box;
+  }
+
+  &-fill {
+    background: rgba(#2d2d2d, .8);
+    width: 100%;
+    height: 1px;
+  }
+
+  &-fun {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    position: relative;
+
+    span {
+      font-size: 13px;
+    }
+
+    & > span, & > i {
+      cursor: pointer;
+    }
+
+    i {
+      font-size: 20px;
+    }
+
+    a {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      text-decoration: none;
+      color: rgba($mainColor, .7);
+    }
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "name": "@viewer/icon",
+  "name": "@viewer/slide-transition",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "15064044877 <2495041749@qq.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/icon.js",
+  "main": "lib/slide-transition.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -13,6 +13,10 @@
   "files": [
     "lib"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/li_haohao_1/viewer-design.git"
+  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   }

@@ -3,6 +3,9 @@ module.exports = {
     '@babel/preset-env',
     '@babel/preset-typescript'
   ],
+  plugins: [
+    "@vue/babel-plugin-jsx"
+  ],
   overrides: [
     {
       test: /\.vue$/,

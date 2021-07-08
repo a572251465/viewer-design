@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "viewer-design-icon";
-  src: url('./fonts/iconfont.woff?t=1625613644936') format('woff'),
-  url('./fonts/iconfont.ttf?t=1625613644936') format('truetype');
+  src: url('./fonts/iconfont.woff?t=1625700119777') format('woff'),
+  url('./fonts/iconfont.ttf?t=1625700119777') format('truetype');
 }
 
 [class^="#{$namespace}-icon-"] {
@@ -12,6 +12,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.cu-icon-doublebottom:before {
+  content: "\e736";
+}
+
+.cu-icon-doubletop:before {
+  content: "\e73c";
 }
 
 .cu-icon-PDF:before {
