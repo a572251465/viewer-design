@@ -1,5 +1,5 @@
 @import "./mixins/main.scss";
 
 .cu-slide-transition {
-  transition: height .5s ease-in-out, opacity .5s ease-in-out;
+  transition: .5s height ease-in-out, .5s opacity ease-in-out, .5s padding-top ease-in-out, .5s padding-bottom ease-in-out;
 }

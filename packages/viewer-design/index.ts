@@ -5,7 +5,7 @@ import Row from '@viewer/row'
 import Input from '@viewer/input'
 import Message from '@viewer/message'
 import Mark from '@viewer/mask'
-import Dialog, { dialogDirective } from '@viewer/dialog'
+import Dialog  from '@viewer/dialog'
 import Link from '@viewer/link'
 import Alert from '@viewer/alert'
 import Drawer from '@viewer/drawer'
@@ -36,7 +36,7 @@ const components = [
 
 const plugins = [
   Message,
-  dialogDirective
+  Dialog
 ]
 
 const install = (app: App, opt: InstallOption) => {
@@ -45,7 +45,7 @@ const install = (app: App, opt: InstallOption) => {
   })
 
   plugins.forEach(component => {
-    app.use(component)
+    app.use(component as any)
   })
 
   const option = Object.assign({}, defaultInstallOpt, opt)
@@ -53,3 +53,19 @@ const install = (app: App, opt: InstallOption) => {
 }
 
 export default { install }
+
+export {
+  Button,
+  Layout,
+  Col,
+  Row,
+  Input,
+  Mark,
+  Dialog,
+  Link,
+  Alert,
+  Drawer,
+  BackUp,
+  SlideTransition,
+  Message
+}

@@ -21,14 +21,27 @@ export default defineComponent({
   setup() {
     const beforeEnter = el => {
       addClass(el, 'cu-slide-transition')
+      if ( !el.dataset ) el.dataset = {}
+
+      el.dataset.oldPaddingTop = el.style.paddingTop
+      el.dataset.oldPaddingBottom = el.style.paddingBottom
+
       el.style.height = '0'
       el.style.opacity = 0
+      el.style.paddingTop = 0
+      el.style.paddingBottom = 0
     }
     const enter = el => {
       el.dataset.oldOverflow = el.style.overflow
       if ( el.scrollHeight !== 0 ) {
         el.style.height = el.scrollHeight + 'px'
+        el.style.paddingTop = el.dataset.oldPaddingTop
+        el.style.paddingBottom = el.dataset.oldPaddingBottom
         el.style.opacity = 1
+      } else {
+        el.style.height = ''
+        el.style.paddingTop = el.dataset.oldPaddingTop
+        el.style.paddingBottom = el.dataset.oldPaddingBottom
       }
 
       el.style.overflow = 'hidden'
@@ -42,18 +55,24 @@ export default defineComponent({
       if ( !el.dataset ) el.dataset = {}
       el.style.height = el.scrollHeight + 'px'
       el.dataset.oldOverflow = el.style.overflow
+      el.dataset.oldPaddingTop = el.style.paddingTop
+      el.dataset.oldPaddingBottom = el.style.paddingBottom
       el.style.overflow = 'hidden'
     }
     const leave = el => {
       if ( el.scrollHeight !== 0 ) {
         addClass(el, 'cu-slide-transition')
         el.style.height = 0
+        el.style.paddingTop = 0
+        el.style.paddingBottom = 0
       }
     }
     const afterLeave = el => {
       removeClass(el, 'cu-slide-transition')
       el.style.height = ''
       el.style.overflow = el.dataset.oldOverflow
+      el.style.paddingTop = el.dataset.oldPaddingTop
+      el.style.paddingBottom = el.dataset.oldPaddingBottom
     }
 
     return {

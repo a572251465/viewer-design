@@ -9,4 +9,65 @@
   p {
     font-size: 14px;
   }
+
+  .margin-right {
+    margin-right: 30px;
+  }
+
+  .font-size {
+    font-size: 20px;
+  }
+
+  .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul, li {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul {
+    margin: 0 3.5%;
+    margin-top: 50px;
+
+  }
+
+  $size: 13.6%;
+
+  li:hover {
+    color: $mainColor;
+    span {
+      color: $mainColor !important;
+    }
+  }
+
+  li {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    border: 1px solid #eee;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    height: 140px;
+    cursor: pointer;
+
+    i {
+      font-size: 30px !important;
+      margin-bottom: 15px;
+    }
+
+    span {
+      font-size: 12px;
+      color: #99a9bf;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

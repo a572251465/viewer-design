@@ -13,6 +13,8 @@
   &-source {
     background: rgba(#2d2d2d, .8);
     box-sizing: border-box;
+    padding: 20px;
+    font-size: 13px;
   }
 
   &-fill {
@@ -50,5 +52,21 @@
       text-decoration: none;
       color: rgba($mainColor, .7);
     }
+  }
+
+  .labelColor {
+    color: #e2777a;
+  }
+
+  .separatorColor {
+    color: #ccc;
+  }
+
+  .valueColor {
+    color: #7ec699;
+  }
+
+  .lineHeight {
+    line-height: 24px;
   }
 }
