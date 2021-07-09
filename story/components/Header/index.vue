@@ -43,7 +43,7 @@ const navList: ({ value: string, label: string })[] = [
     ],
     menuListTarget = Menu.reduce((pre: IDetail[], cur: IMenuItem) => pre.concat(cur.detail), [])
 export default defineComponent({
-  name: 'header',
+  name: 'home-header',
   setup() {
     const state = reactive({ navList }),
         activeNav = ref<string>('component'),

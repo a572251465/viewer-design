@@ -4,7 +4,7 @@
     <p>提供一套常用的图标集合</p>
     <h3>使用方法</h3>
     <p>直接通过设置类名称为 class = [cu-icon-className] 来使用即可，例如：</p>
-    <Code :targetCode = 'example'>
+    <Code :showFlag = true :targetCode = 'example'>
       <i class = "cu-icon-edit margin-right font-size"></i>
       <i class = "cu-icon-excel margin-right font-size"></i>
       <cu-button size = "big" type = "success" icon = 'edit' :round = true class = 'margin-right'>编辑</cu-button>
@@ -28,7 +28,6 @@ import { computed, defineComponent, getCurrentInstance, ref } from 'vue'
 import Code from 'story/components/Code/index.tsx'
 import { ICodeDetail } from '../../components/Code/types'
 import icons from './icons'
-import { Message } from 'viewer-design'
 
 const example: ICodeDetail[] = [
   {

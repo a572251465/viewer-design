@@ -1,22 +1,30 @@
-import { computed, defineComponent, PropType, ref } from 'vue'
+import { computed, defineComponent, onMounted, PropType, ref } from 'vue'
 import './index.scss'
 import { ICodeDetail } from './types'
 
 export default defineComponent({
-  name: 'code',
+  name: 'code-source',
   props: {
     targetCode: {
       type: [ Object, Array ] as PropType<ICodeDetail | ICodeDetail[]>,
       required: true
+    },
+    showFlag: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, { slots }) {
 
-    const contentShowFlag = ref<boolean>(true)
+    const contentShowFlag = ref<boolean>(false)
     const showIcon = computed<string>(() => `cu-icon-${ contentShowFlag.value ? 'doubletop' : 'doublebottom' }`)
     const panelShowHandle = () => {
       contentShowFlag.value = !contentShowFlag.value
     }
+
+    onMounted(() => {
+      contentShowFlag.value = props.showFlag
+    })
 
     // 使用template包装下
     const targetInfo = computed(() => {
@@ -51,7 +59,7 @@ export default defineComponent({
 
     // 判断是否需要结束符
     const isLastLabel = (el: ICodeDetail, spaceNum?: number): string => {
-      if ( (!el.children || el.children.length === 0) && !el.value  ) return ''
+      if ( (!el.children || el.children.length === 0) && !el.value ) return ''
       return `${ el.value ? '' : genSpace(spaceNum) }${ genColorLabel(startSymbol, 2) }${ genColorLabel('/' + el.labelName, 1) }${ genColorLabel(endSymbol, 2) }`
     }
 

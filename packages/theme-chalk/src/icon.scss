@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "viewer-design-icon";
-  src: url('./fonts/iconfont.woff?t=1625700119777') format('woff'),
-  url('./fonts/iconfont.ttf?t=1625700119777') format('truetype');
+  src: url('./fonts/iconfont.woff?t=1625790553625') format('woff'),
+  url('./fonts/iconfont.ttf?t=1625790553625') format('truetype');
 }
 
 [class^="#{$namespace}-icon-"] {
@@ -12,6 +12,150 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.cu-icon-football:before {
+  content: "\e904";
+}
+
+.cu-icon-basketball:before {
+  content: "\e60a";
+}
+
+.cu-icon-cloudy:before {
+  content: "\e60c";
+}
+
+.cu-icon-coffee:before {
+  content: "\e60d";
+}
+
+.cu-icon-lightning:before {
+  content: "\e8a1";
+}
+
+.cu-icon-sunny:before {
+  content: "\e6dc";
+}
+
+.cu-icon-soccer:before {
+  content: "\e79b";
+}
+
+.cu-icon-sunrise:before {
+  content: "\e671";
+}
+
+.cu-icon-ice-drink:before {
+  content: "\e91a";
+}
+
+.cu-icon-ice-tea:before {
+  content: "\e632";
+}
+
+.cu-icon-water-cup:before {
+  content: "\e638";
+}
+
+.cu-icon-baseballBall:before {
+  content: "\e7c2";
+}
+
+.cu-icon-pear:before {
+  content: "\ef9d";
+}
+
+.cu-icon-orange:before {
+  content: "\e6b6";
+}
+
+.cu-icon-milk-tea:before {
+  content: "\e66e";
+}
+
+.cu-icon-help:before {
+  content: "\e9c5";
+}
+
+.cu-icon-star-on:before {
+  content: "\e63c";
+}
+
+.cu-icon-user-solid:before {
+  content: "\e618";
+}
+
+.cu-icon-remove:before {
+  content: "\e63e";
+}
+
+.cu-icon-s-goods:before {
+  content: "\e703";
+}
+
+.cu-icon-ice-cream-round:before {
+  content: "\e658";
+}
+
+.cu-icon-camera-solid:before {
+  content: "\e664";
+}
+
+.cu-icon-platform-eleme:before {
+  content: "\e691";
+}
+
+.cu-icon-goods:before {
+  content: "\e663";
+}
+
+.cu-icon-lollipop:before {
+  content: "\e91d";
+}
+
+.cu-icon-s-tools:before {
+  content: "\e72c";
+}
+
+.cu-icon-s-help:before {
+  content: "\e6d1";
+}
+
+.cu-icon-phone-outline:before {
+  content: "\e61b";
+}
+
+.cu-icon-ice-cream-square:before {
+  content: "\e61a";
+}
+
+.cu-icon-zoomout:before {
+  content: "\e715";
+}
+
+.cu-icon-eleme:before {
+  content: "\ea7e";
+}
+
+.cu-icon-star-off:before {
+  content: "\e659";
+}
+
+.cu-icon-zoomin:before {
+  content: "\e7af";
+}
+
+.cu-icon-delete-solid:before {
+  content: "\ebcc";
+}
+
+.cu-icon-camera:before {
+  content: "\e7b2";
+}
+
+.cu-icon-remove-outline:before {
+  content: "\e77c";
 }
 
 .cu-icon-doublebottom:before {

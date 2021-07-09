@@ -43,7 +43,7 @@ export default defineComponent({
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 20px 0 60px 0;
     box-sizing: border-box;
 
     &-left {
