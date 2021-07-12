@@ -57,7 +57,7 @@ export default defineComponent({
     },
     size: {
       type: String as PropType<ISize>,
-      default: 'big'
+      default: 'medium'
     },
     modelValue: {
       type: [ String, Number ],
@@ -117,7 +117,7 @@ export default defineComponent({
     },
     width: {
       type: Number,
-      default: 230
+      default: 0
     },
     autofocus: {
       type: Boolean,
@@ -143,7 +143,7 @@ export default defineComponent({
           height: `${ inputHeight.value }px`,
           lineHeight: `${ inputHeight.value }px`,
           ...props.styles,
-          width: props.width + 'px'
+          width: props.width ? props.width + 'px' : 'auto'
         }))
 
     // 输入框
@@ -156,6 +156,7 @@ export default defineComponent({
     // input的v-model
     const changeValue = useModel(props.modelValue, (val) => emit('update:modelValue', val)),
         countComputed = computed<number>(() => (changeValue.value + '').length || 0)
+    watch(() => props.modelValue, val => changeValue.value = val)
 
     // 表示前后icon图标
     const suffixIcon = ref<string>(props.type === 'password' ? 'close-eye' : props.clearable ? 'close-circular' : props.suffixIcon),

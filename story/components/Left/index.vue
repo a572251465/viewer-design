@@ -16,10 +16,10 @@
 </template>
 
 <script lang = "ts">
-import { defineComponent, reactive, ref, toRefs } from 'vue'
+import { defineComponent, onMounted, reactive, ref, toRefs, watch } from 'vue'
 import targetMenuList from 'story/components/Menu/index'
 import { IMenuItem } from '../Menu'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const menuList = ([
   {
@@ -36,13 +36,26 @@ export default defineComponent({
   setup() {
     const state = reactive({ menuList }),
         activeNav = ref<string>(''),
-        store = useRouter()
+        router = useRouter(),
+        route = useRoute()
 
     const clickNavSkipPage = pageName => {
       activeNav.value = pageName
       pageName = pageName.charAt(0).toLowerCase() + pageName.slice(1)
-      store.push({ path: pageName })
+      router.push({ path: pageName })
     }
+
+    const positionHandle = () => {
+      const { name } = route
+      if ( !name ) return false
+      activeNav.value = name.charAt(0).toUpperCase() + name.slice(1)
+    }
+
+    watch(route, () => {
+      positionHandle()
+    })
+
+    onMounted(positionHandle)
     return {
       ...toRefs(state),
       activeNav,

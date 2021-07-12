@@ -24,6 +24,10 @@ const menu: IMenuItem[] = [
       {
         name: 'Link',
         remark: '文字链接'
+      },
+      {
+        name: 'Scrollbar',
+        remark: '滚动条'
       }
     ]
   },
@@ -33,6 +37,10 @@ const menu: IMenuItem[] = [
       {
         name: 'Input',
         remark: '输入框'
+      },
+      {
+        name: 'Rate',
+        remark: '评分'
       }
     ]
   },
@@ -55,6 +63,10 @@ const menu: IMenuItem[] = [
       {
         name: 'Dialog',
         remark: '对话框'
+      },
+      {
+        name: 'Drawer',
+        remark: '抽屉'
       }
     ]
   },
@@ -77,6 +89,22 @@ const menu: IMenuItem[] = [
       {
         name: 'BackUp',
         remark: '回到顶部'
+      },
+      {
+        name: 'slideTransition',
+        remark: '滑动'
+      },
+      {
+        name: 'carousel',
+        remark: '走马灯'
+      },
+      {
+        name: 'Collapse',
+        remark: '折叠面板'
+      },
+      {
+        name: 'infiniteScroll',
+        remark: '无限滚动'
       }
     ]
   }

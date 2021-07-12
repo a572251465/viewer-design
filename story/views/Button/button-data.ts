@@ -3,32 +3,32 @@ import { IFields } from '../../components/TableProps/types'
 
 const example: ICodeDetail[] = [
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'size', value: 'big' } ],
     value: '大的'
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'type', value: 'success' } ],
     value: '成功的'
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'round', value: 'true' } ],
     value: '圆角的'
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'icon', value: 'edit' } ],
     value: '编辑'
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'disabled', value: 'true' } ],
     value: '禁用的'
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'loading', value: 'true' } ],
     value: '加载中'
   }
@@ -36,7 +36,7 @@ const example: ICodeDetail[] = [
 
 const example1: ICodeDetail[] = ([ 'medium', 'small', 'mini', 'big' ] as const).map(size => {
   return {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'size', value: size } ],
     value: size
   } as ICodeDetail
@@ -44,33 +44,33 @@ const example1: ICodeDetail[] = ([ 'medium', 'small', 'mini', 'big' ] as const).
 
 const example2: ICodeDetail[] = ([ 'primary', 'success', 'warning', 'danger', 'info', 'text' ] as const).map(type => {
   return {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'type', value: type } ],
     value: type
   } as ICodeDetail
 })
 
 const example3: ICodeDetail = {
-  labelName: 'button',
+  labelName: 'cu-button',
   fields: [{key: 'round', value: 'true'}],
   value: '圆角按钮'
 }
 
 const example4: ICodeDetail = {
-  labelName: 'button',
+  labelName: 'cu-button',
   fields: [{key: 'disabled', value: 'true'}],
   value: '禁用按钮'
 }
 
 const example5: ICodeDetail = {
-  labelName: 'button',
+  labelName: 'cu-button',
   fields: [{key: 'loading', value: 'true'}],
   value: '加载中按钮'
 }
 
 const example6: ICodeDetail[] = ([ 'edit', 'search', 'close', 'date' ] as const).map(icon => {
   return {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [ { key: 'icon', value: icon } ],
     value: icon
   } as ICodeDetail

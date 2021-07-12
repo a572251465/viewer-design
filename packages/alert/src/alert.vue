@@ -27,7 +27,7 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      required: true
+      default: ''
     },
     type: {
       type: String as PropType<ReturnType<typeof typeFun>>,

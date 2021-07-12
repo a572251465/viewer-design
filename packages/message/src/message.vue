@@ -1,11 +1,13 @@
 <template>
   <transition name = "cu-message-fade" @after-leave = "onClose">
     <div :class = "classes" v-show = "showFlag" :style = "customStyle">
-      <i :class = "iconClass"></i>
-      <span v-if = "!isSupportHtml">
-        {{ message }}
-      </span>
-      <span v-else v-html = "message"></span>
+      <div class = "cu-message-container" :class = "centerClasses">
+        <i :class = "iconClass" class = "tips"></i>
+        <span v-if = "!isSupportHtml" class = "selfSpan">
+          {{ message }}
+        </span>
+        <span v-else v-html = "message"></span>
+      </div>
       <i
           v-if = "showClose"
           class = "cu-icon-close cu-message--closeBtn"
@@ -79,7 +81,9 @@ export default defineComponent({
     const commonPrefix = `${ styleCommonPrefix.$namespace }-message`,
         classes = computed<(string | object)[]>(() => [
           commonPrefix,
-          [ commonPrefix, styleCommonPrefix.$modifierSeparator, props.type ].join(''),
+          [ commonPrefix, styleCommonPrefix.$modifierSeparator, props.type ].join('')
+        ]),
+        centerClasses = computed<(string | object)[]>(() => [
           {
             [styleCommonPrefix.$statePrefix + 'center']: props.center
           }
@@ -115,7 +119,8 @@ export default defineComponent({
       classes,
       iconClass,
       showFlag,
-      customStyle
+      customStyle,
+      centerClasses
     }
   }
 })

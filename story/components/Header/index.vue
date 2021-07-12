@@ -8,7 +8,7 @@
       <div class = "header-content-input">
         <cu-input placeholder = '请搜索' v-model = 'keywordInput'/>
         <div class = "popup" v-show = "keywordInput">
-          <div class = "detail" v-for = "item in menuList" :key = "item.name">
+          <div class = "detail" v-for = "item in menuList" :key = "item.name" @click = "skipNav(item.name)">
             <span>{{ item.name }}</span>
             <span>({{ item.remark }})</span>
           </div>
@@ -34,12 +34,14 @@ import { defineComponent, reactive, toRefs, ref, computed } from 'vue'
 import Menu from 'story/components/Menu/index'
 import { IDetail, IMenuItem } from '../Menu'
 import imgLogo from 'story/assets/images/logo.png'
+import { useRouter } from 'vue-router'
 
 const navList: ({ value: string, label: string })[] = [
       { label: '关于', value: 'about' },
       { label: '组件', value: 'component' },
       { label: '赞助', value: 'sponsor' },
-      { label: '作品', value: 'works' }
+      { label: '作品', value: 'works' },
+      { label: '鸣谢', value: 'thanks' }
     ],
     menuListTarget = Menu.reduce((pre: IDetail[], cur: IMenuItem) => pre.concat(cur.detail), [])
 export default defineComponent({
@@ -47,6 +49,7 @@ export default defineComponent({
   setup() {
     const state = reactive({ navList }),
         activeNav = ref<string>('component'),
+        router = useRouter(),
         keywordInput = ref<string>(''),
         compChooseShowFlag = ref<boolean>(true),
         menuList = computed(() => {
@@ -56,6 +59,11 @@ export default defineComponent({
         })
 
     const navClickHandle = val => activeNav.value = val
+    const skipNav = path => {
+      path = path.charAt(0).toLowerCase() + path.slice(1)
+      keywordInput.value = ''
+      router.push({ path })
+    }
 
     return {
       ...toRefs(state),
@@ -64,7 +72,8 @@ export default defineComponent({
       navClickHandle,
       keywordInput,
       compChooseShowFlag,
-      imgLogo
+      imgLogo,
+      skipNav
     }
   }
 })

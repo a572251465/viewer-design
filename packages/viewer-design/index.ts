@@ -5,7 +5,7 @@ import Row from '@viewer/row'
 import Input from '@viewer/input'
 import Message from '@viewer/message'
 import Mark from '@viewer/mask'
-import Dialog  from '@viewer/dialog'
+import Dialog, {ITypeDialog}  from '@viewer/dialog'
 import Link from '@viewer/link'
 import Alert from '@viewer/alert'
 import Drawer from '@viewer/drawer'
@@ -67,5 +67,6 @@ export {
   Drawer,
   BackUp,
   SlideTransition,
-  Message
+  Message,
+  ITypeDialog
 }

@@ -89,8 +89,9 @@ export default defineComponent({
     const genSpace = num => num <= 0 ? '' : '&nbsp;'.repeat(num)
 
     // 创建元素属性
-    const genElementField = (fields?: { key: string, value: string }[]): string => {
-      return fields.reduce((pre, cur) => pre += `${ genSpace(1) }${ genColorLabel(cur.key, 1) }${ genColorLabel(` = "${ cur.value }"`, 3) }`, '')
+    const genElementField = (fields?: { key: string, value: string | boolean }[]): string => {
+      return fields.reduce((pre, cur) =>
+        pre += `${ genSpace(1) }${ genColorLabel(cur.key, 1) }${ genColorLabel(` = "${ cur.value }"`, 3) }`, '')
     }
 
     return () => (

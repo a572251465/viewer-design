@@ -21,15 +21,14 @@
     background: mix($value, #fff, 15%);
     color: $value;
 
-    & > i:nth-child(1) {
+    .tips {
       color: $value;
       font-size: 18px;
       margin-right: 15px;
     }
 
-    span {
+    .selfSpan {
       display: inline-block;
-      min-width: 300px;
       white-space: normal;
     }
 
@@ -41,8 +40,16 @@
     }
   }
 
-  @include when(center) {
-    justify-content: center;
+  &-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 310px;
+
+    @include when(center) {
+      justify-content: center !important;
+      align-items: center;
+    }
   }
 }
 

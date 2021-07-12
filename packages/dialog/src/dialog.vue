@@ -3,7 +3,7 @@
     <cu-mask :z-index = "zIndex - 10" v-show = "changeValue" :center = "center"
              @closeHandle = "closeCurrentPage('mask')">
       <!-- 弹框显示内容部分 有head body footer -->
-      <div :class = "classNamePrefix" v-if = "!isDirective" :style = "outerStyle">
+      <div :class = "classNamePrefix" v-if = "!isDirective" @click.stop = '() => {}' :style = "outerStyle">
         <div :class = "dynamicClassName('header')"
              v-if = "visibleHeader">
           <span>{{ title }}</span>

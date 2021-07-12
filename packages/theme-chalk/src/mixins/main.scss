@@ -1,10 +1,11 @@
 @import "./mixins.scss";
 @import "./config.scss";
 
-@mixin sizeMixin($component, $dist: 'Button') {
+@mixin sizeMixin($component, $dist: '') {
   @each $key in (big, medium, small, mini) {
 
-    $value: getValueByKey(#{$key}) !global;
+    $var: $key + $dist;
+    $value: getValueByKey(#{$var}) !global;
     $height: getValueByKey(#{$key}H) !global;
     @at-root {
       .#{$namespace}-#{$component}#{$modifier-separator}#{$key} {

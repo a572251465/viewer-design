@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "webpack serve --config story/config/webpack.config.js",
+    "start": "webpack serve --config story/config/webpack.dev.js",
+    "build": "webpack --config story/config/webpack.pro.js",
     "build:theme": "gulp build --gulpfile packages/theme-chalk/gulpfile.js",
     "build:umd": "webpack --config ./builds/webpack.umd.js",
     "build:esm-bundle": "rollup -c ./builds/rollup.component.js",
@@ -40,7 +41,8 @@
     "vue-loader": "^16.2.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "typescript": "^4.3.2",

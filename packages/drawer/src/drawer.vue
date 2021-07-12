@@ -2,7 +2,7 @@
   <transition name = 'cu-drawer-fade' @before-enter = '$emit("open")' @after-enter = '$emit("opened")'
               @before-leave = '$emit("close")' @after-leave = '$emit("closed")'>
     <cu-mask :zIndex = "zIndex - 10" v-show = "showFlag" @closeHandle = 'maskCloseHandle'>
-      <div :class = "classes" :style = "styles">
+      <div :class = "classes" :style = "styles" @click.stop = '() => {}'>
         <div class = "cu-drawer--title" v-if = "!$slots.title">
           <div class = "content">
             {{ title }}
@@ -26,7 +26,7 @@ import CuMask from '@viewer/mask'
 import { useZIndex } from '@viewer/use/useZIndex'
 import { styleCommonPrefix } from '@viewer/utils/types'
 import { useModel } from '@viewer/use/useModel'
-import { selfDialogDirective } from '@viewer/dialog'
+import { $selfDialog } from '@viewer/dialog'
 import { useEscLeave } from '@viewer/use/useEscLeave'
 
 export interface IBeforeClose {
@@ -49,7 +49,7 @@ export default defineComponent({
     },
     closeOnPressEscape: {
       type: Boolean,
-      default: true
+      default: false
     },
     direction: {
       type: String as PropType<'bottom' | 'top' | 'right' | 'left'>,
@@ -61,7 +61,7 @@ export default defineComponent({
     },
     clickMaskClose: {
       type: Boolean,
-      default: true
+      default: false
     },
     size: {
       type: [ String, Number ],
@@ -83,13 +83,14 @@ export default defineComponent({
     const zIndex = props.zIndex || useZIndex(),
         classes = computed(() => [
           `${ $namespace }-drawer`,
-          `${ $statePrefix }${ props.direction }`
+          `${ $statePrefix }${ props.direction }`,
+            `${$namespace}-drawer-animation-${props.direction}`
         ]),
         computedWidth = computed<string>(() => typeof props.size === 'number' ? props.size + 'px' : props.size + '%'),
         isWidth = computed<boolean>(() => [ 'bottom', 'top' ].includes(props.direction)),
         styles = computed<object>(() => ({
-          [isWidth ? 'width' : 'height']: computedWidth.value,
-          [isWidth ? 'height' : 'width']: '100%'
+          [isWidth.value ? 'height' : 'width']: computedWidth.value,
+          [isWidth.value ? 'width' : 'height']: '100%'
         })),
         showFlag = useModel(props.modelValue, val => emit('update:modelValue', val))
 
@@ -114,7 +115,7 @@ export default defineComponent({
     // 点击关闭按钮
     const closeBtnHandle = () => {
       Promise.resolve(props.beforeClose()).then(() => {
-        selfDialogDirective.confirm({
+        $selfDialog.confirm({
           message: '确定要关闭吗',
           ok: () => showFlag.value = false
         })

@@ -39,7 +39,7 @@ const example: ICodeDetail[] = [
     fields: [ { key: 'class', value: 'cu-icon-excel' } ]
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [
       { key: 'size', value: 'big' },
       { key: 'type', value: 'success' },
@@ -49,7 +49,7 @@ const example: ICodeDetail[] = [
     value: '编辑'
   },
   {
-    labelName: 'button',
+    labelName: 'cu-button',
     fields: [
       { key: 'size', value: 'mini' },
       { key: 'icon', value: 'right' }
