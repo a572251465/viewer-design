@@ -23,11 +23,11 @@
 <script lang = 'ts'>
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, watch } from 'vue'
 import CuMask from '@viewer/mask'
-import { useZIndex } from '@viewer/use/useZIndex'
-import { styleCommonPrefix } from '@viewer/utils/types'
-import { useModel } from '@viewer/use/useModel'
+import { useZIndex } from '../../use/useZIndex'
+import { styleCommonPrefix } from '../../utils/types'
+import { useModel } from '../../use/useModel'
 import { $selfDialog } from '@viewer/dialog'
-import { useEscLeave } from '@viewer/use/useEscLeave'
+import { useEscLeave } from '../../use/useEscLeave'
 
 export interface IBeforeClose {
   (): any | Promise<any>

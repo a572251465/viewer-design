@@ -9,9 +9,9 @@
 
 <script lang = "ts">
 import { computed, defineComponent, onBeforeMount, onMounted, ref } from 'vue'
-import { off, on } from '@viewer/utils/dom'
-import { throttle } from '@viewer/utils/tool'
-import { easeInOutCubic } from '@viewer/utils/animation'
+import { off, on } from '../../utils/dom'
+import { throttle } from '../../utils/tool'
+import { easeInOutCubic } from '../../utils/animation'
 
 export default defineComponent({
   name: 'cu-back-up',

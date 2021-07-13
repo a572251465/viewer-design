@@ -1,5 +1,5 @@
 import { defineComponent, h } from 'vue';
-import { styleCommonPrefix } from '@viewer/utils/types';
+import { styleCommonPrefix } from '../../utils/types'
 
 export default defineComponent({
   name: "cu-layout",

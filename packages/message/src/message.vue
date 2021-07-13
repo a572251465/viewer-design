@@ -27,9 +27,9 @@ import {
   ref,
   watch
 } from 'vue'
-import { styleCommonPrefix } from '@viewer/utils/types'
+import { styleCommonPrefix } from '../../utils/types'
 import { IType } from './types'
-import { useZIndex } from '@viewer/use/useZIndex'
+import { useZIndex } from '../../use/useZIndex'
 
 export default defineComponent({
   name: 'cu-message',

@@ -1,5 +1,5 @@
-import { off, on } from '@viewer/utils/dom'
-import { EVENT_CODE } from '@viewer/utils/define'
+import { off, on } from '../utils/dom'
+import { EVENT_CODE } from '../utils/define'
 
 const escStack: Function[] = []
 

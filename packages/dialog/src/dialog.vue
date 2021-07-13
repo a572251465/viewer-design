@@ -54,13 +54,13 @@
 <script lang = "ts">
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, watch } from 'vue'
 import { IBeforeClose, typeFun } from './types'
-import { styleCommonPrefix } from '@viewer/utils/types'
+import { styleCommonPrefix } from '../../utils/types'
 import CuButton from '@viewer/button'
 import CuMask from '@viewer/mask'
-import { useModel } from '@viewer/use/useModel'
 import { computedUnit } from './dialog-directive'
-import { useZIndex } from '@viewer/use/useZIndex'
-import { useEscLeave } from '@viewer/use/useEscLeave'
+import { useZIndex } from '../../use/useZIndex'
+import { useModel } from '../../use/useModel'
+import { useEscLeave } from '../../use/useEscLeave'
 
 export default defineComponent({
   name: 'cu-dialog',

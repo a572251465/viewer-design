@@ -18,7 +18,7 @@
 
 <script lang = "ts">
 import { computed, defineComponent, onMounted, PropType, ref, watch } from 'vue'
-import { styleCommonPrefix } from '@viewer/utils/types'
+import { styleCommonPrefix } from '../../utils/types'
 
 const typeFun = () => 'info' || 'primary' || 'warning' || 'danger' || 'success'
 

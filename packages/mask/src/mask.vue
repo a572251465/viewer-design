@@ -6,7 +6,7 @@
 
 <script lang = "ts">
 import { computed, defineComponent } from 'vue'
-import { styleCommonPrefix } from '@viewer/utils/types'
+import { styleCommonPrefix } from '../../utils/types'
 
 export default defineComponent({
   name: 'cu-mask',

@@ -45,8 +45,8 @@
 import { computed, defineComponent, onMounted, PropType, ref, watch } from 'vue'
 import { ISize, IType } from './types'
 import { autoFocusHandle } from './input'
-import { styleCommonPrefix } from '@viewer/utils/types'
-import { useModel } from '@viewer/use/useModel'
+import { styleCommonPrefix } from '../../utils/types'
+import { useModel } from '../../use/useModel'
 
 export default defineComponent({
   name: 'cu-input',

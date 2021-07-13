@@ -1,9 +1,16 @@
 {
-  "name": "root",
+  "name": "viewer-design",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
+  "files": [
+    "lib",
+    "packages"
+  ],
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "style": "lib/theme-chalk/index.css",
   "scripts": {
     "start": "webpack serve --config story/config/webpack.dev.js",
     "build": "webpack --config story/config/webpack.pro.js",

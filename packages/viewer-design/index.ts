@@ -12,7 +12,7 @@ import Drawer from '@viewer/drawer'
 import BackUp from '@viewer/back-up'
 import SlideTransition from '@viewer/slide-transition'
 import { App } from 'vue'
-import { InstallOption, setConfig } from '@viewer/utils/config'
+import { InstallOption, setConfig } from '../utils/config'
 
 const defaultInstallOpt: InstallOption = {
   dialogType: 'normal',

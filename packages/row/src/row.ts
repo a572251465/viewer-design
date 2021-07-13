@@ -1,8 +1,8 @@
-import { defineComponent, PropType, h, computed, provide } from 'vue';
-import { globalContext, IExistContext, IPassvalue, styleCommonPrefix } from '@viewer/utils/types';
+import { defineComponent, PropType, h, computed, provide } from 'vue'
+import { globalContext, IExistContext, IPassvalue, styleCommonPrefix } from '../../utils/types'
 
 const justifyFun = () => 'start' || 'end' || 'center' || 'space-around' || 'space-between',
-  alignFun = () => 'top' || 'middle' || 'bottom';
+  alignFun = () => 'top' || 'middle' || 'bottom'
 type IJustify = ReturnType<typeof justifyFun>
 type IAlign = ReturnType<typeof alignFun>
 type IAlignMap<T extends IAlign> = { [K in T]: string }
@@ -10,7 +10,7 @@ const alignMap: IAlignMap<IAlign> = {
   top: 'flex-start',
   middle: 'center',
   bottom: 'flex-end'
-};
+}
 // 表示从父类到子类合并类型
 type IProvide<T> = IPassvalue<T> & IExistContext
 
@@ -39,7 +39,7 @@ export default defineComponent({
     provide<IProvide<number>>(globalContext.row, {
       passValue: props.gutter,
       existContext: globalContext.row
-    });
+    })
 
     // 计算设置的样式
     const statePrefix = styleCommonPrefix.$statePrefix,
@@ -57,10 +57,10 @@ export default defineComponent({
       styles = computed(() => ({
         marginLeft: (- props.gutter) + 'px',
         marginRight: (- props.gutter) + 'px'
-      }));
+      }))
 
     return () => {
-      return h(props.tag, { class: classes.value, style: styles.value }, slots.default?.());
-    };
+      return h(props.tag, { class: classes.value, style: styles.value }, slots.default?.())
+    }
   }
-});
+})

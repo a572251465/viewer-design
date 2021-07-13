@@ -7,7 +7,7 @@
 
 <script lang = "ts">
 import { computed, defineComponent, PropType } from 'vue'
-import { styleCommonPrefix } from '@viewer/utils/types'
+import { styleCommonPrefix } from '../../utils/types'
 
 const sizeClassify = () => 'medium' || 'small' || 'mini' || 'big',
     typeClassify = () => 'primary' || 'success' || 'warning' || 'danger' || 'info' || 'text'

@@ -1,4 +1,4 @@
-import { getConfig } from '@viewer/utils/config'
+import { getConfig } from '../utils/config'
 
 const zIndexCache: number[] = []
 export const useZIndex = (): number => {

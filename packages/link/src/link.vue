@@ -7,9 +7,9 @@
 
 <script lang = "ts">
 import { computed, defineComponent, PropType } from 'vue'
-import { styleCommonPrefix } from '@viewer/utils/types'
+import { styleCommonPrefix } from '../../utils/types'
 
-const typeFun = () => 'primary' | 'success' | 'info' | 'danger' | 'warning'
+const typeFun = () => 'primary' || 'success' || 'info' || 'danger' || 'warning'
 
 export default defineComponent({
   name: 'cu-link',
