@@ -25,7 +25,7 @@ const menuList = ([
   {
     title: '前置',
     detail: [
-      { name: 'Installed', remark: '安装', isShowName: false },
+      { name: 'Introduce', remark: '介绍', isShowName: false },
       { name: 'FastStarted', remark: '快速上手', isShowName: false }
     ]
   }

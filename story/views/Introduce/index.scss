@@ -1,0 +1,54 @@
+@import "story/assets/css/var.scss";
+
+.demo-introduce {
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0 auto;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+
+    span {
+      font-size: 80px;
+      font-weight: bold;
+      color: $mainColor;
+      margin-left: 50px;
+      font-style: italic;
+      text-decoration: underline;
+      text-shadow: 5px 5px #ccc;
+    }
+  }
+
+  h2 {
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+  }
+
+  .content {
+    padding-left: 10px;
+    font-size: 15px;
+    line-height: 25px;
+
+    span {
+      font-weight: bold;
+      font-style: italic;
+      display: inline-block;
+      background: #eeeeee;
+      padding: 3px 5px;
+    }
+
+    i {
+      margin-right: 5px;
+    }
+
+    p {
+      padding-left: 20px;
+    }
+  }
+}
