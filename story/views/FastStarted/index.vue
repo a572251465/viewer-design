@@ -51,14 +51,14 @@
     </div>
     <div class = "pre" style="margin-top: 15px">
       import { createApp } from 'vue' <br/>
-      import ElementPlus from 'element-plus'; <br/>
+      import ViewerDesign from 'viewer-design'; <br/>
       import App from './App.vue'; <br/>
 
       const app = createApp(App) <br/>
-      app.use(ElementPlus, { zIndex: 3000 }); <br/>
+      app.use(ViewerDesign, { zIndex: 3000 }); <br/>
     </div>
     <h3>开始使用</h3>
-    <p>至此，一个基于 Vue 和 Element Plus 的开发环境已经搭建完毕，现在就可以编写代码了。各个组件的使用方法请参阅它们各自的文档。</p>
+    <p>至此，一个基于 Vue 和 Viewer Design 的开发环境已经搭建完毕，现在就可以编写代码了。各个组件的使用方法请参阅它们各自的文档。</p>
   </div>
 </template>
 
