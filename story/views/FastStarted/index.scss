@@ -1,0 +1,33 @@
+@import "story/assets/css/var.scss";
+
+.demo-fastStarted {
+  h2 {
+    color: $mainColor;
+    text-decoration: underline;
+  }
+
+  .warning {
+    width: 80%;
+  }
+}
+
+pre, .pre {
+  background: rgba(45, 45, 45, 0.8);
+  color: #ccc;
+  font-size: 13px;
+  width: 80%;
+  height: auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pre {
+  line-height: 25px;
+}
+
+.margin-top {
+  margin-top: 15px;
+}
