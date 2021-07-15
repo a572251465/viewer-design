@@ -67,6 +67,10 @@ const menu: IMenuItem[] = [
       {
         name: 'Drawer',
         remark: '抽屉'
+      },
+      {
+        name: 'Tooltip',
+        remark: '文字提示'
       }
     ]
   },
@@ -105,6 +109,14 @@ const menu: IMenuItem[] = [
       {
         name: 'infiniteScroll',
         remark: '无限滚动'
+      },
+      {
+        name: 'pagination',
+        remark: '分页'
+      },
+      {
+        name: 'timeLine',
+        remark: '时间线'
       }
     ]
   }
