@@ -21,6 +21,10 @@ export default defineComponent({
       type: Number,
       default: 0
     },
+    direction: {
+      type: String as PropType<'row' | 'column' | 'row-reverse' | 'column-reverse'>,
+      default: 'row'
+    },
     justify: {
       type: String as PropType<IJustify>,
       default: 'start'
@@ -45,13 +49,14 @@ export default defineComponent({
     const statePrefix = styleCommonPrefix.$statePrefix,
       classes = computed<(string | object)[]>(() => [
         `${ styleCommonPrefix.$namespace }-row`,
+        `${ styleCommonPrefix.$namespace }-row${ styleCommonPrefix.$modifierSeparator }${ props.direction }`,
         {
           [[
             statePrefix,
             [ 'start', 'end' ].includes(props.justify) ? 'flex-' : '',
             props.justify
           ].join('')]: props.justify,
-          [(statePrefix + alignMap[props.align])]: alignMap[props.align]
+          [statePrefix + props.align]: alignMap[props.align]
         }
       ]),
       styles = computed(() => ({

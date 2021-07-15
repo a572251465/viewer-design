@@ -3,6 +3,10 @@
 @include b(row) {
   display: flex;
 
+  @include directionMixin(row) {
+    flex-direction: $value;
+  }
+
   @include when(flex-start) {
     justify-content: flex-start;
   }

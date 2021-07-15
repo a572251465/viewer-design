@@ -65,7 +65,7 @@ export default defineComponent({
     },
     size: {
       type: [ String, Number ],
-      default: '30'
+      default: '40'
     },
     zIndex: {
       type: Number,

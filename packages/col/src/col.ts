@@ -41,11 +41,12 @@ export default defineComponent({
         `${ namespaces }-span-${ props.span }`,
         `${ namespaces }-offset-${ props.offset }`
       ]),
-      styles = computed(() => ({
-        order: props.order,
-        marginLeft: (result.passValue / 2) + 'px',
-        marginRight: (result.passValue / 2) + 'px'
-      }))
+      stylesOptions = { order: props.order }
+    if ( result.passValue ) {
+      stylesOptions['marginLeft'] = (result.passValue / 2) + 'px'
+      stylesOptions['marginRight'] = (result.passValue / 2) + 'px'
+    }
+    const styles = computed(() => (stylesOptions))
 
     return () => {
       return h(props.tag, { class: classes.value, style: styles.value }, slots.default?.())

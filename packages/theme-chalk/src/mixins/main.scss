@@ -37,3 +37,14 @@
     }
   }
 }
+
+@mixin directionMixin($component) {
+  @each $key in (row, row-reverse, column, column-reverse) {
+    $value: $key !global;
+    @at-root {
+      .#{$namespace}-#{$component}#{$modifier-separator}#{$key} {
+        @content;
+      }
+    }
+  }
+}

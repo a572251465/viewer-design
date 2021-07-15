@@ -39,6 +39,7 @@
     justify-content: flex-end;
     cursor: pointer;
     font-size: 13px;
+    white-space: nowrap;
   }
 
   @include colorMixin(alert) {
