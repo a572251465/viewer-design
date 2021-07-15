@@ -86,10 +86,10 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
-        path: '/mark',
-        name: 'mark',
+        path: '/mask',
+        name: 'mask',
         components: {
-          child: import(/* webpackChunkName: "mark" */ 'story/views/Mark/index.vue')
+          child: import(/* webpackChunkName: "mark" */ 'story/views/Mask/index.vue')
         }
       },
       {

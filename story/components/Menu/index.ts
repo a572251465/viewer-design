@@ -83,7 +83,7 @@ const menu: IMenuItem[] = [
     title: 'Other',
     detail: [
       {
-        name: 'Mark',
+        name: 'Mask',
         remark: '遮罩层'
       },
       {
