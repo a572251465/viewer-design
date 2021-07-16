@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { App, VNode } from 'vue'
 
 const typeClassify = () => 'success' || 'warning' || 'danger' || 'info';
 export type IType = ReturnType<typeof typeClassify>
@@ -25,7 +25,7 @@ export interface IMessage {
   success?: ISingleMessage,
   warning?: ISingleMessage,
   danger?: ISingleMessage,
-  info?: ISingleMessage
+  info?: ISingleMessage,
 }
 
 export type IMessageQueue = {

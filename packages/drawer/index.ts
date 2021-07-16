@@ -1,7 +1,11 @@
 import { App } from 'vue'
 import Drawer from './src/drawer.vue'
+import { IComponent } from '../utils/types'
 
 Drawer.install = (app: App) => {
   app.component(Drawer.name, Drawer)
 }
-export default Drawer
+
+const _Drawer: IComponent<typeof Drawer> = Drawer as IComponent<typeof Drawer>
+
+export default _Drawer
