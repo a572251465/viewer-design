@@ -8,10 +8,36 @@
 </template>
 
 <script lang = "ts">
-import { computed, defineComponent, onBeforeMount, onMounted, ref } from 'vue'
+import { computed, defineComponent, onBeforeMount, onMounted, reactive, ref } from 'vue'
 import { off, on } from '../../utils/dom'
 import { throttle } from '../../utils/tool'
 import { easeInOutCubic } from '../../utils/animation'
+
+interface IProps {
+  visibilityHeight: number,
+  right: number,
+  bottom: number
+}
+
+interface IResult {
+  visibilityHeight: number | undefined,
+  left: number | undefined,
+  top: number | undefined,
+  actualLeft: number
+}
+
+const computedPos = (el: HTMLDivElement | HTMLElement, props: IProps): IResult => {
+  const { left: actualLeft, height, bottom, right } = el.getBoundingClientRect()
+  const visibilityHeight = height > props.visibilityHeight ? props.visibilityHeight : 10
+  const left = right - props.right
+  const top = bottom - props.bottom
+  return {
+    visibilityHeight,
+    left,
+    top,
+    actualLeft
+  }
+}
 
 export default defineComponent({
   name: 'cu-back-up',
@@ -32,7 +58,11 @@ export default defineComponent({
       type: Number,
       default: 100
     },
-    style: {
+    idealLeft: {
+      type: Number,
+      default: 30
+    },
+    styles: {
       type: Object,
       default: () => ({})
     }
@@ -41,20 +71,32 @@ export default defineComponent({
   setup(props, { emit }) {
     // 设置元素的可见性
     let el = ref<HTMLElement | null>(null),
-        visible = ref<boolean>(false)
+        visible = ref<boolean>(false),
+        computedPosResult = reactive<IResult>({}),
+        isWindowScroll = ref<boolean>(false)
 
     // 设置样式
     const styles = computed(() => ({
-      right: `${ props.right }px`,
-      bottom: `${ props.bottom }px`,
-      ...props.style
+      left: `${ computedPosResult.left }px`,
+      top: `${ computedPosResult.top }px`,
+      ...props.styles
     }))
 
     const onScroll = () => {
-      visible.value = el.value.scrollTop >= props.visibilityHeight
+      visible.value = el.value.scrollTop >= computedPosResult.visibilityHeight
     }
 
-    const throttledScrollHandler = throttle(onScroll, 100)
+    const windowScroll = () => {
+      if ( el.value ) {
+        const { visibilityHeight, left, top } = computedPos(el.value, props)
+        computedPosResult.visibilityHeight = visibilityHeight
+        computedPosResult.left = left
+        computedPosResult.top = top
+      }
+    }
+
+    const throttledScrollHandler = throttle(onScroll, 16)
+    const windowScrollHandler = throttle(windowScroll, 0)
     onMounted(() => {
       el.value = document.documentElement
       if ( typeof props.target === 'string' ) {
@@ -65,9 +107,22 @@ export default defineComponent({
       } else {
         el.value = props.target as HTMLElement
       }
+
+      const { visibilityHeight, left, top, actualLeft } = computedPos(el.value, props)
+      computedPosResult.visibilityHeight = visibilityHeight
+      computedPosResult.left = left
+      computedPosResult.top = top
+
+      // 判断是否需要window滚动
+      isWindowScroll.value = actualLeft >= props.idealLeft
+
       on(el.value, 'scroll', throttledScrollHandler)
+      if ( isWindowScroll.value ) on(window.document.body, 'scroll', windowScrollHandler)
     })
-    onBeforeMount(() => off(el.value, 'scroll', throttledScrollHandler))
+    onBeforeMount(() => {
+      off(el.value, 'scroll', throttledScrollHandler)
+      if ( isWindowScroll.value ) off(window.document.body, 'scroll', windowScrollHandler)
+    })
 
     const scrollToTop = () => {
       const beginTime = Date.now(),

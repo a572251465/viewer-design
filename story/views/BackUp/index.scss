@@ -1,0 +1,48 @@
+@import "story/assets/css/var.scss";
+
+.back-up-demo {
+  h2 {
+    color: $mainColor;
+    text-decoration: underline;
+  }
+
+  h3 {
+    margin-top: 40px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .margin-right {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  .alertParent {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .table {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+
+    p {
+      border-bottom: 1px solid #cccccc;
+      color: black;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    p:nth-child(2n) {
+      background: #fff;
+    }
+
+    p:nth-child(2n + 1) {
+      background: #eeeeee;
+    }
+  }
+}

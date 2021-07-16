@@ -1,21 +1,30 @@
 export const on = function(
-  element: HTMLElement | Document | Window,
+  element: HTMLElement | Document | Window & { nodeName: string },
   event: string,
   handler: EventListenerOrEventListenerObject,
   useCapture = false
 ): void {
   if ( element && event && handler ) {
-    element.addEventListener(event, handler, useCapture)
+    if ( [ 'BODY', 'HTML' ].includes(element.nodeName) ) {
+      // @ts-ignore
+      element.onscroll = handler
+    } else {
+      element.addEventListener(event, handler, useCapture)
+    }
   }
 }
 
 export const off = function(
-  element: HTMLElement | Document | Window,
+  element: HTMLElement | Document | Window & { nodeName: string },
   event: string,
   handler: EventListenerOrEventListenerObject
 ): void {
   if ( element && event && handler ) {
-    element.removeEventListener(event, handler, false)
+    if ( [ 'BODY', 'HTML' ].includes(element.nodeName) ) {
+      element.onscroll = null
+    } else {
+      element.removeEventListener(event, handler, false)
+    }
   }
 }
 

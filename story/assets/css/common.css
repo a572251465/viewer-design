@@ -6,3 +6,10 @@ ul, li, html, body, #app {
 li {
     list-style: none;
 }
+
+body {
+    height: 100%;
+}
+body {
+    overflow: scroll;
+}

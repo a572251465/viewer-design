@@ -1,5 +1,5 @@
 <template>
-  <div class = "home">
+  <div class = "home" id = "home">
     <Header class = "home-header"></Header>
     <div class = "home-body">
       <Left class = "home-body-left"></Left>
