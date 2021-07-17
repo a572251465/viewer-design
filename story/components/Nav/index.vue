@@ -2,14 +2,14 @@
   <div class = "home-nav">
     <cu-time-line>
       <cu-time-line-item v-for = 'item in navList' :color = 'item.color' :hideTimestamp = true>
-        <a href = "javascript:void(0);">{{ item.desc }}</a>
+        <a href = "javascript:void(0);" @click = "navTipsHandle">{{ item.desc }}</a>
       </cu-time-line-item>
     </cu-time-line>
   </div>
 </template>
 
 <script lang = "ts">
-import { defineComponent, onMounted, reactive, watch, toRefs } from 'vue'
+import { defineComponent, onMounted, reactive, watch, toRefs, getCurrentInstance } from 'vue'
 import { useRoute } from 'vue-router'
 import targetMenuList from 'story/components/Menu/index'
 import { IDetail, IMenuItem } from '../Menu'
@@ -47,6 +47,7 @@ export default defineComponent({
   setup() {
     const route = useRoute()
     const state = reactive({ navList: [] })
+    const { proxy } = getCurrentInstance()
 
     while ( menuList.some(item => Array.isArray(item)) ) {
       menuList = [].concat(...menuList)
@@ -67,12 +68,15 @@ export default defineComponent({
       state.navList = stepChild[0].stepChild.map(item => ({ ...item, color: randomBk() }))
     }
 
+    const navTipsHandle = () => proxy.$Message.danger('目前不支持跳转哦，先给您一个提示哦')
+
     watch(route, computedRouteName)
 
     onMounted(() => computedRouteName())
 
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      navTipsHandle
     }
   }
 })
