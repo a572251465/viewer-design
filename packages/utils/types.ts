@@ -8,7 +8,8 @@ export enum styleCommonPrefix {
 }
 
 export enum globalContext {
-  row = 'ROW--CONTEXT'
+  row = 'ROW--CONTEXT',
+  timeLine = 'TIME-LINE'
 }
 
 // 表示自上而下传递的值

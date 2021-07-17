@@ -1,0 +1,68 @@
+@import "./mixins/main.scss";
+@import "./mixins/animation.scss";
+
+@include b(time-line-item) {
+  display: flex;
+  flex-direction: row;
+  &__left {
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__right {
+    padding-bottom: 20px;
+    display: flex;
+    margin-top: -3px;
+
+    @include when(bottom) {
+      flex-direction: column-reverse;
+    }
+
+    @include when(top) {
+      flex-direction: column;
+    }
+  }
+
+  &--line {
+    width: 2px;
+    height: 100%;
+    background: #e4e7ed;
+  }
+
+  &--spot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-radius: 50%;
+
+    & > i {
+      font-size: 14px;
+    }
+  }
+
+  &--timestamp {
+    color: #909399;
+    font-size: 13px;
+  }
+
+  &--content {
+    color: #303133;
+    font-size: 14px;
+  }
+
+  @include colorMixin(time-line-item) {
+    background: $value;
+  }
+
+  @include sizeMixin(time-line-item, TimeLine) {
+    width: $value + px;
+    height: $value + px;
+  }
+}

@@ -100,6 +100,13 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: '/timeLine',
+        name: 'timeLine',
+        components: {
+          child: import(/* webpackChunkName: "message" */ 'story/views/TimeLine/index.vue')
+        }
+      },
+      {
         path: '/:pathMatch(.*)*',
         components: {
           child: import(/* webpackChunkName: "notFound" */ 'story/views/NotFound/index.vue')

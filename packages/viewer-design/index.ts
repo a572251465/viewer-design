@@ -11,6 +11,8 @@ import Alert from '@viewer/alert'
 import Drawer from '@viewer/drawer'
 import BackUp from '@viewer/back-up'
 import SlideTransition from '@viewer/slide-transition'
+import TimeLine from '@viewer/time-line'
+import TimeLineItem from '@viewer/time-line-item'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '../utils/config'
 
@@ -31,7 +33,9 @@ const components = [
   Alert,
   Drawer,
   BackUp,
-  SlideTransition
+  SlideTransition,
+  TimeLine,
+  TimeLineItem
 ]
 
 const plugins = [
@@ -68,5 +72,7 @@ export {
   BackUp,
   SlideTransition,
   Message,
-  ITypeDialog
+  ITypeDialog,
+  TimeLine,
+  TimeLineItem
 }

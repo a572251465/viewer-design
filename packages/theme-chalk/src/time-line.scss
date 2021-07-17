@@ -1,0 +1,10 @@
+@import "./mixins/main.scss";
+
+@include b(time-line) {
+  font-size: 14px;
+  .cu-time-line-item:last-child {
+    .cu-time-line-item--line {
+      display: none;
+    }
+  }
+}
