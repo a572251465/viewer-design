@@ -65,18 +65,21 @@
     <div class = "content">
       <ul>
         <li>
-          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> GitHub：<a target="_blank" href = "https://github.com/a572251465/viewer-design">Viewer-Design</a>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> GitHub：<a target = "_blank"
+                                                                                     href = "https://github.com/a572251465/viewer-design">Viewer-Design</a>
         </li>
         <li>
-          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> Gitee：<a target="_blank" href = "https://gitee.com/li_haohao_1/viewer-design">Viewer-Design</a>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> Gitee：<a target = "_blank"
+                                                                                    href = "https://gitee.com/li_haohao_1/viewer-design">Viewer-Design</a>
         </li>
       </ul>
     </div>
     <h2>更多作品</h2>
-    <div class="content">
+    <div class = "content">
       <ul>
         <li>
-          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span><a target="_blank" href = "https://github.com/a572251465/postcss-transform-unit">postcss-transform-unit</a></span>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span><a target = "_blank"
+                                                                                    href = "https://github.com/a572251465/postcss-transform-unit">postcss-transform-unit</a></span>
           <p>本插件用来做编译时候，rem, rpx, px单位转化, 已经在我司微信小程序上使用</p>
         </li>
       </ul>
@@ -87,11 +90,7 @@
 <script lang = "ts">
 import { defineComponent } from 'vue'
 import logoImg from 'story/assets/images/logo.png'
-
-const randomBk = () => {
-  const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
-  return `rgb(${ getRandom(0, 255) },${ getRandom(0, 255) },${ getRandom(0, 255) })`
-}
+import { randomBk } from 'story/utils/index'
 
 export default defineComponent({
   name: 'introduce',
