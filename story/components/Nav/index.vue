@@ -40,7 +40,7 @@ let menuList = ([
     ]
   }
 ] as IMenuItem[]).concat(targetMenuList as IMenuItem[])
-menuList = menuList.map(item => item.detail)
+let newMenuList = menuList.map(item => item.detail)
 
 export default defineComponent({
   name: 'home-nav',
@@ -49,8 +49,8 @@ export default defineComponent({
     const state = reactive({ navList: [] })
     const { proxy } = getCurrentInstance()
 
-    while ( menuList.some(item => Array.isArray(item)) ) {
-      menuList = [].concat(...menuList)
+    while ( newMenuList.some(item => Array.isArray(item)) ) {
+      newMenuList = [].concat(...newMenuList)
     }
 
     const computedRouteName = () => {
@@ -59,8 +59,8 @@ export default defineComponent({
         state.navList = [ { desc: '奋笔疾书,努力开发中......' } ]
         return false
       }
-      name = name.charAt(0).toUpperCase() + name.slice(1)
-      let stepChild = (menuList as IDetail[]).filter(item => item.name === name)
+      name = (name as string).charAt(0).toUpperCase() + (name as string).slice(1)
+      let stepChild = (newMenuList as any as IDetail[]).filter(item => item.name === name)
       if ( !stepChild ) {
         state.navList = [ { desc: '奋笔疾书,努力开发中......' } ]
         return false
