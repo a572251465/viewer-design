@@ -13,6 +13,8 @@ import BackUp from '@viewer/back-up'
 import SlideTransition from '@viewer/slide-transition'
 import TimeLine from '@viewer/time-line'
 import TimeLineItem from '@viewer/time-line-item'
+import Form from '@viewer/form'
+import FormItem from '@viewer/form-item'
 import { App } from 'vue'
 import { InstallOption, setConfig } from '../utils/config'
 
@@ -35,7 +37,9 @@ const components = [
   BackUp,
   SlideTransition,
   TimeLine,
-  TimeLineItem
+  TimeLineItem,
+  Form,
+  FormItem
 ]
 
 const plugins = [
@@ -74,5 +78,7 @@ export {
   Message,
   ITypeDialog,
   TimeLine,
-  TimeLineItem
+  TimeLineItem,
+  Form,
+  FormItem
 }

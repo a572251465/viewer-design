@@ -74,6 +74,10 @@ const menu: IMenuItem[] = [
       {
         name: 'Rate',
         remark: '评分'
+      },
+      {
+        name: 'Form',
+        remark: '表单'
       }
     ]
   },

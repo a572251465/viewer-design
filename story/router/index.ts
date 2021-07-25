@@ -107,6 +107,13 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: '/form',
+        name: 'form',
+        components: {
+          child: import(/* webpackChunkName: "message" */ 'story/views/Form/index.vue')
+        }
+      },
+      {
         path: '/:pathMatch(.*)*',
         components: {
           child: import(/* webpackChunkName: "notFound" */ 'story/views/NotFound/index.vue')

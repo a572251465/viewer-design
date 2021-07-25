@@ -10,3 +10,6 @@ export const EVENT_CODE = {
   delete: 'Delete',
   backspace: 'Backspace'
 }
+
+export const ON_EMIT_KEY = 'cu-form-item'
+export const FORM_INJECT_OBJ = 'form-inject-obj'

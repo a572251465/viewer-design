@@ -1,0 +1,30 @@
+@import "./mixins/main.scss";
+@import "./mixins/animation.scss";
+
+@include b(form-item) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include when(top) {
+    flex-direction: column !important;
+  }
+
+  &-left {
+    display: flex;
+    align-items: center;
+  }
+
+  &-right {
+    & > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .error {
+      font-size: 12px;
+      color: $--color-danger;
+    }
+  }
+}
