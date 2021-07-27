@@ -7,7 +7,7 @@ interface ISubFun {
 }
 
 class PublishSubscribe {
-  public pool: { [keyName: string]: ISubFun[] }
+  public pool: { [keyName: string]: ISubFun[] } = {}
 
   on(name: string, event: ISubFun) {
     const target = this.pool[name]

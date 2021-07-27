@@ -9,7 +9,11 @@ import { ComponentPublicInstance, defineComponent, onBeforeMount, onBeforeUnmoun
 import useOnEmit from '../../use/useOnEmit'
 import { FORM_INJECT_OBJ, ON_EMIT_KEY } from '../../utils/define'
 
-const instanceArr: ComponentPublicInstance[] = []
+const instanceArr: ComponentPublicInstance<IInstance>[] = []
+type IInstance = {
+  validate?: () => boolean,
+  reset?: () => void
+}
 const subscribeFun = (instance: ComponentPublicInstance) => {
   if ( instanceArr.includes(instance) ) return false
   instanceArr.push(instance)
@@ -26,9 +30,10 @@ export default defineComponent({
       type: Object as PropType<{
         [keyName: string]: {
           required?: boolean,
+          type?: string,
           message: string,
           checkFun?: Function
-        }
+        }[]
       }>,
       required: true
     }
@@ -52,6 +57,32 @@ export default defineComponent({
       useOnEmit.off(ON_EMIT_KEY, subscribeFun)
       instanceArr.length = 0
     })
+
+    const check = () => {
+      return new Promise((resolve) => {
+        let i = 0
+        for ( ; i < instanceArr.length; i ++ ) {
+          const item = instanceArr[i],
+              result = item.validate()
+          if ( !result ) {
+            return resolve(false)
+          }
+        }
+        resolve(true)
+      })
+    }
+
+    const reset = () => {
+      return new Promise((resolve) => {
+        instanceArr.forEach(item => item.reset())
+        resolve(true)
+      })
+    }
+
+    return {
+      check,
+      reset
+    }
   }
 })
 </script>

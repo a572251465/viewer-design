@@ -14,7 +14,7 @@
 import { computed, defineComponent, getCurrentInstance, inject, onMounted, PropType, ref } from 'vue'
 import useOnEmit from '../../use/useOnEmit'
 import { FORM_INJECT_OBJ, ON_EMIT_KEY } from '../../utils/define'
-import { isEmail, isEmpty, isHttp, isNumber, isPhone } from '../../utils/tool'
+import { isEmail, isHttp, isNotEmpty, isNumber, isPhone } from '../../utils/tool'
 import { styleCommonPrefix } from '../../utils/types'
 
 const typeCompareFun = {
@@ -31,7 +31,7 @@ const mergeCheck = (rules) => {
     if ( required ) {
       return {
         message,
-        checkFun: checkFun || isEmpty
+        checkFun: checkFun || isNotEmpty
       }
     }
     const defaultFun = () => true
@@ -84,7 +84,7 @@ export default defineComponent({
     const validate = (): boolean => {
       const value = model[props.prop],
           singleRules = mergeCheck(rules[props.prop])
-      if ( !value || !singleRules || (Array.isArray(singleRules) && singleRules.length === 0) ) return true
+      if ( !singleRules || (Array.isArray(singleRules) && singleRules.length === 0) ) return true
 
       let i = 0
       for ( ; i < singleRules.length; i ++ ) {

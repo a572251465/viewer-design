@@ -77,7 +77,10 @@ const menu: IMenuItem[] = [
       },
       {
         name: 'Form',
-        remark: '表单'
+        remark: '表单',
+        stepChild: [
+          { desc: '基本用法' }
+        ]
       }
     ]
   },
