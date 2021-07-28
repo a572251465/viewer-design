@@ -1,0 +1,29 @@
+@import "story/assets/css/var.scss";
+
+.form-demo {
+  h2 {
+    color: $mainColor;
+    text-decoration: underline;
+  }
+
+  h3 {
+    margin-top: 40px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .margin-right {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+
+  .btns {
+    margin-left: 20px;
+  }
+
+  .form-item {
+    margin-top: 15px;
+  }
+}

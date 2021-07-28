@@ -16,12 +16,19 @@
     display: flex;
     align-items: center;
     height: 40px;
+    box-sizing: border-box;
   }
 
   &-right {
     & > div {
       display: flex;
       flex-direction: column;
+    }
+
+    @include when(error) {
+      .cu-input input, .cu-input textarea {
+        border-color: $--color-danger;
+      }
     }
 
     .error {

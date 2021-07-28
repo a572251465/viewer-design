@@ -1,7 +1,7 @@
 <template>
   <div class = "cu-form-item" :class = 'classes'>
     <label class = "cu-form-item-left" :style = "styles" :for = "label" v-if = "label">{{ label }}</label>
-    <div class = "cu-form-item-right">
+    <div class = "cu-form-item-right" :class = "[errorStatus ? 'is-error' : '']">
       <div>
         <slot></slot>
         <label class = "error" v-show = "errorMsg">{{ errorMsg }}</label>
@@ -22,6 +22,12 @@ const typeCompareFun = {
   'phone': isPhone,
   'email': isEmail,
   'http': isHttp
+}
+
+const labelPosMapping: {[keyName: string]: string} = {
+  left: 'flex-start',
+  top: 'flex-start',
+  right: 'flex-end'
 }
 
 const mergeCheck = (rules) => {
@@ -69,7 +75,8 @@ export default defineComponent({
     ])
     const styles = computed(() => ({
       width: typeof props.width === 'string' ? props.width : `${ props.width }px`,
-      textAlign: props.labelPos === 'top' ? 'center' : props.labelPos
+      justifyContent: labelPosMapping[props.labelPos],
+      paddingRight: props.labelPos === 'right' ? '15px' : '0px'
     }))
 
     const { model, rules } = inject<{ model: object, rules: object }>(FORM_INJECT_OBJ)
@@ -108,7 +115,8 @@ export default defineComponent({
       validate,
       reset,
       classes,
-      styles
+      styles,
+      errorStatus
     }
   }
 })
