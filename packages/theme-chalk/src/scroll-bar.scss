@@ -1,0 +1,5 @@
+@import "./mixins/main.scss";
+
+@include b(scroll-bar) {
+  position: relative;
+}

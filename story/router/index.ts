@@ -114,6 +114,20 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: '/scrollBar',
+        name: 'scrollBar',
+        components: {
+          child: import(/* webpackChunkName: "message" */ 'story/views/ScrollBar/index.vue')
+        }
+      },
+      {
+        path: '/carousel',
+        name: 'carousel',
+        components: {
+          child: import(/* webpackChunkName: "message" */ 'story/views/Carousel/index.vue')
+        }
+      },
+      {
         path: '/:pathMatch(.*)*',
         components: {
           child: import(/* webpackChunkName: "notFound" */ 'story/views/NotFound/index.vue')

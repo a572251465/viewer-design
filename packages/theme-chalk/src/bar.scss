@@ -1,0 +1,14 @@
+@import "./mixins/main.scss";
+
+@include b(bar) {
+  @include when(vertical) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  @include when(horizontal) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}

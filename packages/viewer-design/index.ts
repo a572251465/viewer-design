@@ -5,7 +5,7 @@ import Row from '@viewer/row'
 import Input from '@viewer/input'
 import Message from '@viewer/message'
 import Mark from '@viewer/mask'
-import Dialog, { ITypeDialog } from '@viewer/dialog'
+import Dialog, {ITypeDialog} from '@viewer/dialog'
 import Link from '@viewer/link'
 import Alert from '@viewer/alert'
 import Drawer from '@viewer/drawer'
@@ -15,8 +15,11 @@ import TimeLine from '@viewer/time-line'
 import TimeLineItem from '@viewer/time-line-item'
 import Form from '@viewer/form'
 import FormItem from '@viewer/form-item'
-import { App } from 'vue'
-import { InstallOption, setConfig } from '../utils/config'
+import ScrollBar from '@viewer/scroll-bar'
+import Carousel from '@viewer/carousel'
+import CarouselItem from '@viewer/carousel-item'
+import {App} from 'vue'
+import {InstallOption, setConfig} from '../utils/config'
 
 const defaultInstallOpt: InstallOption = {
   dialogType: 'normal',
@@ -39,7 +42,10 @@ const components = [
   TimeLine,
   TimeLineItem,
   Form,
-  FormItem
+  FormItem,
+  ScrollBar,
+  Carousel,
+  CarouselItem
 ]
 
 const plugins = [
@@ -60,7 +66,7 @@ const install = (app: App, opt: InstallOption) => {
   setConfig(option)
 }
 
-export default { install }
+export default {install}
 
 export {
   Button,
@@ -80,5 +86,8 @@ export {
   TimeLine,
   TimeLineItem,
   Form,
-  FormItem
+  FormItem,
+  ScrollBar,
+  Carousel,
+  CarouselItem
 }

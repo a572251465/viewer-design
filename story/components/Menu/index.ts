@@ -45,8 +45,11 @@ const menu: IMenuItem[] = [
         ],
       },
       {
-        name: "Scrollbar",
+        name: "ScrollBar",
         remark: "滚动条",
+        stepChild: [
+          {desc: '基本用法'}
+        ]
       },
     ],
   },
@@ -197,10 +200,6 @@ const menu: IMenuItem[] = [
         remark: "滑动",
       },
       {
-        name: "Carousel",
-        remark: "走马灯",
-      },
-      {
         name: "Collapse",
         remark: "折叠面板",
       },
@@ -224,6 +223,13 @@ const menu: IMenuItem[] = [
           { desc: "Time-Line-Item Props" },
         ],
       },
+      {
+        name: 'Carousel',
+        remark: '走马灯',
+        stepChild: [
+          { desc: "基础用法" }
+        ]
+      }
     ],
   },
 ];
