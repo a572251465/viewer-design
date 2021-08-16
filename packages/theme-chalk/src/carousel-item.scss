@@ -1,0 +1,28 @@
+@import "./mixins/main.scss";
+@import "./mixins/animation.scss";
+
+@include b(carousel-item) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.cu-carousel-item-forward-enter-active, .cu-carousel-item-forward-leave-active {
+    transition: all .3s ease-in;
+}
+
+.cu-carousel-item-forward-enter-active {
+    transform: translateX(100%);
+}
+
+.cu-carousel-item-forward-enter-to {
+    transform: translateX(0);
+}
+
+.cu-carousel-item-forward-leave-active {
+    transform: translateX(0);
+}
+
+.cu-carousel-item-forward-leave-to {
+    transform: translateX(-100%);
+}

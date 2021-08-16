@@ -1,15 +1,21 @@
+import {PropType} from 'vue'
+
 export default {
   height: {
     type: String,
-    required: true
+    default: '200px'
   },
   initialIndex: {
     type: Number,
     default: 0
   },
   trigger: {
-    type: String,
+    type: String as PropType<'click' | 'hover'>,
     default: 'click'
+  },
+  direction: {
+    type: String as PropType<'horizontal' | 'vertical'>,
+    default: 'horizontal'
   },
   autoplay: {
     type: Boolean,
@@ -17,7 +23,11 @@ export default {
   },
   interval: {
     type: Number,
-    default: 3000
+    default: 2000
+  },
+  suspenStop: {
+    type: Boolean,
+    default: true
   },
   type: {
     type: String,

@@ -1,13 +1,33 @@
 <template>
-  <div>
-    carousel-item
-  </div>
+  <transition name = 'cu-carousel-item-forward'>
+    <div class="cu-carousel-item" v-if="currentComponentIden === currentCheckedIndex">
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script lang = 'ts'>
-import { defineComponent } from "@vue/runtime-core";
+import { defineComponent, inject, onMounted, ref } from "@vue/runtime-core";
+import { IIdenProvide } from "../../carousel/src/types";
 
 export default defineComponent({
-  name: 'cu-carousel-item'
+  name:  'cu-carousel-item',
+  setup() {
+    // 进行依赖注入
+    const injectObj: IIdenProvide = inject<IIdenProvide>('componentIden')
+    const currentComponentIden = ref(0)
+    const currentCheckedIndex = injectObj.currentCheckedIndex
+
+    // 组件被创建钩子函数
+    onMounted(() => {
+      currentComponentIden.value = injectObj.componentIden.value
+      injectObj.changeIden()
+    })
+
+    return {
+      currentComponentIden,
+      currentCheckedIndex
+    }
+  }
 })
 </script>

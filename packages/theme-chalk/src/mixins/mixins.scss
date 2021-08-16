@@ -24,6 +24,14 @@ $baseTheme: map-get($theme-default, 'default');
   }
 }
 
+@mixin cPrefix($component, $prefix) {
+  @at-root {
+    &.#{$component}-#{$prefix} {
+      @content;
+    }
+  }
+}
+
 @mixin whenInner($state) {
   @at-root {
     .#{$state-prefix + $state} {

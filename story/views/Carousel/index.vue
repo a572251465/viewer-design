@@ -4,11 +4,13 @@
     <p>提供一种可以灵活配置的走马灯</p>
     <h3>基础用法</h3>
     <code-source :showFlag = true :targetCode = 'example'>
-      <carousel>
-        <carousel-item v-for="item in colors" :key = 'item'>
-          <div :style="{background: item}">{{item}}</div>
-        </carousel-item>
-      </carousel>
+      <div class="container">
+        <cu-carousel>
+          <cu-carousel-item v-for="(item, key) in colors" :key = 'item'>
+            <div :style="{background: item, width: '100%', height: '100%'}" class="justify-align-center">{{key + 1}}</div>
+          </cu-carousel-item>
+        </cu-carousel>
+      </div>
     </code-source>
   </div>
 </template>
