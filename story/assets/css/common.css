@@ -12,4 +12,5 @@ body {
 }
 body {
     overflow: scroll;
+    overflow-x: hidden;
 }

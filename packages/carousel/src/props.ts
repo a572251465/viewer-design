@@ -25,13 +25,17 @@ export default {
     type: Number,
     default: 2000
   },
-  suspenStop: {
+  pauseOnHover: {
     type: Boolean,
     default: true
   },
   type: {
     type: String,
     default: 'card'
+  },
+  indicatorPosition: {
+    type: String as PropType<'outside' | 'none'>,
+    default: 'none'
   },
   loop: {
     type: Boolean,

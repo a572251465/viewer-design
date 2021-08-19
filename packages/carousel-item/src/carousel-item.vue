@@ -1,5 +1,5 @@
 <template>
-  <transition name = 'cu-carousel-item-forward'>
+  <transition :name = 'transitionName'>
     <div class="cu-carousel-item" v-if="currentComponentIden === currentCheckedIndex">
       <slot></slot>
     </div>
@@ -7,7 +7,7 @@
 </template>
 
 <script lang = 'ts'>
-import { defineComponent, inject, onMounted, ref } from "@vue/runtime-core";
+import { computed, defineComponent, inject, onMounted, ref } from "@vue/runtime-core";
 import { IIdenProvide } from "../../carousel/src/types";
 
 export default defineComponent({
@@ -17,6 +17,7 @@ export default defineComponent({
     const injectObj: IIdenProvide = inject<IIdenProvide>('componentIden')
     const currentComponentIden = ref(0)
     const currentCheckedIndex = injectObj.currentCheckedIndex
+    const direction = injectObj.direction
 
     // 组件被创建钩子函数
     onMounted(() => {
@@ -24,9 +25,13 @@ export default defineComponent({
       injectObj.changeIden()
     })
 
+    // -- 计算动画名称
+    const transitionName = computed<string>(() => direction === 'horizontal' ? 'cu-carousel-item-forward' : 'cu-carousel-item-upward')
+
     return {
       currentComponentIden,
-      currentCheckedIndex
+      currentCheckedIndex,
+      transitionName
     }
   }
 })

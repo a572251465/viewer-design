@@ -7,7 +7,8 @@
     position: absolute;
 }
 
-.cu-carousel-item-forward-enter-active, .cu-carousel-item-forward-leave-active {
+.cu-carousel-item-forward-enter-active, .cu-carousel-item-forward-leave-active,
+.cu-carousel-item-upward-enter-active, .cu-carousel-item-upward-leave-active {
     transition: all .3s ease-in;
 }
 
@@ -25,4 +26,20 @@
 
 .cu-carousel-item-forward-leave-to {
     transform: translateX(-100%);
+}
+
+.cu-carousel-item-upward-enter-active {
+    transform: translateY(100%);
+}
+
+.cu-carousel-item-upward-enter-to {
+    transform: translateY(0);
+}
+
+.cu-carousel-item-upward-leave-active {
+    transform: translateY(0);
+}
+
+.cu-carousel-item-upward-leave-to {
+    transform: translateY(-100%);
 }

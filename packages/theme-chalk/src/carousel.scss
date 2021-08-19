@@ -24,6 +24,7 @@
             line-height: 36px;
             cursor: pointer;
             transform: translateY(-50%);
+            transition: transform .3s;
 
             i {
                 font-size: 11px !important;
@@ -32,10 +33,81 @@
         }
 
         .left-btn {
-            left: 10px;
+            left: 15px;
         }
         .right-btn {
             right: 15px;
+        }
+
+        &-tips-inner-upward {
+            position: absolute;
+            right: 0px;
+            height: 100%;
+            padding: 0px 8px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            &-detail {
+                display: inline-block;
+
+                button {
+                    opacity: .3;
+                    width: 6px;
+                    height: 20px;
+                    display: block;
+                    border: none;
+                    outline: none;
+                    padding: 0;
+                    margin: 0;
+                    cursor: pointer;
+                    background: #ccc;
+                    margin-top: 15px;
+        
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+
+                .active {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &-tips-inner {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 8px 0px;
+            display: flex;
+            justify-content: center;
+    
+            &-detail {
+                display: inline-block;
+        
+                button {
+                    opacity: .3;
+                    width: 40px;
+                    height: 6px;
+                    display: block;
+                    border: none;
+                    outline: none;
+                    padding: 0;
+                    margin: 0;
+                    cursor: pointer;
+                    background: #ccc;
+                    margin-left: 15px;
+        
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+        
+                .active {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
@@ -72,4 +144,16 @@
             opacity: 1;
         }
     }
+}
+
+.cu-carousel-left-allow-btn-enter,
+.cu-carousel-left-allow-btn-leave-active {
+  transform: translateY(-50%) translateX(15px);
+  opacity: 0;
+}
+
+.cu-carousel-right-allow-btn-enter,
+.cu-carousel-right-allow-btn-leave-active {
+  transform: translateY(-50%) translateX(15px);
+  opacity: 0;
 }
