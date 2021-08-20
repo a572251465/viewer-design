@@ -227,7 +227,10 @@ const menu: IMenuItem[] = [
         name: 'Carousel',
         remark: '走马灯',
         stepChild: [
-          { desc: "基础用法" }
+          { desc: "基础用法" },
+          { desc: "上下滑动" },
+          { desc: "设置不自动轮播" },
+          { desc: "指示条在外" }
         ]
       }
     ],

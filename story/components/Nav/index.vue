@@ -1,7 +1,7 @@
 <template>
   <div class = "home-nav">
     <cu-time-line>
-      <cu-time-line-item v-for = 'item in navList' :color = 'item.color' :hideTimestamp = true>
+      <cu-time-line-item v-for = '(item, key) in navList' :key="key" :color = 'item.color' :hideTimestamp = true>
         <a href = "javascript:void(0);" @click = "navTipsHandle">{{ item.desc }}</a>
       </cu-time-line-item>
     </cu-time-line>

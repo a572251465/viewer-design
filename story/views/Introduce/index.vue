@@ -65,12 +65,12 @@
     <div class = "content">
       <ul>
         <li>
-          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> GitHub：<a target = "_blank"
-                                                                                     href = "https://github.com/a572251465/viewer-design">Viewer-Design</a>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i>
+          GitHub：<a target = "_blank" href = "https://github.com/a572251465/viewer-design">Viewer-Design</a>
         </li>
         <li>
-          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> Gitee：<a target = "_blank"
-                                                                                    href = "https://gitee.com/li_haohao_1/viewer-design">Viewer-Design</a>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i>
+            Gitee：<a target = "_blank" href = "https://gitee.com/li_haohao_1/viewer-design">Viewer-Design</a>
         </li>
       </ul>
     </div>
@@ -78,9 +78,19 @@
     <div class = "content">
       <ul>
         <li>
-          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span><a target = "_blank"
-                                                                                    href = "https://github.com/a572251465/postcss-transform-unit">postcss-transform-unit</a></span>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "https://github.com/a572251465/postcss-transform-unit">postcss-transform-unit</a></span>
           <p>本插件用来做编译时候，rem, rpx, px单位转化, 已经在我司微信小程序上使用</p>
+        </li>
+        <li>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "http://lihh-core.top/share">个人博客网站</a></span>
+          <p>会分享一些可视化, css, javascript, vue等知识文章</p>
+        </li>
+        <li>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "https://github.com/a572251465/simple-conf">simple-conf</a></span>
+          <p>cli脚手架-可以一键生成项目以及组件库，可以用该cli生成组件库，关于组件库的配置等用户不需要关心，统一交给脚手架来完成。架构设计中，敬请期待...</p>
         </li>
       </ul>
     </div>
