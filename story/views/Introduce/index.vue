@@ -84,8 +84,53 @@
         </li>
         <li>
           <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
-            <a target = "_blank" href = "http://lihh-core.top/share">个人博客网站</a></span>
+            <a target = "_blank" href = "http://lihh-core.top/share">个人博客网站 PC版</a></span>
           <p>会分享一些可视化, css, javascript, vue等知识文章</p>
+        </li>
+        <li>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "http://lihh-core.top/mobile">个人博客网站 移动版 --为了很好的体验 请在手机上查看</a></span>
+          <p>会分享一些可视化, css, javascript, vue等知识文章</p>
+        </li>
+        <li>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "https://github.com/a572251465/auto-eslint-cli">auto-eslint-cli</a></span>
+          <p>实现了eslint + prettier + commitlint + husky 一键部署。支持多维度部署 以及版本锁定 使用工程化来完成避免手动实现</p>
+        </li>
+        <li>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "https://github.com/a572251465/node-extra">node-extra</a></span>
+          <p>一个node工具包，提供了很多常用的方法。例如：cp{复制文件} runCommand{执行命令}等方法</p>
+        </li>
+        <li>
+          <div>
+            <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i>
+            single-xxx系列插件，宗旨就是用最小的体积做最伟大的事情，所以其实每个插件只实现一个功能
+            <div class="margin-left">
+              <h3>为什么选择single-xxx呢</h3>
+              <p class="margin-left">1. 每个插件都会独立完成一个完整的功能，不依赖任何第三方插件，所以无需担心额外的下载</p>
+              <p class="margin-left">2. 尽可能的会更多提供config options，满足各种需求</p>
+              <p class="margin-left">3. 大小不足1k，所以不必为大小而烦恼</p>
+              <div>
+                <div>
+                  <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i>
+                  <a target = "_blank" href = "https://github.com/a572251465/single-merge">single-merge</a>
+                </div>
+                <p>
+                  这个包，望文生义就是知道，知道其实是用来合并数据的，会将多个对象进行深度合并，最后会返回一个合并后的对象，但是对合并中的数组，可以通过参数来配置
+                </p>
+              </div>
+              <div>
+                <div>
+                  <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i>
+                  <a target = "_blank" href = "https://github.com/a572251465/single-throttle">single-throttle</a>
+                </div>
+                <p>
+                  single-throttle实现了节流的功能，允许配置第一个参数，实现自定义节流，允许参数穿透
+                </p>
+              </div>
+            </div>
+          </div>
         </li>
         <li>
           <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>

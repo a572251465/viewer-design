@@ -20,7 +20,7 @@ export default inputs.map(name => {
       }),
       typescript({
         tsconfigOverride: {
-          compilerOptions: { // 打包单个组件的时候不生成ts声明文件
+          compilerOptions: {
             declaration: false
           },
           exclude: [
