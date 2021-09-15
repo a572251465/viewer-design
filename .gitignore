@@ -1,3 +1,5 @@
 node_modules
 story/docs/*
 /lib
+.idea
+package-lock.json

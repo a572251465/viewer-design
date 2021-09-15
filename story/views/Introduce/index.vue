@@ -99,6 +99,11 @@
         </li>
         <li>
           <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
+            <a target = "_blank" href = "https://github.com/a572251465/condition-filter-loader">condition-filter-loader</a></span>
+          <p>实现了loader运行条件的过滤，使用场景：如果要压缩图片，但是业务需求是某个路径下不压缩，压缩插件本身不提供排他的参数，就可以用本插件来实现，插件起到了一个承上启下的作用</p>
+        </li>
+        <li>
+          <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i> <span>
             <a target = "_blank" href = "https://github.com/a572251465/node-extra">node-extra</a></span>
           <p>一个node工具包，提供了很多常用的方法。例如：cp{复制文件} runCommand{执行命令}等方法</p>
         </li>
@@ -127,6 +132,15 @@
                 </div>
                 <p>
                   single-throttle实现了节流的功能，允许配置第一个参数，实现自定义节流，允许参数穿透
+                </p>
+              </div>
+              <div>
+                <div>
+                  <i :style = "{color: randomBk()}" class = "cu-icon-star-on"></i>
+                  <a target = "_blank" href = "https://github.com/a572251465/single-cookies">single-cookies</a>
+                </div>
+                <p>
+                  single-cookies实现了对cookie的增删改查
                 </p>
               </div>
             </div>
