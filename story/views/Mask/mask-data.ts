@@ -8,15 +8,11 @@ const example: ICodeDetail[] = [
   },
   {
     labelName: 'div',
-    fields: [
-      { key: 'v-show', value: 'showFlag' }
-    ],
+    fields: [{ key: 'v-show', value: 'showFlag' }],
     children: [
       {
         labelName: 'cu-mask',
-        fields: [
-          { key: 'center', value: 'true' }
-        ],
+        fields: [{ key: 'center', value: 'true' }],
         children: [
           {
             labelName: 'cu-button',
@@ -58,8 +54,4 @@ const eventProps: IFields[] = [
   }
 ]
 
-export {
-  example,
-  componentProps,
-  eventProps
-}
+export { example, componentProps, eventProps }

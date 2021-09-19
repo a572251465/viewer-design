@@ -1,7 +1,7 @@
 type IWillType = string | number | object | boolean
 
 interface ISubFun {
-  (...values: IWillType[]): IWillType,
+  (...values: IWillType[]): IWillType
 
   l?: ISubFun
 }
@@ -11,22 +11,22 @@ class PublishSubscribe {
 
   on(name: string, event: ISubFun) {
     const target = this.pool[name]
-    if ( Array.isArray(target) ) {
+    if (Array.isArray(target)) {
       target.push(event)
     } else {
-      (this.pool[name] = []).push(event)
+      ;(this.pool[name] = []).push(event)
     }
   }
 
   emit(name: string, ...args: IWillType[]) {
     const target = this.pool[name]
-    if ( !Array.isArray(target) ) return false
-    target.forEach(fn => fn(...args))
+    if (!Array.isArray(target)) return false
+    target.forEach((fn) => fn(...args))
   }
 
   off(name: string, event: ISubFun) {
     const target = this.pool[name] || []
-    this.pool[name] = target.filter(fn => fn !== event && fn.l !== event)
+    this.pool[name] = target.filter((fn) => fn !== event && fn.l !== event)
   }
 
   once(name: string, event: ISubFun) {
@@ -41,4 +41,4 @@ class PublishSubscribe {
 
 const instance = new PublishSubscribe()
 let existObj: PublishSubscribe
-export default (existObj || (existObj = instance))
+export default existObj || (existObj = instance)

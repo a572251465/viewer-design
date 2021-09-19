@@ -1,7 +1,6 @@
-@import "story/assets/css/var.scss";
+@import 'story/assets/css/var.scss';
 
 .left {
-
   border-right: 1px dashed #ccc;
 
   .bTitle {
@@ -14,14 +13,15 @@
     box-sizing: border-box;
   }
 
-  ul, li {
+  ul,
+  li {
     margin: 0;
     padding: 0;
   }
 
   li:hover {
     color: $mainColor;
-    background: rgba($mainColor, .2);
+    background: rgba($mainColor, 0.2);
     text-decoration: underline;
   }
 

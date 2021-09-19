@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(link) {
   font-size: 14px;
@@ -13,9 +13,9 @@
 
     @include when(disabled) {
       @include disabled-style;
-      color: rgba($value, .7);
+      color: rgba($value, 0.7);
       &:hover {
-        color: rgba($value, .7) !important;
+        color: rgba($value, 0.7) !important;
       }
     }
 

@@ -15,7 +15,4 @@ Dialog.install = (app: App) => {
 const _Dialog: IComponent<typeof Dialog> = Dialog as IComponent<typeof Dialog>
 
 export default _Dialog
-export {
-  $selfDialog,
-  ITypeDialog
-}
+export { $selfDialog, ITypeDialog }

@@ -6,6 +6,8 @@ Progress.install = (app: App) => {
   app.component(Progress.name, Progress)
 }
 
-const _Progress: IComponent<typeof Progress> = Progress as IComponent<typeof Progress>
+const _Progress: IComponent<typeof Progress> = Progress as IComponent<
+  typeof Progress
+>
 
 export default _Progress

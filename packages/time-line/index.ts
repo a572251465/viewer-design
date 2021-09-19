@@ -6,6 +6,8 @@ TimeLine.install = (app: App) => {
   app.component(TimeLine.name, TimeLine)
 }
 
-const _TimeLine: IComponent<typeof TimeLine> = TimeLine as IComponent<typeof TimeLine>
+const _TimeLine: IComponent<typeof TimeLine> = TimeLine as IComponent<
+  typeof TimeLine
+>
 
 export default _TimeLine

@@ -4,14 +4,16 @@ import path from 'path'
 import { getPackagesSync } from '@lerna/project'
 import vue from 'rollup-plugin-vue'
 
-const inputs = getPackagesSync().map(pck => pck.name).filter(name => name.includes('@viewer'))
-export default inputs.map(name => {
+const inputs = getPackagesSync()
+  .map((pck) => pck.name)
+  .filter((name) => name.includes('@viewer'))
+export default inputs.map((name) => {
   const pckName = name.split('@viewer')[1]
   return {
-    input: path.resolve(__dirname, `../packages/${ pckName }/index.ts`),
+    input: path.resolve(__dirname, `../packages/${pckName}/index.ts`),
     output: {
       format: 'es',
-      file: `lib/${ pckName }/index.js`
+      file: `lib/${pckName}/index.js`
     },
     plugins: [
       nodeResolve(),
@@ -23,9 +25,7 @@ export default inputs.map(name => {
           compilerOptions: {
             declaration: false
           },
-          exclude: [
-            'node_modules'
-          ]
+          exclude: ['node_modules']
         }
       })
     ],

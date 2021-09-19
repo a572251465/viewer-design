@@ -1,10 +1,10 @@
 <template>
-  <div class = "cu-mask" :style = "styles" :class = "classes" @click = "closeHandle">
+  <div class="cu-mask" :style="styles" :class="classes" @click="closeHandle">
     <slot></slot>
   </div>
 </template>
 
-<script lang = "ts">
+<script lang="ts">
 import { computed, defineComponent } from 'vue'
 import { styleCommonPrefix } from '../../utils/types'
 
@@ -20,19 +20,19 @@ export default defineComponent({
       default: false
     }
   },
-  emits: [ 'closeHandle' ],
+  emits: ['closeHandle'],
   setup(props, { emit }) {
     const styles = computed(() => ({
-          zIndex: props.zIndex
-        })),
-        classes = computed<object>(() => [
-          {
-            [`${ styleCommonPrefix.$statePrefix }center`]: props.center
-          }
-        ]),
-        closeHandle = () => {
-          emit('closeHandle')
-        }
+      zIndex: props.zIndex
+    }))
+    const classes = computed<object>(() => [
+      {
+        [`${styleCommonPrefix.$statePrefix}center`]: props.center
+      }
+    ])
+    const closeHandle = () => {
+      emit('closeHandle')
+    }
 
     return {
       styles,

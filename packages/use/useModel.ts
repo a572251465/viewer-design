@@ -7,18 +7,20 @@ interface IUseModel {
   (val: T, events: ICommitModel): { value: T }
 }
 
-export const useModel: IUseModel = (val, events) => {
-  const changeVal = ref<T>(val),
-    result = computed<T>({
-      get() {
-        return changeVal.value
-      },
-      set(newVal) {
-        if ( newVal === changeVal.value ) return
-        changeVal.value = newVal
-        events(newVal)
-      }
-    })
+const useModel: IUseModel = (val, events) => {
+  const changeVal = ref<T>(val)
+  const result = computed<T>({
+    get() {
+      return changeVal.value
+    },
+    set(newVal) {
+      if (newVal === changeVal.value) return
+      changeVal.value = newVal
+      events(newVal)
+    }
+  })
 
   return result
 }
+
+export default useModel

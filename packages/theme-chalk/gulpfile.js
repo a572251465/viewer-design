@@ -1,10 +1,14 @@
-const { series, src, dest } = require('gulp'),
-  sass = require('gulp-dart-sass'),
-  autoprefixer = require('gulp-autoprefixer'),
-  cssmin = require('gulp-cssmin')
+const { series, src, dest } = require('gulp')
+const sass = require('gulp-dart-sass')
+const autoprefixer = require('gulp-autoprefixer')
+const cssmin = require('gulp-cssmin')
 
 function compile() {
-  return src('./src/*.scss').pipe(sass.sync()).pipe(autoprefixer({})).pipe(cssmin()).pipe(dest('./lib'))
+  return src('./src/*.scss')
+    .pipe(sass.sync())
+    .pipe(autoprefixer({}))
+    .pipe(cssmin())
+    .pipe(dest('./lib'))
 }
 
 function copyfont() {

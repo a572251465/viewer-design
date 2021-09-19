@@ -6,6 +6,8 @@ Collapse.install = (app: App) => {
   app.component(Collapse.name, Collapse)
 }
 
-const _Collapse: IComponent<typeof Collapse> = Collapse as IComponent<typeof Collapse>
+const _Collapse: IComponent<typeof Collapse> = Collapse as IComponent<
+  typeof Collapse
+>
 
 export default _Collapse

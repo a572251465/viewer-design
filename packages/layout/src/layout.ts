@@ -1,17 +1,20 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h } from 'vue'
 import { styleCommonPrefix } from '../../utils/types'
 
 export default defineComponent({
-  name: "cu-layout",
+  name: 'cu-layout',
   props: {
     tag: {
       type: String,
       default: 'div'
     }
   },
-  setup(props, {slots}) {
-    return () => {
-      return h(props.tag, {class: `${styleCommonPrefix.$namespace}-layout`}, slots.default())
-    }
+  setup(props, { slots }) {
+    return () =>
+      h(
+        props.tag,
+        { class: `${styleCommonPrefix.$namespace}-layout` },
+        slots.default()
+      )
   }
-});
+})

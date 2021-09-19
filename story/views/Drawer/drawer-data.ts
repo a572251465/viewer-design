@@ -4,16 +4,12 @@ import { IFields } from '../../components/TableProps/types'
 const example: ICodeDetail[] = [
   {
     labelName: 'cu-button',
-    fields: [
-      {key: '@click', value: 'showFlag = true'}
-    ],
+    fields: [{ key: '@click', value: 'showFlag = true' }],
     value: '打开抽屉弹框'
   },
   {
     labelName: 'cu-drawer',
-    fields: [
-      {key: 'v-model', value: 'showFlag'}
-    ],
+    fields: [{ key: 'v-model', value: 'showFlag' }],
     children: [
       {
         labelName: 'span',
@@ -21,29 +17,30 @@ const example: ICodeDetail[] = [
       },
       {
         labelName: 'cu-input',
-        fields: [
-          {key: 'placeholder', value: '请输入账号'}
-        ]
+        fields: [{ key: 'placeholder', value: '请输入账号' }]
       }
     ]
   }
 ]
 
 const example1: ICodeDetail[] = [
-  ...(['bottom', 'top', 'right', 'left'] as const).map(item => {
-    return {
-      labelName: 'cu-button',
-      value: item
-    } as ICodeDetail
-  }),
+  ...(['bottom', 'top', 'right', 'left'] as const).map(
+    (item) =>
+      ({
+        labelName: 'cu-button',
+        value: item
+      } as ICodeDetail)
+  ),
   {
     labelName: 'cu-drawer',
     fields: [
       {
-        key: 'v-model', value: 'showFlag1'
+        key: 'v-model',
+        value: 'showFlag1'
       },
       {
-        key: 'direction', value: 'position'
+        key: 'direction',
+        value: 'position'
       }
     ],
     children: [
@@ -58,17 +55,15 @@ const example1: ICodeDetail[] = [
 const example2: ICodeDetail[] = [
   {
     labelName: 'cu-button',
-    fields: [
-      {key: '@click', value: 'showFlag2 = true'}
-    ],
+    fields: [{ key: '@click', value: 'showFlag2 = true' }],
     value: '多种方式关闭'
   },
   {
     labelName: 'cu-drawer',
     fields: [
-      {key: 'v-model', value: 'showFlag2'},
-      {key: 'clickMaskClose', value: 'true'},
-      {key: 'closeOnPressEscape', value: 'true'}
+      { key: 'v-model', value: 'showFlag2' },
+      { key: 'clickMaskClose', value: 'true' },
+      { key: 'closeOnPressEscape', value: 'true' }
     ],
     children: [
       {
@@ -77,9 +72,7 @@ const example2: ICodeDetail[] = [
       },
       {
         labelName: 'cu-input',
-        fields: [
-          {key: 'placeholder', value: '请输入账号'}
-        ]
+        fields: [{ key: 'placeholder', value: '请输入账号' }]
       }
     ]
   }
@@ -88,16 +81,14 @@ const example2: ICodeDetail[] = [
 const example3: ICodeDetail[] = [
   {
     labelName: 'cu-button',
-    fields: [
-      {key: '@click', value: 'showFlag3 = true'}
-    ],
+    fields: [{ key: '@click', value: 'showFlag3 = true' }],
     value: '设置大小'
   },
   {
     labelName: 'cu-drawer',
     fields: [
-      {key: 'v-model', value: 'showFlag3'},
-      {key: 'size', value: '50%'}
+      { key: 'v-model', value: 'showFlag3' },
+      { key: 'size', value: '50%' }
     ],
     children: [
       {
@@ -106,9 +97,7 @@ const example3: ICodeDetail[] = [
       },
       {
         labelName: 'cu-input',
-        fields: [
-          {key: 'placeholder', value: '请输入账号'}
-        ]
+        fields: [{ key: 'placeholder', value: '请输入账号' }]
       }
     ]
   }
@@ -168,7 +157,7 @@ const componentProps: IFields[] = [
     desc: '表示显示的标题',
     type: 'String',
     defaultValue: '-'
-  },
+  }
 ]
 
 const eventProps: IFields[] = [
@@ -198,11 +187,4 @@ const eventProps: IFields[] = [
   }
 ]
 
-export {
-  example,
-  example1,
-  example2,
-  example3,
-  componentProps,
-  eventProps
-}
+export { example, example1, example2, example3, componentProps, eventProps }

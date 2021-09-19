@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(time-line-item) {
   display: flex;

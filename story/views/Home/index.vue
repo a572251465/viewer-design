@@ -1,15 +1,15 @@
 <template>
-  <div class = "home" id = "home">
-    <Header class = "home-header"></Header>
-    <div class = "home-body">
-      <Left class = "home-body-left"></Left>
-      <Right class = "home-body-right"></Right>
+  <div class="home" id="home">
+    <Header class="home-header"></Header>
+    <div class="home-body">
+      <Left class="home-body-left"></Left>
+      <Right class="home-body-right"></Right>
     </div>
   </div>
   <Nav></Nav>
 </template>
 
-<script lang = "ts">
+<script lang="ts">
 import { defineComponent } from 'vue'
 import Header from 'story/components/Header/index.vue'
 import Left from 'story/components/Left/index.vue'
@@ -27,6 +27,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang = "scss" scoped>
-@import "./index.scss";
+<style lang="scss" scoped>
+@import './index.scss';
 </style>

@@ -1,8 +1,8 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(mask) {
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0px;
   left: 0px;

@@ -1,7 +1,5 @@
-'use strict';
-
-const pagination = require('..');
+const pagination = require('..')
 
 describe('pagination', () => {
-    it('needs tests');
-});
+  it('needs tests')
+})

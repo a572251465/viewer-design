@@ -4,68 +4,72 @@ import { IFields } from '../../components/TableProps/types'
 const example: ICodeDetail[] = [
   {
     labelName: 'cu-time-line',
-    children: Array.from({ length: 5 }, () => 0).map((item, key) => {
-      return {
-        labelName: 'cu-time-line-item',
-        fields: [
-          { key: 'placement', value: 'bottom' },
-          { key: 'timestamp', value: '2018-04-03' }
-        ],
-        value: `活动倒计时${ key }`
-      } as ICodeDetail
-    })
+    children: Array.from({ length: 5 }, () => 0).map(
+      (item, key) =>
+        ({
+          labelName: 'cu-time-line-item',
+          fields: [
+            { key: 'placement', value: 'bottom' },
+            { key: 'timestamp', value: '2018-04-03' }
+          ],
+          value: `活动倒计时${key}`
+        } as ICodeDetail)
+    )
   }
 ]
 
 const example1: ICodeDetail[] = [
   {
     labelName: 'cu-time-line',
-    children: [ 'primary', 'success', 'warning', 'danger', 'info' ].map((item, key) => {
-      return {
-        labelName: 'cu-time-line-item',
-        fields: [
-          { key: 'placement', value: 'top' },
-          { key: 'timestamp', value: '2018-04-03' },
-          { key: 'type', value: item }
-        ],
-        value: `状态：${ item }`
-      } as ICodeDetail
-    })
+    children: ['primary', 'success', 'warning', 'danger', 'info'].map(
+      (item) =>
+        ({
+          labelName: 'cu-time-line-item',
+          fields: [
+            { key: 'placement', value: 'top' },
+            { key: 'timestamp', value: '2018-04-03' },
+            { key: 'type', value: item }
+          ],
+          value: `状态：${item}`
+        } as ICodeDetail)
+    )
   }
 ]
 
 const example2: ICodeDetail[] = [
   {
     labelName: 'cu-time-line',
-    children: [ 'primary', 'success', 'warning', 'danger', 'info' ].map((item, key) => {
-      return {
-        labelName: 'cu-time-line-item',
-        fields: [
-          { key: 'placement', value: 'top' },
-          { key: 'timestamp', value: '2018-04-03' },
-          { key: 'type', value: item },
-          { key: 'size', value: 'big' }
-        ],
-        value: `状态：${ item }`
-      } as ICodeDetail
-    })
+    children: ['primary', 'success', 'warning', 'danger', 'info'].map(
+      (item) =>
+        ({
+          labelName: 'cu-time-line-item',
+          fields: [
+            { key: 'placement', value: 'top' },
+            { key: 'timestamp', value: '2018-04-03' },
+            { key: 'type', value: item },
+            { key: 'size', value: 'big' }
+          ],
+          value: `状态：${item}`
+        } as ICodeDetail)
+    )
   }
 ]
 
 const example3: ICodeDetail[] = [
   {
     labelName: 'cu-time-line',
-    children: Array.from({ length: 5 }, () => 0).map((item, key) => {
-      return {
-        labelName: 'cu-time-line-item',
-        fields: [
-          { key: 'placement', value: 'bottom' },
-          { key: 'timestamp', value: '2018-04-03' },
-          { key: 'icon', value: 'example' }
-        ],
-        value: `活动倒计时${ key }`
-      } as ICodeDetail
-    })
+    children: Array.from({ length: 5 }, () => 0).map(
+      (item, key) =>
+        ({
+          labelName: 'cu-time-line-item',
+          fields: [
+            { key: 'placement', value: 'bottom' },
+            { key: 'timestamp', value: '2018-04-03' },
+            { key: 'icon', value: 'example' }
+          ],
+          value: `活动倒计时${key}`
+        } as ICodeDetail)
+    )
   }
 ]
 

@@ -6,36 +6,42 @@ const example: ICodeDetail[] = [
     labelName: 'cu-button',
     fields: [
       {
-        key: '@click', value: 'messageOpen("success")'
+        key: '@click',
+        value: 'messageOpen("success")'
       }
     ],
     value: '打开消息提示'
   }
 ]
 
-const example1: ICodeDetail[] = ([
-  { type: 'success', label: '成功消息提示' },
-  { type: 'warning', label: '警告消息提示' },
-  { type: 'danger', label: '危险消息提示' },
-  { type: 'info', label: '普通消息提示' }
-] as { type: String, label: String }[]).map(item => {
-  return {
-    labelName: 'cu-button',
-    fields: [
-      {
-        key: '@click', value: `messageOpen("${ item.type }")`
-      }
-    ],
-    value: item.label
-  } as ICodeDetail
-})
+const example1: ICodeDetail[] = (
+  [
+    { type: 'success', label: '成功消息提示' },
+    { type: 'warning', label: '警告消息提示' },
+    { type: 'danger', label: '危险消息提示' },
+    { type: 'info', label: '普通消息提示' }
+  ] as { type: String; label: String }[]
+).map(
+  (item) =>
+    ({
+      labelName: 'cu-button',
+      fields: [
+        {
+          key: '@click',
+          value: `messageOpen("${item.type}")`
+        }
+      ],
+      value: item.label
+    } as ICodeDetail)
+)
 
 const example2: ICodeDetail[] = [
   {
     labelName: 'cu-button',
     fields: [
       {
-        key: '@click', value: 'messageOpen1'
+        key: '@click',
+        value: 'messageOpen1'
       }
     ],
     value: '自定义icon'
@@ -47,7 +53,8 @@ const example3: ICodeDetail[] = [
     labelName: 'cu-button',
     fields: [
       {
-        key: '@click', value: 'messageOpen'
+        key: '@click',
+        value: 'messageOpen'
       }
     ],
     value: '提示文字居中'
@@ -59,7 +66,8 @@ const example4: ICodeDetail[] = [
     labelName: 'cu-button',
     fields: [
       {
-        key: '@click', value: 'messageOpen3'
+        key: '@click',
+        value: 'messageOpen3'
       }
     ],
     value: '显示关闭按钮'
@@ -71,7 +79,8 @@ const example5: ICodeDetail[] = [
     labelName: 'cu-button',
     fields: [
       {
-        key: '@click', value: 'messageOpen4'
+        key: '@click',
+        value: 'messageOpen4'
       }
     ],
     value: '设置10s关闭'
@@ -138,7 +147,7 @@ const componentProps: IFields[] = [
     desc: '延长消息关闭的时间',
     type: 'Number',
     defaultValue: '2000'
-  },
+  }
 ]
 
 export {

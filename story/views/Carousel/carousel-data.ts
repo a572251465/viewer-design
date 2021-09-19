@@ -1,5 +1,5 @@
-import { ICodeDetail } from "../../components/Code/types";
-import { IFields } from "../../components/TableProps/types";
+import { ICodeDetail } from '../../components/Code/types'
+import { IFields } from '../../components/TableProps/types'
 
 const example: ICodeDetail[] = [
   {
@@ -13,37 +13,38 @@ const example: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-carousel',
-        children: (['red', 'yellow', 'green', 'blue'] as const).map((key, _) => {
-          return {
-            labelName: 'cu-carousel-item',
-            fields: [
-              {
-                key: 'v-for',
-                value: '(item, key) in colors'
-              },
-              {
-                key: 'key',
-                value: 'item'
-              }
-            ],
-            children: [
-              {
-                labelName: 'div',
-                fields: [
-                  {
-                    key: ':style',
-                    value: `{background: item, width: '100%', height: '100%'}`
-                  },
-                  {
-                    key: 'class',
-                    value: 'justify-align-center'
-                  }
-                ],
-                value: key + 1
-              }
-            ]
-          } as ICodeDetail
-        })
+        children: (['red', 'yellow', 'green', 'blue'] as const).map(
+          (key) =>
+            ({
+              labelName: 'cu-carousel-item',
+              fields: [
+                {
+                  key: 'v-for',
+                  value: '(item, key) in colors'
+                },
+                {
+                  key: 'key',
+                  value: 'item'
+                }
+              ],
+              children: [
+                {
+                  labelName: 'div',
+                  fields: [
+                    {
+                      key: ':style',
+                      value: `{background: item, width: '100%', height: '100%'}`
+                    },
+                    {
+                      key: 'class',
+                      value: 'justify-align-center'
+                    }
+                  ],
+                  value: key + 1
+                }
+              ]
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -61,40 +62,39 @@ const example1: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-carousel',
-        fields: [
-          {key: 'direction', value: 'vertical'}
-        ],
-        children: (['red', 'yellow', 'green', 'blue'] as const).map((key, _) => {
-          return {
-            labelName: 'cu-carousel-item',
-            fields: [
-              {
-                key: 'v-for',
-                value: '(item, key) in colors'
-              },
-              {
-                key: 'key',
-                value: 'item'
-              }
-            ],
-            children: [
-              {
-                labelName: 'div',
-                fields: [
-                  {
-                    key: ':style',
-                    value: `{background: item, width: '100%', height: '100%'}`
-                  },
-                  {
-                    key: 'class',
-                    value: 'justify-align-center'
-                  }
-                ],
-                value: key + 1
-              }
-            ]
-          } as ICodeDetail
-        })
+        fields: [{ key: 'direction', value: 'vertical' }],
+        children: (['red', 'yellow', 'green', 'blue'] as const).map(
+          (key) =>
+            ({
+              labelName: 'cu-carousel-item',
+              fields: [
+                {
+                  key: 'v-for',
+                  value: '(item, key) in colors'
+                },
+                {
+                  key: 'key',
+                  value: 'item'
+                }
+              ],
+              children: [
+                {
+                  labelName: 'div',
+                  fields: [
+                    {
+                      key: ':style',
+                      value: `{background: item, width: '100%', height: '100%'}`
+                    },
+                    {
+                      key: 'class',
+                      value: 'justify-align-center'
+                    }
+                  ],
+                  value: key + 1
+                }
+              ]
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -112,40 +112,39 @@ const example2: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-carousel',
-        fields: [
-          {key: 'autoplay', value: 'false'}
-        ],
-        children: (['red', 'yellow', 'green', 'blue'] as const).map((key, _) => {
-          return {
-            labelName: 'cu-carousel-item',
-            fields: [
-              {
-                key: 'v-for',
-                value: '(item, key) in colors'
-              },
-              {
-                key: 'key',
-                value: 'item'
-              }
-            ],
-            children: [
-              {
-                labelName: 'div',
-                fields: [
-                  {
-                    key: ':style',
-                    value: `{background: item, width: '100%', height: '100%'}`
-                  },
-                  {
-                    key: 'class',
-                    value: 'justify-align-center'
-                  }
-                ],
-                value: key + 1
-              }
-            ]
-          } as ICodeDetail
-        })
+        fields: [{ key: 'autoplay', value: 'false' }],
+        children: (['red', 'yellow', 'green', 'blue'] as const).map(
+          (key) =>
+            ({
+              labelName: 'cu-carousel-item',
+              fields: [
+                {
+                  key: 'v-for',
+                  value: '(item, key) in colors'
+                },
+                {
+                  key: 'key',
+                  value: 'item'
+                }
+              ],
+              children: [
+                {
+                  labelName: 'div',
+                  fields: [
+                    {
+                      key: ':style',
+                      value: `{background: item, width: '100%', height: '100%'}`
+                    },
+                    {
+                      key: 'class',
+                      value: 'justify-align-center'
+                    }
+                  ],
+                  value: key + 1
+                }
+              ]
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -163,40 +162,39 @@ const example3: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-carousel',
-        fields: [
-          {key: 'indicatorPosition', value: 'outside'}
-        ],
-        children: (['red', 'yellow', 'green', 'blue'] as const).map((key, _) => {
-          return {
-            labelName: 'cu-carousel-item',
-            fields: [
-              {
-                key: 'v-for',
-                value: '(item, key) in colors'
-              },
-              {
-                key: 'key',
-                value: 'item'
-              }
-            ],
-            children: [
-              {
-                labelName: 'div',
-                fields: [
-                  {
-                    key: ':style',
-                    value: `{background: item, width: '100%', height: '100%'}`
-                  },
-                  {
-                    key: 'class',
-                    value: 'justify-align-center'
-                  }
-                ],
-                value: key + 1
-              }
-            ]
-          } as ICodeDetail
-        })
+        fields: [{ key: 'indicatorPosition', value: 'outside' }],
+        children: (['red', 'yellow', 'green', 'blue'] as const).map(
+          (key) =>
+            ({
+              labelName: 'cu-carousel-item',
+              fields: [
+                {
+                  key: 'v-for',
+                  value: '(item, key) in colors'
+                },
+                {
+                  key: 'key',
+                  value: 'item'
+                }
+              ],
+              children: [
+                {
+                  labelName: 'div',
+                  fields: [
+                    {
+                      key: ':style',
+                      value: `{background: item, width: '100%', height: '100%'}`
+                    },
+                    {
+                      key: 'class',
+                      value: 'justify-align-center'
+                    }
+                  ],
+                  value: key + 1
+                }
+              ]
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -250,13 +248,7 @@ const componentProps: IFields[] = [
     desc: '表示是否自动轮播',
     type: 'Boolean',
     defaultValue: 'true'
-  },
+  }
 ]
 
-export {
-  example,
-  example1,
-  example2,
-  example3,
-  componentProps
-}
+export { example, example1, example2, example3, componentProps }

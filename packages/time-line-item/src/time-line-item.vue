@@ -1,21 +1,31 @@
 <template>
-  <div class = "cu-time-line-item">
-    <div class = "cu-time-line-item__left" :style = "{width: leftWidth}">
-      <div class = "cu-time-line-item--spot" :class = "spotClasses" :style = 'spotStyle'>
-        <i :class = "iconContent" v-if = "iconContent"></i>
+  <div class="cu-time-line-item">
+    <div class="cu-time-line-item__left" :style="{ width: leftWidth }">
+      <div
+        class="cu-time-line-item--spot"
+        :class="spotClasses"
+        :style="spotStyle"
+      >
+        <i :class="iconContent" v-if="iconContent"></i>
       </div>
-      <div class = "cu-time-line-item--line"></div>
+      <div class="cu-time-line-item--line"></div>
     </div>
-    <div class = "cu-time-line-item__right" :class = "rightClasses" :style = "rightStyles">
-      <div class = "cu-time-line-item--timestamp" v-if = "!hideTimestamp">{{ timestamp }}</div>
-      <div class = "cu-time-line-item--content">
+    <div
+      class="cu-time-line-item__right"
+      :class="rightClasses"
+      :style="rightStyles"
+    >
+      <div class="cu-time-line-item--timestamp" v-if="!hideTimestamp">
+        {{ timestamp }}
+      </div>
+      <div class="cu-time-line-item--content">
         <slot></slot>
       </div>
     </div>
   </div>
 </template>
 
-<script lang = "ts">
+<script lang="ts">
 import { computed, defineComponent, PropType, inject } from 'vue'
 import { globalContext, styleCommonPrefix } from '../../utils/types'
 
@@ -42,7 +52,9 @@ export default defineComponent({
       default: 'bottom'
     },
     type: {
-      type: String as PropType<'primary' | 'success' | 'warning' | 'danger' | 'info'>,
+      type: String as PropType<
+        'primary' | 'success' | 'warning' | 'danger' | 'info'
+      >,
       default: 'info'
     },
     color: {
@@ -64,14 +76,16 @@ export default defineComponent({
   },
   setup(props) {
     const injectContent = inject<string>(globalContext.timeLine)
-    if ( !injectContent ) {
-      console.warn(`The element cu-time-line-item must be included by cu-time-line`)
+    if (!injectContent) {
+      console.warn(
+        `The element cu-time-line-item must be included by cu-time-line`
+      )
     }
-    const { $namespace, $modifierSeparator, $statePrefix } = styleCommonPrefix,
-        preSuffix = `${ $namespace }-time-line-item${ $modifierSeparator }`
+    const { $namespace, $modifierSeparator, $statePrefix } = styleCommonPrefix
+    const preSuffix = `${$namespace}-time-line-item${$modifierSeparator}`
     const spotClasses = computed<string[]>(() => [
-      [ preSuffix, props.type ].join(''),
-      [ preSuffix, props.size ].join('')
+      [preSuffix, props.type].join(''),
+      [preSuffix, props.size].join('')
     ])
     const spotStyle = computed(() => ({
       background: props.color,
@@ -79,18 +93,20 @@ export default defineComponent({
     }))
 
     const rightClasses = computed<string[]>(() => [
-      [ $statePrefix, props.placement ].join('')
+      [$statePrefix, props.placement].join('')
     ])
     const rightStyles = computed(() => ({
-      'marginLeft': `${ sizeMap[props.size] + 3 }px`
+      marginLeft: `${sizeMap[props.size] + 3}px`
     }))
 
-    const iconContent = computed<string>(() => props.icon ? `cu-icon-${ props.icon }` : '')
+    const iconContent = computed<string>(() =>
+      props.icon ? `cu-icon-${props.icon}` : ''
+    )
 
     return {
       spotClasses,
       spotStyle,
-      leftWidth: sizeMap[props.size] + 'px',
+      leftWidth: `${sizeMap[props.size]}px`,
       rightClasses,
       iconContent,
       rightStyles

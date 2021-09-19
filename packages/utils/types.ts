@@ -1,5 +1,6 @@
 import { App } from 'vue'
 
+/* eslint-disable */
 export enum styleCommonPrefix {
   $namespace = 'cu',
   $statePrefix = 'is-',

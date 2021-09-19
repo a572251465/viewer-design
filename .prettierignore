@@ -1,0 +1,7 @@
+/dist/
+/static/
+/node_modules/
+*.*
+!*.js
+!*.ts
+!*.vue

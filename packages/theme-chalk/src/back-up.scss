@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(back-up) {
   position: fixed;
@@ -12,7 +12,7 @@
   border-radius: 10px;
   color: #409eff;
   font-size: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, .12);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
 
@@ -35,9 +35,9 @@
 }
 
 .cu-back-up-fade-enter-active {
-  animation: fade-out .3s ease-in;
+  animation: fade-out 0.3s ease-in;
 }
 
 .cu-back-up-fade-leave-active {
-  animation: fade-in .3s ease-in;
+  animation: fade-in 0.3s ease-in;
 }

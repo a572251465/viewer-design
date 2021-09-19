@@ -1,4 +1,4 @@
-@import "story/assets/css/var.scss";
+@import 'story/assets/css/var.scss';
 
 .demo-fastStarted {
   h2 {
@@ -11,7 +11,8 @@
   }
 }
 
-pre, .pre {
+pre,
+.pre {
   background: rgba(45, 45, 45, 0.8);
   color: #ccc;
   font-size: 13px;

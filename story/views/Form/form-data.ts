@@ -20,30 +20,22 @@ const example1: ICodeDetail[] = [
         children: [
           {
             labelName: 'cu-input',
-            fields: [
-              { key: 'v-model', value: 'userInfo.name' }
-            ]
+            fields: [{ key: 'v-model', value: 'userInfo.name' }]
           }
         ]
       },
       {
         labelName: 'div',
-        fields: [
-          { key: 'style', value: 'margin-top: 20px' }
-        ],
+        fields: [{ key: 'style', value: 'margin-top: 20px' }],
         children: [
           {
             labelName: 'cu-button',
-            fields: [
-              { key: '@click', value: 'commit' }
-            ],
+            fields: [{ key: '@click', value: 'commit' }],
             value: '提交'
           },
           {
             labelName: 'cu-button',
-            fields: [
-              { key: '@click', value: 'reset' }
-            ],
+            fields: [{ key: '@click', value: 'reset' }],
             value: '重置'
           }
         ]
@@ -109,9 +101,4 @@ const eventProps: IFields[] = [
   }
 ]
 
-export {
-  example1,
-  formComponentProps,
-  formItemComponentProps,
-  eventProps
-}
+export { example1, formComponentProps, formItemComponentProps, eventProps }

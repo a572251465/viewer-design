@@ -1,12 +1,11 @@
 import { getConfig } from '../utils/config'
 
 const zIndexCache: number[] = []
-export const useZIndex = (): number => {
-
+const useZIndex = (): number => {
   const defaultZIndex = getConfig('zIndex') as number
   let returnZIndex = 0
 
-  if ( zIndexCache.length === 0 ) {
+  if (zIndexCache.length === 0) {
     returnZIndex = defaultZIndex
   } else {
     const lastZIndex = zIndexCache[zIndexCache.length - 1]
@@ -16,3 +15,4 @@ export const useZIndex = (): number => {
   zIndexCache.push(returnZIndex)
   return returnZIndex
 }
+export default useZIndex

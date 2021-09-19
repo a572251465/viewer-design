@@ -1,21 +1,29 @@
 <template>
-  <div class = "cu-form">
+  <div class="cu-form">
     <slot></slot>
   </div>
 </template>
 
-<script lang = "ts">
-import { ComponentPublicInstance, defineComponent, onBeforeMount, onBeforeUnmount, PropType, provide } from 'vue'
+<script lang="ts">
+import {
+  ComponentPublicInstance,
+  defineComponent,
+  onBeforeMount,
+  onBeforeUnmount,
+  PropType,
+  provide
+} from 'vue'
 import useOnEmit from '../../use/useOnEmit'
 import { FORM_INJECT_OBJ, ON_EMIT_KEY } from '../../utils/define'
 
-const instanceArr: ComponentPublicInstance<IInstance>[] = []
 type IInstance = {
-  validate?: () => boolean,
+  validate?: () => boolean
   reset?: () => void
 }
+
+const instanceArr: ComponentPublicInstance<IInstance>[] = []
 const subscribeFun = (instance: ComponentPublicInstance) => {
-  if ( instanceArr.includes(instance) ) return false
+  if (instanceArr.includes(instance)) return false
   instanceArr.push(instance)
 }
 
@@ -29,9 +37,9 @@ export default defineComponent({
     rules: {
       type: Object as PropType<{
         [keyName: string]: {
-          required?: boolean,
-          type?: string,
-          message: string,
+          required?: boolean
+          type?: string
+          message: string
           checkFun?: Function
         }[]
       }>,
@@ -39,12 +47,11 @@ export default defineComponent({
     }
   },
   setup(props) {
-
     provide(FORM_INJECT_OBJ, {
       model: props.model,
       rules: props.rules
     } as {
-      model: object,
+      model: object
       rules: object
     })
 
@@ -58,26 +65,24 @@ export default defineComponent({
       instanceArr.length = 0
     })
 
-    const check = () => {
-      return new Promise((resolve) => {
+    const check = () =>
+      new Promise((resolve) => {
         let i = 0
-        for ( ; i < instanceArr.length; i ++ ) {
-          const item = instanceArr[i],
-              result = item.validate()
-          if ( !result ) {
+        for (; i < instanceArr.length; i += 1) {
+          const item = instanceArr[i]
+          const result = item.validate()
+          if (!result) {
             return resolve(false)
           }
         }
         resolve(true)
       })
-    }
 
-    const reset = () => {
-      return new Promise((resolve) => {
-        instanceArr.forEach(item => item.reset())
+    const reset = () =>
+      new Promise((resolve) => {
+        instanceArr.forEach((item) => item.reset())
         resolve(true)
       })
-    }
 
     return {
       check,

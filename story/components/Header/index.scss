@@ -1,4 +1,4 @@
-@import "story/assets/css/var.scss";
+@import 'story/assets/css/var.scss';
 
 .header {
   width: 100%;
@@ -53,11 +53,11 @@
           text-align: center;
           font-size: 14px;
           margin-top: 30px;
-          color: rgba($mainColor, .7);
+          color: rgba($mainColor, 0.7);
         }
 
         .detail:hover {
-          background: rgba($mainColor, .2);
+          background: rgba($mainColor, 0.2);
         }
         .detail {
           padding: 4px 15px;
@@ -65,7 +65,7 @@
           cursor: pointer;
 
           span:nth-child(1) {
-            color: rgba($mainColor, .7);
+            color: rgba($mainColor, 0.7);
             font-size: 14px;
           }
 
@@ -87,17 +87,15 @@
         height: 100%;
         align-items: center;
         padding: 0 20px;
-        color: rgba($mainColor, .7);
+        color: rgba($mainColor, 0.7);
         cursor: pointer;
       }
 
       .active {
-        background: rgba($mainColor, .2);
+        background: rgba($mainColor, 0.2);
         color: $mainColor;
         border-bottom: 1px solid $mainColor;
       }
     }
   }
 }
-
-

@@ -1,7 +1,5 @@
-'use strict';
-
-module.exports = pagination;
+module.exports = pagination
 
 function pagination() {
-    // TODO
+  // TODO
 }

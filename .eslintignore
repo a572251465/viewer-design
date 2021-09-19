@@ -1,0 +1,8 @@
+/dist
+/node_modules
+.lintstagedrc.js
+/**/*/lintstagedrc.js
+/story/docs/**/*
+/packages/**/*.test.js
+/build/**/*
+/story/config/**/*

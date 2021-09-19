@@ -1,36 +1,38 @@
 import { ICodeDetail } from '../../components/Code/types'
 import { IFields } from '../../components/TableProps/types'
 
-const example: ICodeDetail[] = [ {
-  labelName: 'cu-alert',
-  fields: [
-    { key: 'title', value: '标题提示' }
-  ],
-  value: '默认的文案'
-} ]
-
-const example1: ICodeDetail[] = ([
-  { text: '默认提示的文案', type: 'info' },
-  { text: '活性提示的文案', type: 'primary' },
-  { text: '警告提示的文案', type: 'warning' },
-  { text: '危险提示的文案', type: 'danger' },
-  { text: '成功提示的文案', type: 'success' }
-] as { text: string, type: string }[]).map(item => {
-  return {
+const example: ICodeDetail[] = [
+  {
     labelName: 'cu-alert',
-    fields: [
-      { key: 'type', value: item.type }
-    ],
-    value: item.text
-  } as ICodeDetail
-})
+    fields: [{ key: 'title', value: '标题提示' }],
+    value: '默认的文案'
+  }
+]
+
+const example1: ICodeDetail[] = (
+  [
+    { text: '默认提示的文案', type: 'info' },
+    { text: '活性提示的文案', type: 'primary' },
+    { text: '警告提示的文案', type: 'warning' },
+    { text: '危险提示的文案', type: 'danger' },
+    { text: '成功提示的文案', type: 'success' }
+  ] as { text: string; type: string }[]
+).map(
+  (item) =>
+    ({
+      labelName: 'cu-alert',
+      fields: [{ key: 'type', value: item.type }],
+      value: item.text
+    } as ICodeDetail)
+)
 
 const example2: ICodeDetail[] = [
   {
     labelName: 'cu-alert',
     fields: [
       {
-        key: 'closable', value: true
+        key: 'closable',
+        value: true
       }
     ],
     value: '可关闭的文案'
@@ -42,7 +44,8 @@ const example3: ICodeDetail[] = [
     labelName: 'cu-alert',
     fields: [
       {
-        key: 'center', value: true
+        key: 'center',
+        value: true
       }
     ],
     value: '提示文字居中'
@@ -54,10 +57,12 @@ const example4: ICodeDetail[] = [
     labelName: 'cu-alert',
     fields: [
       {
-        key: 'closeText', value: '我知道了'
+        key: 'closeText',
+        value: '我知道了'
       },
       {
-        key: 'closable', value: true
+        key: 'closable',
+        value: true
       }
     ],
     value: '自定义关闭文字'
@@ -69,7 +74,8 @@ const example5: ICodeDetail[] = [
     labelName: 'cu-alert',
     fields: [
       {
-        key: 'showIcon', value: true
+        key: 'showIcon',
+        value: true
       }
     ],
     value: '显示提示文案图标'
@@ -121,12 +127,14 @@ const componentProps: IFields[] = [
   }
 ]
 
-const eventProps: IFields[] = [{
-  field: 'close',
-  desc: '点击关闭按钮触发的事件',
-  type: '-',
-  defaultValue: '-'
-}]
+const eventProps: IFields[] = [
+  {
+    field: 'close',
+    desc: '点击关闭按钮触发的事件',
+    type: '-',
+    defaultValue: '-'
+  }
+]
 
 export {
   example,

@@ -1,23 +1,23 @@
 <template>
-  <transition name = "cu-message-fade" @after-leave = "onClose">
-    <div :class = "classes" v-show = "showFlag" :style = "customStyle">
-      <div class = "cu-message-container" :class = "centerClasses">
-        <i :class = "iconClass" class = "tips"></i>
-        <span v-if = "!isSupportHtml" class = "selfSpan">
+  <transition name="cu-message-fade" @after-leave="onClose">
+    <div :class="classes" v-show="showFlag" :style="customStyle">
+      <div class="cu-message-container" :class="centerClasses">
+        <i :class="computedIconClass" class="tips"></i>
+        <span v-if="!isSupportHtml" class="selfSpan">
           {{ message }}
         </span>
-        <span v-else v-html = "message"></span>
+        <span v-else v-html="message"></span>
       </div>
       <i
-          v-if = "showClose"
-          class = "cu-icon-close cu-message--closeBtn"
-          @click = "showFlag = false"
+        v-if="showClose"
+        class="cu-icon-close cu-message--closeBtn"
+        @click="showFlag = false"
       ></i>
     </div>
   </transition>
 </template>
 
-<script lang = "ts">
+<script lang="ts">
 import {
   computed,
   defineComponent,
@@ -29,7 +29,7 @@ import {
 } from 'vue'
 import { styleCommonPrefix } from '../../utils/types'
 import { IType } from './types'
-import { useZIndex } from '../../use/useZIndex'
+import useZIndex from '../../use/useZIndex'
 
 export default defineComponent({
   name: 'cu-message',
@@ -71,37 +71,38 @@ export default defineComponent({
       default: 2000
     }
   },
-  emits: [ 'destroy' ],
+  emits: ['destroy'],
   setup(props, { emit }) {
-
     // 获取计算悬浮层
     const zIndex = useZIndex()
 
     // 计算样式
-    const commonPrefix = `${ styleCommonPrefix.$namespace }-message`,
-        classes = computed<(string | object)[]>(() => [
-          commonPrefix,
-          [ commonPrefix, styleCommonPrefix.$modifierSeparator, props.type ].join('')
-        ]),
-        centerClasses = computed<(string | object)[]>(() => [
-          {
-            [styleCommonPrefix.$statePrefix + 'center']: props.center
-          }
-        ]),
-        iconClass = computed<string>(() => `cu-icon-${ props.iconClass }`),
-        customStyle = computed(() => ({
-          top: `${ props.offset }px`,
-          zIndex
-        }))
+    const commonPrefix = `${styleCommonPrefix.$namespace}-message`
+    const classes = computed<(string | object)[]>(() => [
+      commonPrefix,
+      [commonPrefix, styleCommonPrefix.$modifierSeparator, props.type].join('')
+    ])
+    const centerClasses = computed<(string | object)[]>(() => [
+      {
+        [`${styleCommonPrefix.$statePrefix}center`]: props.center
+      }
+    ])
+    const computedIconClass = computed<string>(
+      () => `cu-icon-${props.iconClass}`
+    )
+    const customStyle = computed(() => ({
+      top: `${props.offset}px`,
+      zIndex
+    }))
 
     const showFlag = ref(false)
 
     onUnmounted(() => (showFlag.value = false))
     watch(
-        () => showFlag,
-        (val) => {
-          if ( !val ) emit('destroy')
-        }
+      () => showFlag,
+      (val) => {
+        if (!val) emit('destroy')
+      }
     )
 
     onMounted(() => {
@@ -117,7 +118,7 @@ export default defineComponent({
     return {
       commonPrefix,
       classes,
-      iconClass,
+      computedIconClass,
       showFlag,
       customStyle,
       centerClasses

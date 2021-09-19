@@ -4,41 +4,45 @@ import { IFields } from '../../components/TableProps/types'
 const example: ICodeDetail[] = [
   {
     labelName: 'cu-link',
-    fields: [ { key: 'type', value: 'primary' } ],
+    fields: [{ key: 'type', value: 'primary' }],
     value: '有状态的'
   },
   {
     labelName: 'cu-link',
-    fields: [ { key: 'underline', value: 'true' } ],
+    fields: [{ key: 'underline', value: 'true' }],
     value: '有下划线的'
   },
   {
     labelName: 'cu-link',
-    fields: [ { key: 'disabled', value: 'true' } ],
+    fields: [{ key: 'disabled', value: 'true' }],
     value: '禁用状态的'
   },
   {
     labelName: 'cu-link',
-    fields: [ { key: 'icon', value: 'edit' } ],
+    fields: [{ key: 'icon', value: 'edit' }],
     value: '带有icon的'
   }
 ]
 
-const example1: ICodeDetail[] = ([ 'primary', 'success', 'info', 'danger', 'warning' ] as const).map(type => {
-  return {
-    labelName: 'cu-link',
-    fields: [ { key: 'type', value: type } ],
-    value: type
-  } as ICodeDetail
-})
+const example1: ICodeDetail[] = (
+  ['primary', 'success', 'info', 'danger', 'warning'] as const
+).map(
+  (type) =>
+    ({
+      labelName: 'cu-link',
+      fields: [{ key: 'type', value: type }],
+      value: type
+    } as ICodeDetail)
+)
 
-const example2: ICodeDetail[] = ([ 'edit', 'left', 'right' ] as const).map(icon => {
-  return {
-    labelName: 'cu-link',
-    fields: [ { key: 'icon', value: icon } ],
-    value: icon
-  } as ICodeDetail
-})
+const example2: ICodeDetail[] = (['edit', 'left', 'right'] as const).map(
+  (icon) =>
+    ({
+      labelName: 'cu-link',
+      fields: [{ key: 'icon', value: icon }],
+      value: icon
+    } as ICodeDetail)
+)
 
 const componentProps: IFields[] = [
   {
@@ -88,10 +92,4 @@ const eventProps: IFields[] = [
   }
 ]
 
-export {
-  example,
-  example1,
-  example2,
-  componentProps,
-  eventProps
-}
+export { example, example1, example2, componentProps, eventProps }

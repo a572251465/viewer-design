@@ -1,4 +1,4 @@
-import {ICodeDetail} from '../../components/Code/types'
+import { ICodeDetail } from '../../components/Code/types'
 
 const example: ICodeDetail[] = [
   {
@@ -6,6 +6,4 @@ const example: ICodeDetail[] = [
   }
 ]
 
-export {
-  example
-}
+export default example

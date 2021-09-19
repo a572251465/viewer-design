@@ -4,9 +4,7 @@ import { IFields } from '../../components/TableProps/types'
 const example: ICodeDetail[] = [
   {
     labelName: 'cu-input',
-    fields: [
-      { key: 'placeholder', value: '自定义提示' }
-    ]
+    fields: [{ key: 'placeholder', value: '自定义提示' }]
   }
 ]
 
@@ -34,31 +32,30 @@ const example1: ICodeDetail[] = [
   }
 ]
 
-const example2: ICodeDetail[] = ([ 'big', 'medium', 'small', 'mini' ] as const).map(size => {
-  return {
-    labelName: 'cu-input',
-    fields: [
-      { key: 'size', value: size },
-      { key: 'placeholder', value: '请输入内容' }
-    ]
-  } as ICodeDetail
-})
+const example2: ICodeDetail[] = (
+  ['big', 'medium', 'small', 'mini'] as const
+).map(
+  (size) =>
+    ({
+      labelName: 'cu-input',
+      fields: [
+        { key: 'size', value: size },
+        { key: 'placeholder', value: '请输入内容' }
+      ]
+    } as ICodeDetail)
+)
 
 const example3: ICodeDetail[] = [
   {
     labelName: 'cu-input',
-    fields: [
-      { key: 'showWordLimit', value: true }
-    ]
+    fields: [{ key: 'showWordLimit', value: true }]
   }
 ]
 
 const example4: ICodeDetail[] = [
   {
     labelName: 'cu-input',
-    fields: [
-      { key: 'clearable', value: true }
-    ]
+    fields: [{ key: 'clearable', value: true }]
   }
 ]
 
@@ -76,9 +73,7 @@ const example5: ICodeDetail[] = [
 const example6: ICodeDetail[] = [
   {
     labelName: 'cu-input',
-    fields: [
-      { key: 'autofocus', value: true }
-    ]
+    fields: [{ key: 'autofocus', value: true }]
   }
 ]
 
@@ -196,7 +191,7 @@ const componentProps: IFields[] = [
     desc: '是否自动获取光标',
     type: 'Boolean',
     defaultValue: 'false'
-  },
+  }
 ]
 
 const eventProps: IFields[] = [

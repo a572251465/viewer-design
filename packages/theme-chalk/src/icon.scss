@@ -1,13 +1,13 @@
-@import "./common/var.scss";
+@import './common/var.scss';
 
 @font-face {
-  font-family: "viewer-design-icon";
+  font-family: 'viewer-design-icon';
   src: url('./fonts/iconfont.woff?t=1625790553625') format('woff'),
-  url('./fonts/iconfont.ttf?t=1625790553625') format('truetype');
+    url('./fonts/iconfont.ttf?t=1625790553625') format('truetype');
 }
 
-[class^="#{$namespace}-icon-"] {
-  font-family: "viewer-design-icon" !important;
+[class^='#{$namespace}-icon-'] {
+  font-family: 'viewer-design-icon' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -15,313 +15,313 @@
 }
 
 .cu-icon-football:before {
-  content: "\e904";
+  content: '\e904';
 }
 
 .cu-icon-basketball:before {
-  content: "\e60a";
+  content: '\e60a';
 }
 
 .cu-icon-cloudy:before {
-  content: "\e60c";
+  content: '\e60c';
 }
 
 .cu-icon-coffee:before {
-  content: "\e60d";
+  content: '\e60d';
 }
 
 .cu-icon-lightning:before {
-  content: "\e8a1";
+  content: '\e8a1';
 }
 
 .cu-icon-sunny:before {
-  content: "\e6dc";
+  content: '\e6dc';
 }
 
 .cu-icon-soccer:before {
-  content: "\e79b";
+  content: '\e79b';
 }
 
 .cu-icon-sunrise:before {
-  content: "\e671";
+  content: '\e671';
 }
 
 .cu-icon-ice-drink:before {
-  content: "\e91a";
+  content: '\e91a';
 }
 
 .cu-icon-ice-tea:before {
-  content: "\e632";
+  content: '\e632';
 }
 
 .cu-icon-water-cup:before {
-  content: "\e638";
+  content: '\e638';
 }
 
 .cu-icon-baseballBall:before {
-  content: "\e7c2";
+  content: '\e7c2';
 }
 
 .cu-icon-pear:before {
-  content: "\ef9d";
+  content: '\ef9d';
 }
 
 .cu-icon-orange:before {
-  content: "\e6b6";
+  content: '\e6b6';
 }
 
 .cu-icon-milk-tea:before {
-  content: "\e66e";
+  content: '\e66e';
 }
 
 .cu-icon-help:before {
-  content: "\e9c5";
+  content: '\e9c5';
 }
 
 .cu-icon-star-on:before {
-  content: "\e63c";
+  content: '\e63c';
 }
 
 .cu-icon-user-solid:before {
-  content: "\e618";
+  content: '\e618';
 }
 
 .cu-icon-remove:before {
-  content: "\e63e";
+  content: '\e63e';
 }
 
 .cu-icon-s-goods:before {
-  content: "\e703";
+  content: '\e703';
 }
 
 .cu-icon-ice-cream-round:before {
-  content: "\e658";
+  content: '\e658';
 }
 
 .cu-icon-camera-solid:before {
-  content: "\e664";
+  content: '\e664';
 }
 
 .cu-icon-platform-eleme:before {
-  content: "\e691";
+  content: '\e691';
 }
 
 .cu-icon-goods:before {
-  content: "\e663";
+  content: '\e663';
 }
 
 .cu-icon-lollipop:before {
-  content: "\e91d";
+  content: '\e91d';
 }
 
 .cu-icon-s-tools:before {
-  content: "\e72c";
+  content: '\e72c';
 }
 
 .cu-icon-s-help:before {
-  content: "\e6d1";
+  content: '\e6d1';
 }
 
 .cu-icon-phone-outline:before {
-  content: "\e61b";
+  content: '\e61b';
 }
 
 .cu-icon-ice-cream-square:before {
-  content: "\e61a";
+  content: '\e61a';
 }
 
 .cu-icon-zoomout:before {
-  content: "\e715";
+  content: '\e715';
 }
 
 .cu-icon-eleme:before {
-  content: "\ea7e";
+  content: '\ea7e';
 }
 
 .cu-icon-star-off:before {
-  content: "\e659";
+  content: '\e659';
 }
 
 .cu-icon-zoomin:before {
-  content: "\e7af";
+  content: '\e7af';
 }
 
 .cu-icon-delete-solid:before {
-  content: "\ebcc";
+  content: '\ebcc';
 }
 
 .cu-icon-camera:before {
-  content: "\e7b2";
+  content: '\e7b2';
 }
 
 .cu-icon-remove-outline:before {
-  content: "\e77c";
+  content: '\e77c';
 }
 
 .cu-icon-doublebottom:before {
-  content: "\e736";
+  content: '\e736';
 }
 
 .cu-icon-doubletop:before {
-  content: "\e73c";
+  content: '\e73c';
 }
 
 .cu-icon-PDF:before {
-  content: "\e643";
+  content: '\e643';
 }
 
 .cu-icon-exit:before {
-  content: "\e604";
+  content: '\e604';
 }
 
 .cu-icon-example:before {
-  content: "\e605";
+  content: '\e605';
 }
 
 .cu-icon-excel:before {
-  content: "\e607";
+  content: '\e607';
 }
 
 .cu-icon-education:before {
-  content: "\e79d";
+  content: '\e79d';
 }
 
 .cu-icon-edit:before {
-  content: "\e608";
+  content: '\e608';
 }
 
 .cu-icon-form:before {
-  content: "\e609";
+  content: '\e609';
 }
 
 .cu-icon-clipboard:before {
-  content: "\e675";
+  content: '\e675';
 }
 
 .cu-icon-bug:before {
-  content: "\e9ab";
+  content: '\e9ab';
 }
 
 .cu-icon-BarChart:before {
-  content: "\e8a4";
+  content: '\e8a4';
 }
 
 .cu-icon-i404:before {
-  content: "\e61e";
+  content: '\e61e';
 }
 
 .cu-icon-documentation:before {
-  content: "\e600";
+  content: '\e600';
 }
 
 .cu-icon-component:before {
-  content: "\e646";
+  content: '\e646';
 }
 
 .cu-icon-drag:before {
-  content: "\e602";
+  content: '\e602';
 }
 
 .cu-icon-dashboard:before {
-  content: "\e603";
+  content: '\e603';
 }
 
 .cu-icon-confirm:before {
-  content: "\e619";
+  content: '\e619';
 }
 
 .cu-icon-Openeyes:before {
-  content: "\e63f";
+  content: '\e63f';
 }
 
 .cu-icon-eye:before {
-  content: "\e601";
+  content: '\e601';
 }
 
 .cu-icon-close-eye:before {
-  content: "\e611";
+  content: '\e611';
 }
 
 .cu-icon-close-circular:before {
-  content: "\e610";
+  content: '\e610';
 }
 
 .cu-icon-search:before {
-  content: "\e674";
+  content: '\e674';
 }
 
 .cu-icon-date:before {
-  content: "\e667";
+  content: '\e667';
 }
 
 .cu-icon-warning:before {
-  content: "\e606";
+  content: '\e606';
 }
 
 .cu-icon-close:before {
-  content: "\e615";
+  content: '\e615';
 }
 
 .cu-icon-loading:before {
-  content: "\e66d";
+  content: '\e66d';
 }
 
 .cu-icon-success:before {
-  content: "\e617";
+  content: '\e617';
 }
 
 .cu-icon-danger:before {
-  content: "\e65f";
+  content: '\e65f';
 }
 
 .cu-icon-info:before {
-  content: "\e8da";
+  content: '\e8da';
 }
 
 .cu-icon-left-dobule:before {
-  content: "\e704";
+  content: '\e704';
 }
 
 .cu-icon-right-dobule:before {
-  content: "\e718";
+  content: '\e718';
 }
 
 .cu-icon-top:before {
-  content: "\e60f";
+  content: '\e60f';
 }
 
 .cu-icon-right:before {
-  content: "\e649";
+  content: '\e649';
 }
 
 .cu-icon-home:before {
-  content: "\e6a3";
+  content: '\e6a3';
 }
 
 .cu-icon-down:before {
-  content: "\e696";
+  content: '\e696';
 }
 
 .cu-icon-left:before {
-  content: "\e739";
+  content: '\e739';
 }
 
 .cu-icon-head:before {
-  content: "\e616";
+  content: '\e616';
 }
 
 .cu-icon-yooxi:before {
-  content: "\e60e";
+  content: '\e60e';
 }
 
 .cu-icon-nav:before {
-  content: "\e62b";
+  content: '\e62b';
 }
 
 .cu-icon-qq:before {
-  content: "\e60b";
+  content: '\e60b';
 }
 
 .cu-icon-shoppingCart:before {
-  content: "\e62c";
+  content: '\e62c';
 }

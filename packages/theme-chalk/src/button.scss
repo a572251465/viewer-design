@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(button) {
   outline: none;
@@ -20,8 +20,8 @@
   }
 
   @include colorMixin(button) {
-    background: rgba($value, .7);
-    border: 1px solid rgba($value, .7);
+    background: rgba($value, 0.7);
+    border: 1px solid rgba($value, 0.7);
     color: white;
     @if ($name == text) {
       border: 1px solid $baseTextBorder;
@@ -30,17 +30,17 @@
 
     @include when(disabled) {
       @include disabled-style;
-      background: rgba($value, .5);
-      @if($name != text) {
-        border: 1px solid rgba($value, .5);
+      background: rgba($value, 0.5);
+      @if ($name != text) {
+        border: 1px solid rgba($value, 0.5);
       }
     }
 
     @include when(loading) {
       @include disabled-style;
-      background: rgba($value, .5);
-      @if($name != text) {
-        border: 1px solid rgba($value, .5);
+      background: rgba($value, 0.5);
+      @if ($name != text) {
+        border: 1px solid rgba($value, 0.5);
       }
     }
   }
@@ -55,7 +55,7 @@
 
   @include when(normal) {
     &:active {
-      background: rgba(black, .7);
+      background: rgba(black, 0.7);
     }
   }
 

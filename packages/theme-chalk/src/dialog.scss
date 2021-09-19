@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(dialog-confirm) {
   background: #fff;
@@ -8,7 +8,7 @@
   outline: none;
   padding: 20px 26px;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   &--header {
     display: flex;
@@ -54,7 +54,7 @@
   padding: 16px;
   position: relative;
   margin: 0 auto 50px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
 
   &--header {
@@ -144,7 +144,8 @@
 .cu-dialog-fade-enter-active {
   animation: modal-fade-in 0.3s !important;
 
-  .cu-dialog, .cu-dialog-confirm {
+  .cu-dialog,
+  .cu-dialog-confirm {
     animation: dialog-fade-in 0.3s;
   }
 }
@@ -152,7 +153,8 @@
 .cu-dialog-fade-leave-active {
   animation: modal-fade-out 0.3s;
 
-  .cu-dialog, .cu-dialog-confirm {
+  .cu-dialog,
+  .cu-dialog-confirm {
     animation: dialog-fade-out 0.3s;
   }
 }

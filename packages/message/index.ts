@@ -1,7 +1,6 @@
-import Message from './src/message'
 import { App } from 'vue'
-
-(Message as any).install = (app: App): void => {
+import Message from './src/message'
+;(Message as any).install = (app: App): void => {
   app.config.globalProperties.$Message = Message
 }
 

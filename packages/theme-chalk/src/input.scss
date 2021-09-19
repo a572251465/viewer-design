@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(input) {
   position: relative;
@@ -27,7 +27,7 @@
     top: 0;
     text-align: center;
     color: #c0c4cc;
-    transition: all .3s;
+    transition: all 0.3s;
 
     & > i {
       font-size: 12px;
@@ -97,7 +97,7 @@
     font-size: inherit;
     outline: none;
     padding: 0 15px;
-    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     height: 100%;
 
     &:hover {

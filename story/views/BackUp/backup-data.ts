@@ -47,18 +47,16 @@ const componentProps: IFields[] = [
     desc: '用来修改组件内部样式',
     defaultValue: '-',
     type: 'Object'
-  },
+  }
 ]
 
-const eventProps: IFields[] = [{
-  field: 'complete',
-  desc: '完成滚动触发的回调',
-  defaultValue: '-',
-  type: 'Function'
-}]
+const eventProps: IFields[] = [
+  {
+    field: 'complete',
+    desc: '完成滚动触发的回调',
+    defaultValue: '-',
+    type: 'Function'
+  }
+]
 
-export {
-  example,
-  componentProps,
-  eventProps
-}
+export { example, componentProps, eventProps }

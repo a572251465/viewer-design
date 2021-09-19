@@ -1,53 +1,147 @@
 <template>
-  <div class = "cu-carousel" :style="styles">
-    <div class="view-port" @mouseover="mouseHoverOrLeaveHandle(true)" @mouseleave="mouseHoverOrLeaveHandle(false)">
+  <div class="cu-carousel" :style="styles">
+    <div
+      class="view-port"
+      @mouseover="mouseHoverOrLeaveHandle(true)"
+      @mouseleave="mouseHoverOrLeaveHandle(false)"
+    >
       <slot></slot>
       <!-- 表示左右按钮 -->
-      <transition name = 'cu-carousel-left-allow-btn' v-if="direction === 'horizontal'">
-        <button class="left-btn" v-show="isHover" @click="manualGoSwiper(currentCheckedIndex - 1)">
+      <transition
+        name="cu-carousel-left-allow-btn"
+        v-if="direction === 'horizontal'"
+      >
+        <button
+          class="left-btn"
+          v-show="isHover"
+          @click="manualGoSwiper(currentCheckedIndex - 1)"
+        >
           <i class="cu-icon-left"></i>
         </button>
       </transition>
-      <transition name = 'cu-carousel-right-allow-btn' v-if="direction === 'horizontal'">
-        <button class="right-btn" v-show="isHover" @click="manualGoSwiper(currentCheckedIndex + 1)">
+      <transition
+        name="cu-carousel-right-allow-btn"
+        v-if="direction === 'horizontal'"
+      >
+        <button
+          class="right-btn"
+          v-show="isHover"
+          @click="manualGoSwiper(currentCheckedIndex + 1)"
+        >
           <i class="cu-icon-right"></i>
         </button>
       </transition>
       <!-- 横向滚动条 -->
-      <ul class="view-port-tips-inner" v-if="indicatorPosition === 'none' && direction === 'horizontal'" @mouseover="mouseHoverOrLeaveHandle(true, 'tips')" @mouseleave="mouseHoverOrLeaveHandle(false, 'tips')" >
-        <li v-for="item in len" :key = 'item' class="view-port-tips-inner-detail">
-          <button :class="[currentCheckedIndex + 1 === item ? 'active' : '']" @click="goSwiper(item - 1)"></button>
+      <ul
+        class="view-port-tips-inner"
+        v-if="indicatorPosition === 'none' && direction === 'horizontal'"
+        @mouseover="mouseHoverOrLeaveHandle(true, 'tips')"
+        @mouseleave="mouseHoverOrLeaveHandle(false, 'tips')"
+      >
+        <li v-for="item in len" :key="item" class="view-port-tips-inner-detail">
+          <button
+            :class="[currentCheckedIndex + 1 === item ? 'active' : '']"
+            @click="goSwiper(item - 1)"
+          ></button>
         </li>
       </ul>
       <!-- 竖向滚动条 -->
-      <ul class="view-port-tips-inner-upward" v-if="indicatorPosition === 'none' && direction === 'vertical'" @mouseover="mouseHoverOrLeaveHandle(true, 'tips')" @mouseleave="mouseHoverOrLeaveHandle(false, 'tips')" >
-        <li v-for="item in len" :key = 'item' class="view-port-tips-inner-upward-detail">
-          <button :class="[currentCheckedIndex + 1 === item ? 'active' : '']" @click="goSwiper(item - 1)"></button>
+      <ul
+        class="view-port-tips-inner-upward"
+        v-if="indicatorPosition === 'none' && direction === 'vertical'"
+        @mouseover="mouseHoverOrLeaveHandle(true, 'tips')"
+        @mouseleave="mouseHoverOrLeaveHandle(false, 'tips')"
+      >
+        <li
+          v-for="item in len"
+          :key="item"
+          class="view-port-tips-inner-upward-detail"
+        >
+          <button
+            :class="[currentCheckedIndex + 1 === item ? 'active' : '']"
+            @click="goSwiper(item - 1)"
+          ></button>
         </li>
       </ul>
     </div>
   </div>
-  <ul class="cu-carousel-tips" v-if="indicatorPosition === 'outside' && direction === 'horizontal'" @mouseover="mouseHoverOrLeaveHandle(true, 'tips')" @mouseleave="mouseHoverOrLeaveHandle(false, 'tips')" >
-    <li v-for="item in len" :key = 'item' class="cu-carousel-tips-detail">
-      <button :class="[currentCheckedIndex + 1 === item ? 'active' : '']" @click="goSwiper(item - 1)"></button>
+  <ul
+    class="cu-carousel-tips"
+    v-if="indicatorPosition === 'outside' && direction === 'horizontal'"
+    @mouseover="mouseHoverOrLeaveHandle(true, 'tips')"
+    @mouseleave="mouseHoverOrLeaveHandle(false, 'tips')"
+  >
+    <li v-for="item in len" :key="item" class="cu-carousel-tips-detail">
+      <button
+        :class="[currentCheckedIndex + 1 === item ? 'active' : '']"
+        @click="goSwiper(item - 1)"
+      ></button>
     </li>
   </ul>
 </template>
 
-<script lang = "ts">
-import { computed, defineComponent, onMounted, onUnmounted, provide, ref } from 'vue'
-import props from './props'
-import {IIdenProvide} from './types'
+<script lang="ts">
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  PropType,
+  provide,
+  ref
+} from 'vue'
+import { IIdenProvide } from './types'
 
 export default defineComponent({
   name: 'cu-carousel',
-  props,
+  props: {
+    height: {
+      type: String,
+      default: '200px'
+    },
+    initialIndex: {
+      type: Number,
+      default: 0
+    },
+    trigger: {
+      type: String as PropType<'click' | 'hover'>,
+      default: 'click'
+    },
+    direction: {
+      type: String as PropType<'horizontal' | 'vertical'>,
+      default: 'horizontal'
+    },
+    autoplay: {
+      type: Boolean,
+      default: true
+    },
+    interval: {
+      type: Number,
+      default: 2000
+    },
+    pauseOnHover: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: 'card'
+    },
+    indicatorPosition: {
+      type: String as PropType<'outside' | 'none'>,
+      default: 'none'
+    },
+    loop: {
+      type: Boolean,
+      default: true
+    }
+  },
   setup(props) {
     let loopTimer = null
     // -- 表示开始时间
     let startTime = 0
     let endTime = 0
-    
+
     // 计算高度的样式
     const styles = computed<Object>(() => ({
       height: props.height
@@ -59,7 +153,7 @@ export default defineComponent({
     // 表示子组件的身份认证
     const componentIden = ref(0)
     const changeIden = () => {
-      ++ componentIden.value
+      componentIden.value += 1
     }
     // 方法注入传递给子组件
     provide<IIdenProvide>('componentIden', {
@@ -103,7 +197,10 @@ export default defineComponent({
     }
 
     // -- 鼠标悬浮/ 离开view-port事件
-    const mouseHoverOrLeaveHandle = (status: boolean, tipsFlag: boolean | string) => {
+    const mouseHoverOrLeaveHandle = (
+      status: boolean,
+      tipsFlag: boolean | string
+    ) => {
       // -- 判断是否禁止鼠标悬浮停止
       if (!props.pauseOnHover) {
         return false
@@ -113,14 +210,14 @@ export default defineComponent({
       }
       if (status) {
         // -- 设置开始悬浮的时间
-        startTime = + new Date()
+        startTime = +new Date()
         if (loopTimer) {
           clearTimeout(loopTimer)
           loopTimer = null
         }
       } else {
         // -- 设置鼠标离开的时间
-        endTime = + new Date()
+        endTime = +new Date()
         // -- 判断用户是否悬浮后 立即离开
         if (endTime - startTime > 2000) {
           // -- 开始重新执行 如果开始执行 立马执行下一个

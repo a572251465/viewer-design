@@ -6,6 +6,7 @@ SliderTransition.install = (app: App) => {
   app.component(SliderTransition.name, SliderTransition)
 }
 
-const _SliderTransition: IComponent<typeof SliderTransition> = SliderTransition as IComponent<typeof SliderTransition>
+const _SliderTransition: IComponent<typeof SliderTransition> =
+  SliderTransition as IComponent<typeof SliderTransition>
 
 export default _SliderTransition

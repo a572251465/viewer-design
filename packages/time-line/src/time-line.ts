@@ -5,8 +5,11 @@ export default defineComponent({
   name: 'cu-time-line',
   setup(_, ctx) {
     provide<string>(globalContext.timeLine, 'time-line')
-    return () => {
-      return h('div', { class: 'cu-time-line' }, ctx.slots.default ? ctx.slots.default() : '')
-    }
+    return () =>
+      h(
+        'div',
+        { class: 'cu-time-line' },
+        ctx.slots.default ? ctx.slots.default() : ''
+      )
   }
 })

@@ -1,149 +1,149 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(carousel) {
+  width: 100%;
+  position: relative;
+
+  .view-port {
     width: 100%;
+    height: 100%;
     position: relative;
+    overflow: hidden;
 
-    .view-port {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
+    [class$='-btn'] {
+      width: 36px;
+      height: 36px;
+      background-color: rgba(31, 45, 61, 0.2);
+      border-radius: 50%;
+      outline: 0;
+      border: 0;
+      color: #fff;
+      position: absolute;
+      text-align: center;
+      line-height: 36px;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: transform 0.3s;
 
-        [class$='-btn'] {
-            width: 36px;
-            height: 36px;
-            background-color: rgba(31, 45, 61, .2);
-            border-radius: 50%;
-            outline: 0;
-            border: 0;
-            color: #fff;
-            position: absolute;
-            text-align: center;
-            line-height: 36px;
-            cursor: pointer;
-            transform: translateY(-50%);
-            transition: transform .3s;
-
-            i {
-                font-size: 11px !important;
-            }
-            top: 50%;
-        }
-
-        .left-btn {
-            left: 15px;
-        }
-        .right-btn {
-            right: 15px;
-        }
-
-        &-tips-inner-upward {
-            position: absolute;
-            right: 0px;
-            height: 100%;
-            padding: 0px 8px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-
-            &-detail {
-                display: inline-block;
-
-                button {
-                    opacity: .3;
-                    width: 6px;
-                    height: 20px;
-                    display: block;
-                    border: none;
-                    outline: none;
-                    padding: 0;
-                    margin: 0;
-                    cursor: pointer;
-                    background: #ccc;
-                    margin-top: 15px;
-        
-                    &:hover {
-                        opacity: 1;
-                    }
-                }
-
-                .active {
-                    opacity: 1;
-                }
-            }
-        }
-
-        &-tips-inner {
-            position: absolute;
-            bottom: 0px;
-            width: 100%;
-            padding: 8px 0px;
-            display: flex;
-            justify-content: center;
-    
-            &-detail {
-                display: inline-block;
-        
-                button {
-                    opacity: .3;
-                    width: 40px;
-                    height: 6px;
-                    display: block;
-                    border: none;
-                    outline: none;
-                    padding: 0;
-                    margin: 0;
-                    cursor: pointer;
-                    background: #ccc;
-                    margin-left: 15px;
-        
-                    &:hover {
-                        opacity: 1;
-                    }
-                }
-        
-                .active {
-                    opacity: 1;
-                }
-            }
-        }
+      i {
+        font-size: 11px !important;
+      }
+      top: 50%;
     }
-}
 
-@include b(carousel-tips) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    padding: 8px 0px;
+    .left-btn {
+      left: 15px;
+    }
+    .right-btn {
+      right: 15px;
+    }
 
-    &-detail {
+    &-tips-inner-upward {
+      position: absolute;
+      right: 0px;
+      height: 100%;
+      padding: 0px 8px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      &-detail {
         display: inline-block;
 
         button {
-            opacity: .3;
-            width: 40px;
-            height: 6px;
-            display: block;
-            border: none;
-            outline: none;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-            background: #ccc;
-            margin-left: 15px;
+          opacity: 0.3;
+          width: 6px;
+          height: 20px;
+          display: block;
+          border: none;
+          outline: none;
+          padding: 0;
+          margin: 0;
+          cursor: pointer;
+          background: #ccc;
+          margin-top: 15px;
 
-            &:hover {
-                opacity: 1;
-            }
+          &:hover {
+            opacity: 1;
+          }
         }
 
         .active {
-            opacity: 1;
+          opacity: 1;
         }
+      }
     }
+
+    &-tips-inner {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      padding: 8px 0px;
+      display: flex;
+      justify-content: center;
+
+      &-detail {
+        display: inline-block;
+
+        button {
+          opacity: 0.3;
+          width: 40px;
+          height: 6px;
+          display: block;
+          border: none;
+          outline: none;
+          padding: 0;
+          margin: 0;
+          cursor: pointer;
+          background: #ccc;
+          margin-left: 15px;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        .active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@include b(carousel-tips) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 8px 0px;
+
+  &-detail {
+    display: inline-block;
+
+    button {
+      opacity: 0.3;
+      width: 40px;
+      height: 6px;
+      display: block;
+      border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      background: #ccc;
+      margin-left: 15px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .active {
+      opacity: 1;
+    }
+  }
 }
 
 .cu-carousel-left-allow-btn-enter,

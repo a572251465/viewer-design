@@ -1,4 +1,4 @@
-@import "./mixins/main.scss";
+@import './mixins/main.scss';
 
 @include b(col) {
   @include forMixin($--span-offset, col-span) {

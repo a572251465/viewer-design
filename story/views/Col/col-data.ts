@@ -7,43 +7,40 @@ const example: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-row',
-        children: [ 1, 2 ].map(item => {
-          return {
-            labelName: 'cu-col',
-            fields: [
-              { key: 'span', value: '3' }
-            ],
-            value: item + ''
-          } as ICodeDetail
-        })
+        children: [1, 2].map(
+          (item) =>
+            ({
+              labelName: 'cu-col',
+              fields: [{ key: 'span', value: '3' }],
+              value: `${item}`
+            } as ICodeDetail)
+        )
       },
       {
         labelName: 'cu-row',
-        fields: [
-          { key: 'justify', value: 'center' }
-        ],
-        children: [ 1, 2 ].map(item => {
-          return {
-            labelName: 'cu-col',
-            fields: [
-              { key: 'span', value: '3' }
-            ],
-            value: item + ''
-          } as ICodeDetail
-        })
+        fields: [{ key: 'justify', value: 'center' }],
+        children: [1, 2].map(
+          (item) =>
+            ({
+              labelName: 'cu-col',
+              fields: [{ key: 'span', value: '3' }],
+              value: `${item}`
+            } as ICodeDetail)
+        )
       },
       {
         labelName: 'cu-row',
-        children: [ 1, 2 ].map(item => {
-          return {
-            labelName: 'cu-col',
-            fields: [
-              { key: 'span', value: '2' },
-              { key: 'offset', value: '2' }
-            ],
-            value: item + ''
-          } as ICodeDetail
-        })
+        children: [1, 2].map(
+          (item) =>
+            ({
+              labelName: 'cu-col',
+              fields: [
+                { key: 'span', value: '2' },
+                { key: 'offset', value: '2' }
+              ],
+              value: `${item}`
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -56,17 +53,18 @@ const example1: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-row',
-        children: [ 3, 4, 5 ].map((item, key) => {
-          return {
-            labelName: 'cu-col',
-            fields: [
-              { key: 'span', value: '2' },
-              { key: 'offset', value: '2' },
-              { key: 'order', value: (start - key) + '' }
-            ],
-            value: item + ''
-          } as ICodeDetail
-        })
+        children: [3, 4, 5].map(
+          (item, key) =>
+            ({
+              labelName: 'cu-col',
+              fields: [
+                { key: 'span', value: '2' },
+                { key: 'offset', value: '2' },
+                { key: 'order', value: `${start - key}` }
+              ],
+              value: `${item}`
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -78,18 +76,15 @@ const example2: ICodeDetail[] = [
     children: [
       {
         labelName: 'cu-row',
-        fields: [
-          { key: 'gutter', value: '20' }
-        ],
-        children: [ 5, 6 ].map((item) => {
-          return {
-            labelName: 'cu-col',
-            fields: [
-              { key: 'span', value: '3' }
-            ],
-            value: item + ''
-          } as ICodeDetail
-        })
+        fields: [{ key: 'gutter', value: '20' }],
+        children: [5, 6].map(
+          (item) =>
+            ({
+              labelName: 'cu-col',
+              fields: [{ key: 'span', value: '3' }],
+              value: `${item}`
+            } as ICodeDetail)
+        )
       }
     ]
   }
@@ -105,17 +100,16 @@ const example3: ICodeDetail[] = [
           { key: 'direction', value: 'column' },
           { key: 'justify', value: 'center' },
           { key: 'align', value: 'middle' },
-          {key: 'style', value: 'height: 300px;'}
+          { key: 'style', value: 'height: 300px;' }
         ],
-        children: [ 7, 8, 9, 10 ].map((item) => {
-          return {
-            labelName: 'cu-col',
-            fields: [
-              { key: 'span', value: '3' }
-            ],
-            value: item + ''
-          } as ICodeDetail
-        })
+        children: [7, 8, 9, 10].map(
+          (item) =>
+            ({
+              labelName: 'cu-col',
+              fields: [{ key: 'span', value: '3' }],
+              value: `${item}`
+            } as ICodeDetail)
+        )
       }
     ]
   }

@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(form-item) {
   display: flex;
@@ -26,7 +26,8 @@
     }
 
     @include when(error) {
-      .cu-input input, .cu-input textarea {
+      .cu-input input,
+      .cu-input textarea {
         border-color: $--color-danger;
       }
     }

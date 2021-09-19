@@ -1,8 +1,8 @@
-const { VueLoaderPlugin } = require('vue-loader'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  path = require('path'),
-  resolvePath = url => path.resolve(__dirname, url)
+const { VueLoaderPlugin } = require('vue-loader')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
+const resolvePath = (url) => path.resolve(__dirname, url)
 module.exports = {
   entry: resolvePath('../main.ts'),
   output: {
@@ -10,10 +10,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: [ '.ts', '.vue', '.js', '.json' ],
+    extensions: ['.ts', '.vue', '.js', '.json'],
     alias: {
       '@': resolvePath('../../packages'),
-      'story': resolvePath('..')
+      story: resolvePath('..')
     }
   },
   module: {
@@ -35,11 +35,7 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

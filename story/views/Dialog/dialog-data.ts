@@ -4,9 +4,7 @@ import { IFields } from '../../components/TableProps/types'
 const example: ICodeDetail[] = [
   {
     labelName: 'cu-dialog',
-    fields: [
-      { key: 'v-model', value: 'showFlag' }
-    ],
+    fields: [{ key: 'v-model', value: 'showFlag' }],
     children: [
       {
         labelName: 'label',
@@ -14,9 +12,7 @@ const example: ICodeDetail[] = [
       },
       {
         labelName: 'cu-input',
-        fields: [
-          { key: 'placeholder', value: '请输入账号' }
-        ]
+        fields: [{ key: 'placeholder', value: '请输入账号' }]
       }
     ],
     value: '这就是简单的使用'
@@ -130,36 +126,29 @@ const example6: ICodeDetail[] = [
 ]
 
 const example7: ICodeDetail[] = [
-  ...[
-    { labelName: 'p', value: '确定提示框' } as ICodeDetail
-  ],
-  ...[ 'info', 'success', 'warning', 'danger' ].map(type => {
-    return {
-      labelName: 'cu-alert',
-      fields: [ { key: 'type', value: type } ],
-      children: [
-        {
-          labelName: 'cu-link',
-          fields: [
-            { key: '@click', value: `openDialog("${type}")` }
-          ],
-          value: `${ type } --确认框`
-        }
-      ]
-    } as ICodeDetail
-  }),
-  ...[
-    { labelName: 'p', value: '确认提示框' } as ICodeDetail
-  ],
+  ...[{ labelName: 'p', value: '确定提示框' } as ICodeDetail],
+  ...['info', 'success', 'warning', 'danger'].map(
+    (type) =>
+      ({
+        labelName: 'cu-alert',
+        fields: [{ key: 'type', value: type }],
+        children: [
+          {
+            labelName: 'cu-link',
+            fields: [{ key: '@click', value: `openDialog("${type}")` }],
+            value: `${type} --确认框`
+          }
+        ]
+      } as ICodeDetail)
+  ),
+  ...[{ labelName: 'p', value: '确认提示框' } as ICodeDetail],
   {
     labelName: 'cu-alert',
-    fields: [ { key: 'type', value: 'confirm' } ],
+    fields: [{ key: 'type', value: 'confirm' }],
     children: [
       {
         labelName: 'cu-link',
-        fields: [
-          { key: '@click', value: 'openDialog("confirm")' }
-        ],
+        fields: [{ key: '@click', value: 'openDialog("confirm")' }],
         value: `confirm --确认框`
       }
     ]

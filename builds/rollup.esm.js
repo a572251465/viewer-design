@@ -16,10 +16,7 @@ export default {
     }),
     typescript({
       tsconfigOverride: {
-        exclude: [
-          'node_modules',
-          'story'
-        ]
+        exclude: ['node_modules', 'story']
       }
     })
   ],

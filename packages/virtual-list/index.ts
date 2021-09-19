@@ -6,6 +6,8 @@ VirtualList.install = (app: App) => {
   app.component(VirtualList.name, VirtualList)
 }
 
-const _VirtualList: IComponent<typeof VirtualList> = VirtualList as IComponent<typeof VirtualList>
+const _VirtualList: IComponent<typeof VirtualList> = VirtualList as IComponent<
+  typeof VirtualList
+>
 
 export default _VirtualList

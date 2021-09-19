@@ -1,5 +1,5 @@
-const path = require('path'),
-  { VueLoaderPlugin } = require('vue-loader')
+const path = require('path')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   mode: 'production',
@@ -31,9 +31,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [ '.ts', '.tsx', '.js', '.json' ]
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ]
+  plugins: [new VueLoaderPlugin()]
 }

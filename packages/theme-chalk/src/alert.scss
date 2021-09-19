@@ -1,5 +1,5 @@
-@import "./mixins/main.scss";
-@import "./mixins/animation.scss";
+@import './mixins/main.scss';
+@import './mixins/animation.scss';
 
 @include b(alert) {
   display: flex;
@@ -43,7 +43,7 @@
   }
 
   @include colorMixin(alert) {
-    background: rgba($value, .08);
+    background: rgba($value, 0.08);
     color: $value;
   }
 }
@@ -60,5 +60,5 @@
 }
 
 .cu-alert-fade-leave-active {
-  animation: alertLeave .5s ease-in;
+  animation: alertLeave 0.5s ease-in;
 }

@@ -6,6 +6,8 @@ Tooltip.install = (app: App) => {
   app.component(Tooltip.name, Tooltip)
 }
 
-const _Tooltip: IComponent<typeof Tooltip> = Tooltip as IComponent<typeof Tooltip>
+const _Tooltip: IComponent<typeof Tooltip> = Tooltip as IComponent<
+  typeof Tooltip
+>
 
 export default _Tooltip

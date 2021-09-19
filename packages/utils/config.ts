@@ -1,5 +1,5 @@
 export interface InstallOption {
-  zIndex: number,
+  zIndex: number
   dialogType: 'normal' | 'strange'
 }
 
@@ -9,11 +9,6 @@ const setConfig = (option: InstallOption) => {
   $ELEMENT = option
 }
 
-const getConfig = (key: keyof InstallOption): any => {
-  return $ELEMENT[key]
-}
+const getConfig = (key: keyof InstallOption): any => $ELEMENT[key]
 
-export {
-  setConfig,
-  getConfig
-}
+export { setConfig, getConfig }

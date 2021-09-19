@@ -1,9 +1,8 @@
-@import "./mixins.scss";
-@import "./config.scss";
+@import './mixins.scss';
+@import './config.scss';
 
 @mixin sizeMixin($component, $dist: '') {
   @each $key in (big, medium, small, mini) {
-
     $var: $key + $dist;
     $value: getValueByKey(#{$var}) !global;
     $height: getValueByKey(#{$key}H) !global;
@@ -17,7 +16,6 @@
 
 @mixin colorMixin($component) {
   @each $key in (primary, success, warning, danger, info, text, confirm) {
-
     $value: getValueByKey(#{$key}) !global;
     $name: $key !global;
     @at-root {

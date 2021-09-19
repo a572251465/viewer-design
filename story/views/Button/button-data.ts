@@ -4,77 +4,86 @@ import { IFields } from '../../components/TableProps/types'
 const example: ICodeDetail[] = [
   {
     labelName: 'cu-button',
-    fields: [ { key: 'size', value: 'big' } ],
+    fields: [{ key: 'size', value: 'big' }],
     value: '大的'
   },
   {
     labelName: 'cu-button',
-    fields: [ { key: 'type', value: 'success' } ],
+    fields: [{ key: 'type', value: 'success' }],
     value: '成功的'
   },
   {
     labelName: 'cu-button',
-    fields: [ { key: 'round', value: 'true' } ],
+    fields: [{ key: 'round', value: 'true' }],
     value: '圆角的'
   },
   {
     labelName: 'cu-button',
-    fields: [ { key: 'icon', value: 'edit' } ],
+    fields: [{ key: 'icon', value: 'edit' }],
     value: '编辑'
   },
   {
     labelName: 'cu-button',
-    fields: [ { key: 'disabled', value: 'true' } ],
+    fields: [{ key: 'disabled', value: 'true' }],
     value: '禁用的'
   },
   {
     labelName: 'cu-button',
-    fields: [ { key: 'loading', value: 'true' } ],
+    fields: [{ key: 'loading', value: 'true' }],
     value: '加载中'
   }
 ]
 
-const example1: ICodeDetail[] = ([ 'medium', 'small', 'mini', 'big' ] as const).map(size => {
-  return {
-    labelName: 'cu-button',
-    fields: [ { key: 'size', value: size } ],
-    value: size
-  } as ICodeDetail
-})
+const example1: ICodeDetail[] = (
+  ['medium', 'small', 'mini', 'big'] as const
+).map(
+  (size) =>
+    ({
+      labelName: 'cu-button',
+      fields: [{ key: 'size', value: size }],
+      value: size
+    } as ICodeDetail)
+)
 
-const example2: ICodeDetail[] = ([ 'primary', 'success', 'warning', 'danger', 'info', 'text' ] as const).map(type => {
-  return {
-    labelName: 'cu-button',
-    fields: [ { key: 'type', value: type } ],
-    value: type
-  } as ICodeDetail
-})
+const example2: ICodeDetail[] = (
+  ['primary', 'success', 'warning', 'danger', 'info', 'text'] as const
+).map(
+  (type) =>
+    ({
+      labelName: 'cu-button',
+      fields: [{ key: 'type', value: type }],
+      value: type
+    } as ICodeDetail)
+)
 
 const example3: ICodeDetail = {
   labelName: 'cu-button',
-  fields: [{key: 'round', value: 'true'}],
+  fields: [{ key: 'round', value: 'true' }],
   value: '圆角按钮'
 }
 
 const example4: ICodeDetail = {
   labelName: 'cu-button',
-  fields: [{key: 'disabled', value: 'true'}],
+  fields: [{ key: 'disabled', value: 'true' }],
   value: '禁用按钮'
 }
 
 const example5: ICodeDetail = {
   labelName: 'cu-button',
-  fields: [{key: 'loading', value: 'true'}],
+  fields: [{ key: 'loading', value: 'true' }],
   value: '加载中按钮'
 }
 
-const example6: ICodeDetail[] = ([ 'edit', 'search', 'close', 'date' ] as const).map(icon => {
-  return {
-    labelName: 'cu-button',
-    fields: [ { key: 'icon', value: icon } ],
-    value: icon
-  } as ICodeDetail
-})
+const example6: ICodeDetail[] = (
+  ['edit', 'search', 'close', 'date'] as const
+).map(
+  (icon) =>
+    ({
+      labelName: 'cu-button',
+      fields: [{ key: 'icon', value: icon }],
+      value: icon
+    } as ICodeDetail)
+)
 
 const componentProps: IFields[] = [
   {
@@ -124,7 +133,7 @@ const componentProps: IFields[] = [
     desc: '表示加载中的按钮状态, 如果跟icon同时存在，优先级高',
     type: 'Boolean',
     defaultValue: 'false'
-  },
+  }
 ]
 
 export {

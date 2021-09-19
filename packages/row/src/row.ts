@@ -1,8 +1,14 @@
 import { defineComponent, PropType, h, computed, provide } from 'vue'
-import { globalContext, IExistContext, IPassvalue, styleCommonPrefix } from '../../utils/types'
+import {
+  globalContext,
+  IExistContext,
+  IPassvalue,
+  styleCommonPrefix
+} from '../../utils/types'
 
-const justifyFun = () => 'start' || 'end' || 'center' || 'space-around' || 'space-between',
-  alignFun = () => 'top' || 'middle' || 'bottom'
+const justifyFun = () =>
+  'start' || 'end' || 'center' || 'space-around' || 'space-between'
+const alignFun = () => 'top' || 'middle' || 'bottom'
 type IJustify = ReturnType<typeof justifyFun>
 type IAlign = ReturnType<typeof alignFun>
 type IAlignMap<T extends IAlign> = { [K in T]: string }
@@ -22,7 +28,9 @@ export default defineComponent({
       default: 0
     },
     direction: {
-      type: String as PropType<'row' | 'column' | 'row-reverse' | 'column-reverse'>,
+      type: String as PropType<
+        'row' | 'column' | 'row-reverse' | 'column-reverse'
+      >,
       default: 'row'
     },
     justify: {
@@ -46,26 +54,29 @@ export default defineComponent({
     })
 
     // 计算设置的样式
-    const statePrefix = styleCommonPrefix.$statePrefix,
-      classes = computed<(string | object)[]>(() => [
-        `${ styleCommonPrefix.$namespace }-row`,
-        `${ styleCommonPrefix.$namespace }-row${ styleCommonPrefix.$modifierSeparator }${ props.direction }`,
-        {
-          [[
-            statePrefix,
-            [ 'start', 'end' ].includes(props.justify) ? 'flex-' : '',
-            props.justify
-          ].join('')]: props.justify,
-          [statePrefix + props.align]: alignMap[props.align]
-        }
-      ]),
-      styles = computed(() => ({
-        marginLeft: (- props.gutter) + 'px',
-        marginRight: (- props.gutter) + 'px'
-      }))
+    const statePrefix = styleCommonPrefix.$statePrefix
+    const classes = computed<(string | object)[]>(() => [
+      `${styleCommonPrefix.$namespace}-row`,
+      `${styleCommonPrefix.$namespace}-row${styleCommonPrefix.$modifierSeparator}${props.direction}`,
+      {
+        [[
+          statePrefix,
+          ['start', 'end'].includes(props.justify) ? 'flex-' : '',
+          props.justify
+        ].join('')]: props.justify,
+        [statePrefix + props.align]: alignMap[props.align]
+      }
+    ])
+    const styles = computed(() => ({
+      marginLeft: `${-props.gutter}px`,
+      marginRight: `${-props.gutter}px`
+    }))
 
-    return () => {
-      return h(props.tag, { class: classes.value, style: styles.value }, slots.default?.())
-    }
+    return () =>
+      h(
+        props.tag,
+        { class: classes.value, style: styles.value },
+        slots.default?.()
+      )
   }
 })

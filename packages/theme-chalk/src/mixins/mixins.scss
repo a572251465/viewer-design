@@ -1,11 +1,11 @@
-@import "./default.scss";
+@import './default.scss';
 
 $baseTheme: map-get($theme-default, 'default');
 @function getValueByKey($key) {
   @if (map-has-key($theme-default, $key)) {
-    @return map-get($theme-default, $key)
+    @return map-get($theme-default, $key);
   } @else {
-    @return map-get($baseTheme, $key)
+    @return map-get($baseTheme, $key);
   }
 }
 
@@ -42,7 +42,7 @@ $baseTheme: map-get($theme-default, 'default');
 
 @mixin m($modifier) {
   @at-root {
-    #{&+$modifier-separator+$modifier} {
+    #{& + $modifier-separator + $modifier} {
       @content;
     }
   }
@@ -50,7 +50,7 @@ $baseTheme: map-get($theme-default, 'default');
 
 @mixin e($element) {
   @at-root {
-    #{&+$element-separator + $element} {
+    #{& + $element-separator + $element} {
       @content;
     }
   }

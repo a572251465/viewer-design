@@ -1,4 +1,4 @@
-@import "story/assets/css/var.scss";
+@import 'story/assets/css/var.scss';
 
 .icon-demo {
   h2 {
@@ -24,7 +24,8 @@
     align-items: center;
   }
 
-  ul, li {
+  ul,
+  li {
     padding: 0;
     margin: 0;
   }
@@ -32,7 +33,6 @@
   ul {
     margin: 0 3.5%;
     margin-top: 50px;
-
   }
 
   $size: 13.6%;

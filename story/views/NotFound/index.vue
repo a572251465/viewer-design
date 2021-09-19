@@ -1,18 +1,17 @@
 <template>
   <div class="notFound">
-    <img :src = "workImg" alt = "工作中">
+    <img :src="workImg" alt="工作中" />
     <h3>奋笔疾书,努力开发中......</h3>
   </div>
 </template>
 
-<script lang = "ts">
+<script lang="ts">
 import { defineComponent } from 'vue'
 import workImg from 'story/assets/images/working.png'
 
 export default defineComponent({
   name: 'not-found',
   setup() {
-
     return {
       workImg
     }
