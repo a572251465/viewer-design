@@ -20,12 +20,11 @@
         </li>
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i
-          >每个组件都用于高配置性，例如属性
-          <span>styles</span>，满足您的各种定制化
+          >每个组件都用于高配置性，例如属性 <span>styles</span>，满足您的各种定制化
         </li>
         <li>
-          <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i
-          >所有组件基于 <span>typescript</span> ,<span>CompositionAPI</span>
+          <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>所有组件基于
+          <span>typescript</span> ,<span>CompositionAPI</span>
           以及
           <span>tsx</span>
           开发。是Vuetypescript爱好者绝佳学习对象。如果你希望使用tsx开发高质量的Vue组件，那么强烈推荐尝试基于
@@ -68,9 +67,7 @@
         </li>
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
-          <a href="https://www.tslang.cn/" target="_blank"
-            >TypeScript学习地址</a
-          >
+          <a href="https://www.tslang.cn/" target="_blank">TypeScript学习地址</a>
         </li>
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
@@ -85,17 +82,13 @@
       <ul>
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
-          GitHub：<a
-            target="_blank"
-            href="https://github.com/a572251465/viewer-design"
+          GitHub：<a target="_blank" href="https://github.com/a572251465/viewer-design"
             >Viewer-Design</a
           >
         </li>
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
-          Gitee：<a
-            target="_blank"
-            href="https://gitee.com/li_haohao_1/viewer-design"
+          Gitee：<a target="_blank" href="https://gitee.com/li_haohao_1/viewer-design"
             >Viewer-Design</a
           >
         </li>
@@ -107,16 +100,33 @@
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
           <span>
-            <a
-              target="_blank"
-              href="https://github.com/a572251465/postcss-transform-unit"
+            <a target="_blank" href="https://github.com/a572251465/hot-refresh"
+              >hot-refresh （重点推荐下）</a
+            ></span
+          >
+          <div>
+            <ul class="p">
+              <li>1. 支持强大的静态服务功能</li>
+              <li>2. 很完善的log打印功能，可以通过-l来进行控制</li>
+              <li>3. 监听当前编辑的html中所有引入文件变化</li>
+              <li>4. 在监听文件变化的同时，通知浏览器进行reload</li>
+              <li>5. 能够极致的监听引入文件的添加以及删除，不会有过多的监听通知浪费</li>
+              <li>6. 退出服务时，会清除所有的写入操作，跟之前保持一致</li>
+              <li>7. 只能在非vue，react的单纯h5项目中使用</li>
+              <li>
+                8. 愿景：使用本插件从此告别了手动刷新的浏览器的时代，时时保存，时时刷新
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
+          <span>
+            <a target="_blank" href="https://github.com/a572251465/postcss-transform-unit"
               >postcss-transform-unit</a
             ></span
           >
-          <p>
-            本插件用来做编译时候，rem, rpx, px单位转化,
-            已经在我司微信小程序上使用
-          </p>
+          <p>本插件用来做编译时候，rem, rpx, px单位转化, 已经在我司微信小程序上使用</p>
         </li>
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
@@ -139,15 +149,13 @@
         <li>
           <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
           <span>
-            <a
-              target="_blank"
-              href="https://github.com/a572251465/auto-eslint-cli"
+            <a target="_blank" href="https://github.com/a572251465/auto-eslint-cli"
               >auto-eslint-cli</a
             ></span
           >
           <p>
-            实现了eslint + prettier + commitlint + husky
-            一键部署。支持多维度部署 以及版本锁定 使用工程化来完成避免手动实现
+            实现了eslint + prettier + commitlint + husky 一键部署。支持多维度部署
+            以及版本锁定 使用工程化来完成避免手动实现
           </p>
         </li>
         <li>
@@ -185,15 +193,14 @@
                 1.
                 每个插件都会独立完成一个完整的功能，不依赖任何第三方插件，所以无需担心额外的下载
               </p>
-              <p class="margin-left">
-                2. 尽可能的会更多提供config options，满足各种需求
-              </p>
+              <p class="margin-left">2. 尽可能的会更多提供config options，满足各种需求</p>
               <p class="margin-left">3. 大小不足1k，所以不必为大小而烦恼</p>
               <div>
                 <div>
                   <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
                   <a
                     target="_blank"
+                    class="font-weight"
                     href="https://github.com/a572251465/single-merge"
                     >single-merge</a
                   >
@@ -207,6 +214,7 @@
                   <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
                   <a
                     target="_blank"
+                    class="font-weight"
                     href="https://github.com/a572251465/single-throttle"
                     >single-throttle</a
                   >
@@ -220,6 +228,7 @@
                   <i :style="{ color: randomBk() }" class="cu-icon-star-on"></i>
                   <a
                     target="_blank"
+                    class="font-weight"
                     href="https://github.com/a572251465/single-cookies"
                     >single-cookies</a
                   >
@@ -246,21 +255,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import logoImg from 'story/assets/images/logo.png'
-import randomBk from 'story/utils/index'
+import { defineComponent } from "vue";
+import logoImg from "story/assets/images/logo.png";
+import randomBk from "story/utils/index";
 
 export default defineComponent({
-  name: 'introduce',
+  name: "introduce",
   setup() {
     return {
       logoImg,
-      randomBk
-    }
-  }
-})
+      randomBk,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
-@import './index.scss';
+@import "./index.scss";
 </style>
